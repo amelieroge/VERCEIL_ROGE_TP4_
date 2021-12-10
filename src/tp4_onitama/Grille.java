@@ -7,8 +7,6 @@ package tp4_onitama;
 /* fait         Case [5][5] CaseJeu 
 fait            boolean CaseOccupee(int,int)
 fait            String lireCouleurDuPion
-Joueur etreGagnantPourJoueur()
-boolean BougerPion(Pion)
 fait            placerPion(Pion, int, int)
 fait            enleverPion (Pion, int int)
 */
@@ -19,7 +17,17 @@ public class Grille {
    public Grille(){
        for (int i = 0 ; i < 5 ; i++){
            for (int j = 0 ; j < 5 ; j++){
+               if (i == 2 && j == 0){
+                   Case troneBlanc = new Case();
+                   GrilleJeu[i][j] = troneBlanc;
+               }
+               if (i == 2 && j == 4){
+                   Case troneNoir = new Case();
+                   GrilleJeu[i][j] = troneNoir;
+               }
+               else {
                GrilleJeu[i][j] = new Case();
+               }
            }
        }
    }
@@ -54,10 +62,5 @@ public class Grille {
            System.out.println("Erreur, il n'y a pas de pion sur cette case");
            return false;
        }
-   }
-   
-   public boolean bougerPion(Pion p, int ligne, int colonne){
-       
-       return false;
    }
 }
