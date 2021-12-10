@@ -12,23 +12,28 @@ public class Pion {
     String couleur;
     boolean EtreRoi;
     
-    public Pion(String uneCouleur) {
+    // Constructeur
+    public Pion(String uneCouleur, boolean roi) {
         couleur = uneCouleur;
+        EtreRoi = roi;
     }
+    
+    // Méthodes 
+    
     
     public String lireCouleur() {
         return(couleur);
     }
     
+    // permet de determiner de quel Type est le pion
     public String typePion() {
         if (EtreRoi == true) {
             return "Roi";
         }
         else {
             return "Pion";
-        }
             
+        }
     }
-    
 }
 
