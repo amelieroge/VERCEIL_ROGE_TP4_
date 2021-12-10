@@ -12,7 +12,8 @@ public class Case {
     
     Pion pionCourant;
     
-    // Methode 
+    
+    // Methodes
     
     // renvoie false si la case est vide
     public boolean PresencePion() {
