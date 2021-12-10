@@ -20,13 +20,16 @@ public class Carte {
     }
     
     // Test si le deplacement est possible par rapport au pattern de la carte
-    public boolean DeplacementAutorise (int liDepart, int coDepart, int liArrive, int coArrive ) {
+    public boolean DeplacementCarte (int liDepart, int coDepart, int liArrive, int coArrive ) {
         
         for (int i = 0; i < Pattern.length; i++) {
-            if ((liDepart + Pattern[i][1] == liArrive) && (coDepart + Pattern[i][1] == coArrive) ) {
+            System.out.println(liDepart + Pattern[i][0]);
+            System.out.println(coDepart + Pattern[i][1]);
+            if ((liDepart + Pattern[i][0] == liArrive) && (coDepart + Pattern[i][1] == coArrive) ) {
                 return true;
             }
         }
+    System.out.println("Le deplacement ne correspond pas au pattern");
     return false;
     }
 
