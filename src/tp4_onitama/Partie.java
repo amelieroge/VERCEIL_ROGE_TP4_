@@ -1,13 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package tp4_onitama;
 
-/**
- *
- * @author thvel
- */
+/*
+Joueur [2] listeJoueurs 
+Joueur joueurCourant
+Grille GrilleJeu
+Carte prochainDeplacement
+boolean deplacementAutorise(Carte)
+boolean etreGagnantPourJoueur(Joueur)
+void initialiserPartie()
+void attribuerCouleursAuxJoueurs()
+*/
+
 public class Partie {
-    
+    Joueur [] listeJoueurs = new Joueur[2];
+    Joueur joueurCourant;
+    Grille grilleJeu;
 }
