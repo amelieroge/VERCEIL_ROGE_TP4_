@@ -4,6 +4,8 @@
  */
 package tp4_onitama;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author thvel
@@ -12,11 +14,12 @@ public class Carte {
     
     String Nom;
     int [][] Pattern;
+    ImageIcon Image;
     
     // Methode Deplacementautorisé
-    public Carte (String unNom, int[][] unPattern ) { 
+    public Carte (String unNom, int[][] unPattern, ImageIcon uneImage ) { 
         Nom = unNom;   
-        Pattern = unPattern;
+        Pattern = unPattern;    
     }
     
     // Test si le deplacement est possible par rapport au pattern de la carte
@@ -32,5 +35,4 @@ public class Carte {
     System.out.println("Le deplacement ne correspond pas au pattern");
     return false;
     }
-
 }
