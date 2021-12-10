@@ -14,6 +14,13 @@ public class Case {
     
     // Methode 
     
+    public boolean PresencePion() {
+        if (pionCourant == null) {
+            return false;
+        }
+        return false;
+    }
+    
     public boolean PoserPion(Pion unPion) {
         if (pionCourant == null) {
             pionCourant = unPion;
