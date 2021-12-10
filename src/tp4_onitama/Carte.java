@@ -10,6 +10,7 @@ package tp4_onitama;
  */
 public class Carte {
     
+    String Nom;
     
     
 }
