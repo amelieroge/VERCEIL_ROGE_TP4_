@@ -18,7 +18,7 @@ public class Case {
         if (pionCourant == null) {
             return false;
         }
-        return false;
+        return true;
     }
     
     public boolean PoserPion(Pion unPion) {
