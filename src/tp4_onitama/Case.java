@@ -14,6 +14,7 @@ public class Case {
     
     // Methode 
     
+    // renvoie false si la case est vide
     public boolean PresencePion() {
         if (pionCourant == null) {
             return false;
