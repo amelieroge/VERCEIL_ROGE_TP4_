@@ -19,7 +19,7 @@ public class Partie {
     
     public Partie(){
         int [][] b = {{0,-1},{1,0},{0,1}};
-        Carte cboar = new Carte("Boar", b);
+        Carte cboar = new Carte("Boar", b, setIcon(img_boar));
         listeCartes[0] = cboar;
 
         int [][] co = {{0,-1},{1,1},{-1,1}};
