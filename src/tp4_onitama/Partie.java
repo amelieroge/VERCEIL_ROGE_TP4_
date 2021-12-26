@@ -1,5 +1,6 @@
 package tp4_onitama;
 
+import java.util.Random;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
 
@@ -107,6 +108,18 @@ public class Partie {
         listeCartes[15] = ctiger;
     }
      
+    public void attribuerCouleurAuxJoueurs() {
+        Random r = new Random();
+        int R = r.nextInt(2); // on créé ici un entier aléatoire entre 0 et 1
+        if (R == 0) {
+            listeJoueurs[0].affecterCouleur("Blanc");
+            listeJoueurs[1].affecterCouleur("Noir");
+        } else {
+            listeJoueurs[1].affecterCouleur("Noir");
+            listeJoueurs[0].affecterCouleur("Blanc"); // on affecte des couleurs aux joueurs en fonction du chiffre aléatoire
+        }
+    }
+    
     public void initialiserPartie(){
         
         Scanner sc = new Scanner (System.in);
@@ -115,9 +128,12 @@ public class Partie {
         System.out.println("Joueur 2 :");
         String j2 = sc.next();
         
-        listeJoueurs[0] = new Joueur(j1);
-        listeJoueurs[1] = new Joueur(j2);
+        Joueur J1 = new Joueur(j1);
+        Joueur J2 = new Joueur(j2);
+        listeJoueurs[0] = J1;
+        listeJoueurs[1] = J2;
         
+        // on met ici 5 cartes à jouer aléatoires dans les cartes à disposition des joueurs
         int n = 15;
         for (int i = 0 ; i < 5 ; i++){
             double q = Math.random() * n;
@@ -126,16 +142,26 @@ public class Partie {
                 cartesDisponibles[i] = listeCartes[r];
                 listeCartes[r] = null;
                 n = n-1;
-            } else {
-                double a = Math.random() * n;
-                int b = (int) a;
-                if (listeCartes[b] != null){
-                    cartesDisponibles[i] = listeCartes[b];
-                    listeCartes[b] = null;
-                    n = n-1;
-                }
             }
         }
+        
+        this.attribuerCouleurAuxJoueurs();
+        
+        grilleJeu.GrilleJeu[0][0].PoserPion(new Pion("Blanc", false));
+        grilleJeu.GrilleJeu[1][0].PoserPion(new Pion("Blanc", false));
+        grilleJeu.GrilleJeu[2][0].PoserPion(new Pion("Blanc", true));
+        grilleJeu.GrilleJeu[3][0].PoserPion(new Pion("Blanc", false));
+        grilleJeu.GrilleJeu[4][0].PoserPion(new Pion("Blanc", false));
+        
+        grilleJeu.GrilleJeu[0][4].PoserPion(new Pion("Noir", false));
+        grilleJeu.GrilleJeu[1][4].PoserPion(new Pion("Noir", false));
+        grilleJeu.GrilleJeu[2][4].PoserPion(new Pion("Noir", true));
+        grilleJeu.GrilleJeu[3][4].PoserPion(new Pion("Noir", false));
+        grilleJeu.GrilleJeu[4][4].PoserPion(new Pion("Noir", false));
+        
+        if (listeJoueurs[0] == J1)
+            joueurCourant = J1;
+        else joueurCourant = J2;
     }       
             
     public boolean DeplacementAutorise(Carte uneCarte, int liDepart, int coDepart, int liArrive, int coArrive ) {
