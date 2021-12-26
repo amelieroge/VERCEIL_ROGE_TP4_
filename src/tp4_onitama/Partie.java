@@ -16,7 +16,7 @@ void attribuerCouleursAuxJoueurs()
 public class Partie {
     Joueur [] listeJoueurs = new Joueur[2];
     Joueur joueurCourant;
-    Grille grilleJeu;
+    Grille grilleJeu = new Grille();
     Carte [] listeCartes = new Carte[16];
     
     public Partie(){
@@ -39,7 +39,7 @@ public class Partie {
         ImageIcon img_rooster = new javax.swing.ImageIcon(getClass().getResource("/Images/rooster.jpg"));
         ImageIcon img_tiger = new javax.swing.ImageIcon(getClass().getResource("/Image/tiger.jpg"));    
         
-        
+        // On initialise toute les cartes 
         int [][] b = {{0,-1},{1,0},{0,1}};
         Carte cboar = new Carte("Boar", b, img_boar);
         listeCartes[0] = cboar;
@@ -103,7 +103,49 @@ public class Partie {
         int [][] tig = {{2,0},{-1,0}};
         Carte ctiger = new Carte("Tiger", tig, img_tiger);
         listeCartes[15] = ctiger;
-        
-        
+    
     }
+        
+    public boolean DeplacementAutorise(Carte uneCarte, int liDepart, int coDepart, int liArrive, int coArrive ) {
+
+        if (uneCarte.DeplacementCarte(liDepart,coDepart,liArrive,coArrive)) {
+            return true;
+        }        
+        else {
+            return false;
+        }
+
+    }
+        
+    public boolean BougerPion(Pion unPion, Carte uneCarte, int liDepart, int coDepart, int liArrive, int coArrive ) {
+        
+        if (DeplacementAutorise(uneCarte,liDepart,coDepart,liArrive,coArrive)) {
+            
+            if (grilleJeu.caseOccupee(liArrive,coArrive) == false) {
+                grilleJeu.enleverPion(liDepart, coDepart);
+                grilleJeu.placerPion(unPion, liArrive, coArrive);
+                return true;
+            } 
+            
+            else {
+                if (grilleJeu.lireCouleurPion(liArrive,coArrive) == joueurCourant.couleur) {
+                    System.out.println("Il y a déja un pion de votre couleur sur cette case");
+                    return false;
+                }
+                else {
+                    grilleJeu.enleverPion(liArrive, coArrive);
+                    grilleJeu.enleverPion(liDepart, coDepart);
+                    grilleJeu.placerPion(unPion, liArrive, coArrive);
+                    return true;
+                }
+            }
+        }
+        
+        else {
+            return false;
+        }
+    
+    }
+        
 }
+
