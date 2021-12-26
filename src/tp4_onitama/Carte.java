@@ -15,8 +15,11 @@ public class Carte {
     String Nom;
     int [][] Pattern;
     ImageIcon Image;
-  
-    // Constructeur
+
+    
+    
+    // Methode Deplacementautorisé
+
     public Carte (String unNom, int[][] unPattern, ImageIcon uneImage ) { 
         Nom = unNom;   
         Pattern = unPattern;  

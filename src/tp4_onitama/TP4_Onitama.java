@@ -1,6 +1,8 @@
 
 package tp4_onitama;
 
+import javax.swing.ImageIcon;
+
 public class TP4_Onitama {
 
     public static void main(String[] args) {
@@ -20,13 +22,14 @@ public class TP4_Onitama {
         System.out.println("\n");
         
         int [][] PatternDuDragon = {{1,-1}, { 0,1}};
-        
-        //Carte Cartetest = new Carte("Carte du Dragon", PatternDuDragon, );
+
+        //Carte Cartetest = new Carte("Carte du Dragon", PatternDuDragon, img_dragon);
+
     
         //if (Cartetest.DeplacementCarte(3,3,4,2)) {
         //System.out.println("Deplacement possible");
-    }
-        
+
+    }  
 }
     
 
