@@ -34,15 +34,15 @@ public class Partie {
     public ImageIcon img_goose = new javax.swing.ImageIcon(getClass().getResource("/Images/goose.jpg"));
     public ImageIcon img_horse = new javax.swing.ImageIcon(getClass().getResource("/Images/horse.jpg"));
     public ImageIcon img_mantis = new javax.swing.ImageIcon(getClass().getResource("/Images/mantis.jpg"));
-    public ImageIcon img_monkey = new javax.swing.ImageIcon(getClass().getResource("/Images/mokey.jpg"));
+    public ImageIcon img_monkey = new javax.swing.ImageIcon(getClass().getResource("/Images/monkey.jpg"));
     public ImageIcon img_ox = new javax.swing.ImageIcon(getClass().getResource("/Images/ox.jpg"));
     public ImageIcon img_rabbit = new javax.swing.ImageIcon(getClass().getResource("/Images/rabbit.jpg"));
     public ImageIcon img_rooster = new javax.swing.ImageIcon(getClass().getResource("/Images/rooster.jpg"));
     public ImageIcon img_tiger = new javax.swing.ImageIcon(getClass().getResource("/Images/tiger.jpg"));
     
-    public Partie(){    
+    public Partie(){ 
         
-        // On initialise toute les cartes 
+          // On initialise toute les cartes 
         int [][] b = {{0,-1},{1,0},{0,1}};
         Carte cboar = new Carte("Boar", b, img_boar);
         listeCartes[0] = cboar;
@@ -108,18 +108,6 @@ public class Partie {
         listeCartes[15] = ctiger;
     }
      
-    public void attribuerCouleurAuxJoueurs() {
-        Random r = new Random();
-        int R = r.nextInt(2); // on créé ici un entier aléatoire entre 0 et 1
-        if (R == 0) {
-            listeJoueurs[0].affecterCouleur("Blanc");
-            listeJoueurs[1].affecterCouleur("Noir");
-        } else {
-            listeJoueurs[1].affecterCouleur("Noir");
-            listeJoueurs[0].affecterCouleur("Blanc"); // on affecte des couleurs aux joueurs en fonction du chiffre aléatoire
-        }
-    }
-    
     public void initialiserPartie(){
         
         Scanner sc = new Scanner (System.in);
@@ -130,22 +118,31 @@ public class Partie {
         
         Joueur J1 = new Joueur(j1);
         Joueur J2 = new Joueur(j2);
-        listeJoueurs[0] = J1;
-        listeJoueurs[1] = J2;
+        
+        Random r = new Random();
+        int R = r.nextInt(2); // on créé ici un entier aléatoire entre 0 et 1
+        if (R == 0) {
+            listeJoueurs[0] = J1;
+            listeJoueurs[1] = J2;
+        } else {
+            listeJoueurs[1] = J1;
+            listeJoueurs[0] = J2; // on affecte les joueurs à des places aléatoires dans la liste
+        }
+        
+        listeJoueurs[0].affecterCouleur("Blanc");
+        listeJoueurs[1].affecterCouleur("Noir");
         
         // on met ici 5 cartes à jouer aléatoires dans les cartes à disposition des joueurs
         int n = 15;
         for (int i = 0 ; i < 5 ; i++){
             double q = Math.random() * n;
-            int r = (int) q;
-            if (listeCartes[r] != null){
-                cartesDisponibles[i] = listeCartes[r];
-                listeCartes[r] = null;
+            int w = (int) q;
+            if (listeCartes[w] != null){
+                cartesDisponibles[i] = listeCartes[w];
+                listeCartes[w] = null;
                 n = n-1;
             }
         }
-        
-        this.attribuerCouleurAuxJoueurs();
         
         grilleJeu.GrilleJeu[0][0].PoserPion(new Pion("Blanc", false));
         grilleJeu.GrilleJeu[1][0].PoserPion(new Pion("Blanc", false));
@@ -159,9 +156,11 @@ public class Partie {
         grilleJeu.GrilleJeu[3][4].PoserPion(new Pion("Noir", false));
         grilleJeu.GrilleJeu[4][4].PoserPion(new Pion("Noir", false));
         
-        if (listeJoueurs[0] == J1)
+        if (J1.couleur == "Blanc")
             joueurCourant = J1;
         else joueurCourant = J2;
+        
+        System.out.println(joueurCourant.nom);
     }       
             
     public boolean DeplacementAutorise(Carte uneCarte, int liDepart, int coDepart, int liArrive, int coArrive ) {
