@@ -21,6 +21,9 @@ public class TP4_Onitama {
         
         System.out.println("\n");
         
+        
+    }
+        
         int [][] PatternDuDragon = {{1,-1}, { 0,1}};
 
         //Carte Cartetest = new Carte("Carte du Dragon", PatternDuDragon, img_dragon);
@@ -29,7 +32,7 @@ public class TP4_Onitama {
         //if (Cartetest.DeplacementCarte(3,3,4,2)) {
         //System.out.println("Deplacement possible");
 
-    }  
+    
 }
     
 
