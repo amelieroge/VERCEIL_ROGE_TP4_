@@ -63,4 +63,11 @@ public class Grille {
            return false;
        }
    }
+   
+   public String typePionGrille(int ligne, int colonne) {
+        return GrilleJeu[ligne][colonne].typePionCase();
+    }
+   
+   
+   
 }

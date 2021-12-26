@@ -54,7 +54,8 @@ public class Case {
         
     }
     
-    
-    
+    public String typePionCase() {
+        return pionCourant.typePion();
+    }
     
 }

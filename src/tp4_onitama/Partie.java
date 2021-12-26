@@ -116,32 +116,66 @@ public class Partie {
         }
 
     }
-        
+    
+    // renvoie true si le joueur à atteint la case du trone adverse 
+    public boolean gagnantcase(int ligne, int colonne){
+        if (joueurCourant == listeJoueurs[0] && ligne == 2 && colonne == 4) {
+            return true;
+        }  
+        else if (joueurCourant == listeJoueurs[1] && ligne == 2 && colonne == 0) {
+            return true;
+        }               
+        else {
+            return false;
+        }    
+    }
+
+    // Renvoie true si la partie est gagné par le joueur courant
     public boolean BougerPion(Pion unPion, Carte uneCarte, int liDepart, int coDepart, int liArrive, int coArrive ) {
         
+        //test si le déplacement est autorisé
         if (DeplacementAutorise(uneCarte,liDepart,coDepart,liArrive,coArrive)) {
             
+            // test si la case est occupé
             if (grilleJeu.caseOccupee(liArrive,coArrive) == false) {
+                // test si la case du throne adverse est atteinte par le joueur courant
+                if (gagnantcase(liArrive,coArrive)){
+                    return true;
+                }
+                else {
                 grilleJeu.enleverPion(liDepart, coDepart);
                 grilleJeu.placerPion(unPion, liArrive, coArrive);
-                return true;
-            } 
+                return false;
+                }
+                
+            }
             
             else {
+                // test de la couleur du jeton
                 if (grilleJeu.lireCouleurPion(liArrive,coArrive) == joueurCourant.couleur) {
                     System.out.println("Il y a déja un pion de votre couleur sur cette case");
                     return false;
                 }
                 else {
-                    grilleJeu.enleverPion(liArrive, coArrive);
-                    grilleJeu.enleverPion(liDepart, coDepart);
-                    grilleJeu.placerPion(unPion, liArrive, coArrive);
-                    return true;
+                    // test si la case du throne adverse est atteinte par le joueur courant
+                    if (gagnantcase(liArrive,coArrive)){
+                        return true;
+                    }
+                    // test sile roi adverse est détruit
+                    else if (grilleJeu.typePionGrille(liArrive, coArrive) == "Roi") {
+                        return true;
+                    }
+                    else {
+                        grilleJeu.enleverPion(liArrive, coArrive);
+                        grilleJeu.enleverPion(liDepart, coDepart);
+                        grilleJeu.placerPion(unPion, liArrive, coArrive);
+                        return false;
+                    }
                 }
             }
         }
         
-        else {
+        else {  
             return false;
         }
     
