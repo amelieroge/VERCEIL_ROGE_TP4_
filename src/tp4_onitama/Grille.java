@@ -54,13 +54,14 @@ public class Grille {
        }
    }
    
-   public boolean enleverPion(int ligne, int colonne){
+   public Pion enleverPion(int ligne, int colonne){
        if (caseOccupee(ligne, colonne)){
+           Pion Pionrecup = GrilleJeu[ligne][colonne].pionCourant;
            GrilleJeu[ligne][colonne].pionCourant = null;
-           return true;
+           return Pionrecup;
        } else {
            System.out.println("Erreur, il n'y a pas de pion sur cette case");
-           return false;
+           return null;
        }
    }
    

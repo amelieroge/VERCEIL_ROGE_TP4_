@@ -143,8 +143,8 @@ public class Partie {
                     return true;
                 }
                 else {
-                grilleJeu.enleverPion(liDepart, coDepart);
-                grilleJeu.placerPion(unPion, liArrive, coArrive);
+                Pion Pionrecupere = grilleJeu.enleverPion(liDepart, coDepart);
+                grilleJeu.placerPion(Pionrecupere, liArrive, coArrive);
                 return false;
                 }
                 
@@ -167,8 +167,8 @@ public class Partie {
                     }
                     else {
                         grilleJeu.enleverPion(liArrive, coArrive);
-                        grilleJeu.enleverPion(liDepart, coDepart);
-                        grilleJeu.placerPion(unPion, liArrive, coArrive);
+                        Pion Pionrecupere = grilleJeu.enleverPion(liDepart, coDepart);
+                        grilleJeu.placerPion(Pionrecupere, liArrive, coArrive);
                         return false;
                     }
                 }
