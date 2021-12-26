@@ -1,5 +1,6 @@
 package tp4_onitama;
 
+import java.util.Scanner;
 import javax.swing.ImageIcon;
 
 /*
@@ -18,6 +19,7 @@ public class Partie {
     Joueur joueurCourant;
     Grille grilleJeu = new Grille();
     Carte [] listeCartes = new Carte[16];
+    Carte [] cartesDisponibles = new Carte[5];
     
     // On donne des noms et des chemins aux cartes dans Images
     public ImageIcon img_boar = new javax.swing.ImageIcon(getClass().getResource("/Images/boar.jpg"));
@@ -37,25 +39,7 @@ public class Partie {
     public ImageIcon img_rooster = new javax.swing.ImageIcon(getClass().getResource("/Images/rooster.jpg"));
     public ImageIcon img_tiger = new javax.swing.ImageIcon(getClass().getResource("/Images/tiger.jpg"));
     
-    public Partie(){
-        
-        // On donne des noms et des chemins aux cartes dans Images
-        ImageIcon img_boar = new javax.swing.ImageIcon(getClass().getResource("/Images/boar.jpg"));
-        ImageIcon img_cobra = new javax.swing.ImageIcon(getClass().getResource("/Images/cobra.jpg"));
-        ImageIcon img_crab = new javax.swing.ImageIcon(getClass().getResource("/Images/crab.jpg"));
-        ImageIcon img_crane = new javax.swing.ImageIcon(getClass().getResource("/Images/crane.jpg"));
-        ImageIcon img_dragon = new javax.swing.ImageIcon(getClass().getResource("/Images/dragon.jpg"));
-        ImageIcon img_eel = new javax.swing.ImageIcon(getClass().getResource("/Images/eel.jpg"));
-        ImageIcon img_elephant = new javax.swing.ImageIcon(getClass().getResource("/Images/elephant.jpg"));
-        ImageIcon img_frog = new javax.swing.ImageIcon(getClass().getResource("/Images/frog.jpg"));
-        ImageIcon img_goose = new javax.swing.ImageIcon(getClass().getResource("/Images/goose.jpg"));
-        ImageIcon img_horse = new javax.swing.ImageIcon(getClass().getResource("/Images/horse.jpg"));
-        ImageIcon img_mantis = new javax.swing.ImageIcon(getClass().getResource("/Images/mantis.jpg"));
-        ImageIcon img_monkey = new javax.swing.ImageIcon(getClass().getResource("/Images/mokey.jpg"));
-        ImageIcon img_ox = new javax.swing.ImageIcon(getClass().getResource("/Images/ox.jpg"));
-        ImageIcon img_rabbit = new javax.swing.ImageIcon(getClass().getResource("/Images/rabbit.jpg"));
-        ImageIcon img_rooster = new javax.swing.ImageIcon(getClass().getResource("/Images/rooster.jpg"));
-        ImageIcon img_tiger = new javax.swing.ImageIcon(getClass().getResource("/Image/tiger.jpg"));    
+    public Partie(){    
         
         // On initialise toute les cartes 
         int [][] b = {{0,-1},{1,0},{0,1}};
@@ -122,7 +106,38 @@ public class Partie {
         Carte ctiger = new Carte("Tiger", tig, img_tiger);
         listeCartes[15] = ctiger;
     }
+     
+    public void initialiserPartie(){
         
+        Scanner sc = new Scanner (System.in);
+        System.out.println("Joueur 1 :");
+        String j1 = sc.next();
+        System.out.println("Joueur 2 :");
+        String j2 = sc.next();
+        
+        listeJoueurs[0] = new Joueur(j1);
+        listeJoueurs[1] = new Joueur(j2);
+        
+        int n = 15;
+        for (int i = 0 ; i < 5 ; i++){
+            double q = Math.random() * n;
+            int r = (int) q;
+            if (listeCartes[r] != null){
+                cartesDisponibles[i] = listeCartes[r];
+                listeCartes[r] = null;
+                n = n-1;
+            } else {
+                double a = Math.random() * n;
+                int b = (int) a;
+                if (listeCartes[b] != null){
+                    cartesDisponibles[i] = listeCartes[b];
+                    listeCartes[b] = null;
+                    n = n-1;
+                }
+            }
+        }
+    }       
+            
     public boolean DeplacementAutorise(Carte uneCarte, int liDepart, int coDepart, int liArrive, int coArrive ) {
 
         if (uneCarte.DeplacementCarte(liDepart,coDepart,liArrive,coArrive)) {
@@ -131,7 +146,6 @@ public class Partie {
         else {
             return false;
         }
-
     }
         
     public boolean BougerPion(Pion unPion, Carte uneCarte, int liDepart, int coDepart, int liArrive, int coArrive ) {
