@@ -152,17 +152,17 @@ public class Partie {
             }
         }
         
-        grilleJeu.GrilleJeu[0][0].PoserPion(new Pion("Blanc", false));
-        grilleJeu.GrilleJeu[1][0].PoserPion(new Pion("Blanc", false));
-        grilleJeu.GrilleJeu[2][0].PoserPion(new Pion("Blanc", true));
-        grilleJeu.GrilleJeu[3][0].PoserPion(new Pion("Blanc", false));
-        grilleJeu.GrilleJeu[4][0].PoserPion(new Pion("Blanc", false));
+        grilleJeu.CaseJeu[0][0].PoserPion(new Pion("Blanc", false));
+        grilleJeu.CaseJeu[1][0].PoserPion(new Pion("Blanc", false));
+        grilleJeu.CaseJeu[2][0].PoserPion(new Pion("Blanc", true));
+        grilleJeu.CaseJeu[3][0].PoserPion(new Pion("Blanc", false));
+        grilleJeu.CaseJeu[4][0].PoserPion(new Pion("Blanc", false));
         
-        grilleJeu.GrilleJeu[0][4].PoserPion(new Pion("Noir", false));
-        grilleJeu.GrilleJeu[1][4].PoserPion(new Pion("Noir", false));
-        grilleJeu.GrilleJeu[2][4].PoserPion(new Pion("Noir", true));
-        grilleJeu.GrilleJeu[3][4].PoserPion(new Pion("Noir", false));
-        grilleJeu.GrilleJeu[4][4].PoserPion(new Pion("Noir", false));
+        grilleJeu.CaseJeu[0][4].PoserPion(new Pion("Noir", false));
+        grilleJeu.CaseJeu[1][4].PoserPion(new Pion("Noir", false));
+        grilleJeu.CaseJeu[2][4].PoserPion(new Pion("Noir", true));
+        grilleJeu.CaseJeu[3][4].PoserPion(new Pion("Noir", false));
+        grilleJeu.CaseJeu[4][4].PoserPion(new Pion("Noir", false));
         
         if (J1.couleur == "Blanc")
             joueurCourant = J1;

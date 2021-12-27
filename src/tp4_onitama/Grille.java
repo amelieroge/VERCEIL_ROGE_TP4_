@@ -12,40 +12,41 @@ fait            enleverPion (Pion, int int)
 */
 
 public class Grille {
-   Case [][] GrilleJeu = new Case[5][5];
+   Case [][] CaseJeu;
    
    public Grille(){
+       CaseJeu = new Case[5][5];
        for (int i = 0 ; i < 5 ; i++){
            for (int j = 0 ; j < 5 ; j++){
                if (i == 2 && j == 0){
                    Case troneBlanc = new Case();
-                   GrilleJeu[i][j] = troneBlanc;
+                   CaseJeu[i][j] = troneBlanc;
                }
                if (i == 2 && j == 4){
                    Case troneNoir = new Case();
-                   GrilleJeu[i][j] = troneNoir;
+                   CaseJeu[i][j] = troneNoir;
                }
                else {
-               GrilleJeu[i][j] = new Case();
+               CaseJeu[i][j] = new Case();
                }
            }
        }
    }
    
    public boolean caseOccupee(int ligne, int colonne){
-       if (GrilleJeu[ligne][colonne].PresencePion()){
+       if (CaseJeu[ligne][colonne].PresencePion()){
            return true;
        }
        return false;
    }
    
    public String lireCouleurPion(int ligne, int colonne){
-       return GrilleJeu[ligne][colonne].LirecouleurJetonCase();
+       return CaseJeu[ligne][colonne].LirecouleurJetonCase();
    }
    
    public boolean placerPion(Pion p, int ligne, int colonne){
        if (!caseOccupee(ligne, colonne)){
-           GrilleJeu[ligne][colonne].PoserPion(p);
+           CaseJeu[ligne][colonne].PoserPion(p);
            return true;
        }
        else {
@@ -56,8 +57,8 @@ public class Grille {
    
    public Pion enleverPion(int ligne, int colonne){
        if (caseOccupee(ligne, colonne)){
-           Pion Pionrecup = GrilleJeu[ligne][colonne].pionCourant;
-           GrilleJeu[ligne][colonne].pionCourant = null;
+           Pion Pionrecup = CaseJeu[ligne][colonne].pionCourant;
+           CaseJeu[ligne][colonne].pionCourant = null;
            return Pionrecup;
        } else {
            System.out.println("Erreur, il n'y a pas de pion sur cette case");
@@ -66,7 +67,7 @@ public class Grille {
    }
    
    public String typePionGrille(int ligne, int colonne) {
-        return GrilleJeu[ligne][colonne].typePionCase();
+        return CaseJeu[ligne][colonne].typePionCase();
     }
    
    
