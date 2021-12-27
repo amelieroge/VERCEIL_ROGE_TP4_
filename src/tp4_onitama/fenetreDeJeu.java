@@ -40,7 +40,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_grille.setBackground(new java.awt.Color(0, 0, 0));
         panneau_grille.setToolTipText("");
         panneau_grille.setLayout(new java.awt.GridLayout(5, 5));
-        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 640));
+        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
 
         panneau_CarteDisponible.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -48,14 +48,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_CarteDisponible.setLayout(panneau_CarteDisponibleLayout);
         panneau_CarteDisponibleLayout.setHorizontalGroup(
             panneau_CarteDisponibleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
         panneau_CarteDisponibleLayout.setVerticalGroup(
             panneau_CarteDisponibleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
+            .addGap(0, 172, Short.MAX_VALUE)
         );
 
-        getContentPane().add(panneau_CarteDisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 650, 350, 250));
+        getContentPane().add(panneau_CarteDisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 300, 172));
 
         panneau_partie.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -78,14 +78,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_J1.setLayout(panneau_J1Layout);
         panneau_J1Layout.setHorizontalGroup(
             panneau_J1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         panneau_J1Layout.setVerticalGroup(
             panneau_J1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
+            .addGap(0, 220, Short.MAX_VALUE)
         );
 
-        getContentPane().add(panneau_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 210, 400, 330));
+        getContentPane().add(panneau_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, 600, 220));
 
         panneau_J2.setBackground(new java.awt.Color(255, 204, 0));
 
@@ -93,20 +93,20 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_J2.setLayout(panneau_J2Layout);
         panneau_J2Layout.setHorizontalGroup(
             panneau_J2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         panneau_J2Layout.setVerticalGroup(
             panneau_J2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
+            .addGap(0, 172, Short.MAX_VALUE)
         );
 
-        getContentPane().add(panneau_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 550, 400, -1));
+        getContentPane().add(panneau_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, 600, 172));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 650, 440, 240));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 610, 290, 240));
 
         setBounds(0, 0, 1316, 939);
     }// </editor-fold>//GEN-END:initComponents
