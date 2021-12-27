@@ -44,6 +44,7 @@ public class Joueur {
         return false;
     }
     
+    // permet au joueur de jeter une carte
     public Carte jeterUneCarte(int carte){
         if ((carte != 1)||(carte != 2)){
             System.out.println("Erreur, choisis une carte valable");

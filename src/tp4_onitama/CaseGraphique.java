@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 public class CaseGraphique extends JButton {
     Case CaseAssocie;
     
+    // On récupère le lien de toutes les images des cases
     ImageIcon img_case_vide = new javax.swing.ImageIcon(getClass().getResource("/images/case_vide1.png"));
     ImageIcon img_pion_blanc = new javax.swing.ImageIcon(getClass().getResource("/images/pion_blanc1.png"));
     ImageIcon img_pion_noir = new javax.swing.ImageIcon(getClass().getResource("/images/pion_noir1.png"));
@@ -22,10 +23,12 @@ public class CaseGraphique extends JButton {
     ImageIcon img_roi_noir = new javax.swing.ImageIcon(getClass().getResource("/images/roi_noir1.png"));
     ImageIcon img_trone = new javax.swing.ImageIcon(getClass().getResource("/images/trone1.png"));
 
+    // constructeur
     public CaseGraphique(Case uneCase) {
         CaseAssocie = uneCase;
     }
-
+    
+    // affichage l'image de la CaseAssocie en fonction de ce qu'il y a sur la case (case vide, couleur et type de pion)
     @Override
     public void paintComponent(Graphics G) {
         super.paintComponent(G);

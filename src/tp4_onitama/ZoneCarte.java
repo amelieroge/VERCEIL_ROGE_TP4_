@@ -11,13 +11,17 @@ import java.awt.Graphics;
  *
  * @author thvel
  */
+
+// Class des Zonne de carte dans lesquelles seront affiché la CarteAssocie
 public class ZoneCarte extends JButton {
     Carte CarteAssocie;
     
+    // Constructeur
     public ZoneCarte(Carte uneCarte){
         CarteAssocie = uneCarte;
     }
     
+    // affichage de la carteAssocie
     @Override
     public void paintComponent(Graphics G) {
         super.paintComponent(G);
