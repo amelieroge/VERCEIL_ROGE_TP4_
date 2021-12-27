@@ -254,7 +254,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         lbl_joueurCourant.setText("joueurCourant");
         panneau_partie.add(lbl_joueurCourant, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
 
-        getContentPane().add(panneau_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 570, 300, 230));
+        getContentPane().add(panneau_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 540, 300, 270));
 
         setBounds(0, 0, 1316, 868);
     }// </editor-fold>//GEN-END:initComponents
@@ -381,6 +381,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         
         lbl_joueurCourant.setText(joueurCourant.nom);
        
+        // on rafraichie l'affichage
+        panneau_grille.repaint();
         
     }       
   
