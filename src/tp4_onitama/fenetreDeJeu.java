@@ -23,6 +23,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 panneau_grille.add(caseGraph);
             }
         }
+        ZoneCarte ZoneJ1;
     }   
     /**
      * This method is called from within the constructor to initialize the form.

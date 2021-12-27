@@ -6,7 +6,6 @@ package tp4_onitama;
 
 import javax.swing.JButton;
 import java.awt.Graphics;
-import javax.swing.ImageIcon;
 
 /**
  *
