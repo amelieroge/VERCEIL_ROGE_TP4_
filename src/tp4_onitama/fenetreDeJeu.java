@@ -4,15 +4,20 @@
  */
 package tp4_onitama;
 
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  *
  * @author thvel
  */
 public class fenetreDeJeu extends javax.swing.JFrame {
 
-    Joueur ListeJoueur[] = new Joueur[2];
+    Joueur [] ListeJoueur = new Joueur[2];
     Joueur joueurCourant;
     Grille grilleJeu = new Grille();
+    Carte [] listeCartes = new Carte[16];
+    Carte [] cartesDisponibles = new Carte[5];
     
     public fenetreDeJeu() {
         initComponents();
@@ -63,6 +68,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_Partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_demarer.setText("Démarer Partie");
+        btn_demarer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_demarerActionPerformed(evt);
+            }
+        });
         panneau_Partie.add(btn_demarer, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
         btn_reglesJeu.setText("Règles du jeu");
@@ -122,6 +132,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
        
     }//GEN-LAST:event_set_joueur1ActionPerformed
 
+    private void btn_demarerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_demarerActionPerformed
+        panneau_J1.setVisible(true);
+        panneau_J2.setVisible(true);
+        initialiserPartie();
+        panneau_grille.repaint();
+        btn_demarer.setEnabled(false);
+    }//GEN-LAST:event_btn_demarerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -156,6 +174,74 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void initialiserPartie(){
+        
+        String nomJoueur1 = set_joueur1.getText();
+        Joueur j1 = new Joueur(nomJoueur1);
+        String nomJoueur2 = set_joueur2.getText();
+        Joueur j2 = new Joueur(nomJoueur2);
+        
+        /*lbl_j1_nom.setText(nomJoueur1);
+        lbl_j2_nom.setText(nomJoueur2);
+        lbl_j1_couleur.setText(j1.Couleur);
+        lbl_j2_couleur.setText(j2.Couleur);*/
+        
+        
+        
+        /*Scanner sc = new Scanner (System.in);
+        System.out.println("Joueur 1 :");
+        String j1 = sc.next();
+        System.out.println("Joueur 2 :");
+        String j2 = sc.next();
+        
+        Joueur J1 = new Joueur(j1);
+        Joueur J2 = new Joueur(j2);
+        
+        Random r = new Random();
+        int R = r.nextInt(2); // on créé ici un entier aléatoire entre 0 et 1
+        if (R == 0) {
+            ListeJoueur[0] = J1;
+            ListeJoueur[1] = J2;
+        } else {
+            ListeJoueur[1] = J1;
+            ListeJoueur[0] = J2; // on affecte les joueurs à des places aléatoires dans la liste
+        }
+        
+        ListeJoueur[0].affecterCouleur("Blanc");
+        ListeJoueur[1].affecterCouleur("Noir");
+        
+        // on met ici 5 cartes à jouer aléatoires dans les cartes à disposition des joueurs
+        int n = 15;
+        for (int i = 0 ; i < 5 ; i++){
+            double q = Math.random() * n;
+            int w = (int) q;
+            if (listeCartes[w] != null){
+                cartesDisponibles[i] = listeCartes[w];
+                listeCartes[w] = null;
+                n = n-1;
+                i = i-1;
+            }
+        }
+        
+        grilleJeu.CaseJeu[0][0].PoserPion(new Pion("Blanc", false));
+        grilleJeu.CaseJeu[1][0].PoserPion(new Pion("Blanc", false));
+        grilleJeu.CaseJeu[2][0].PoserPion(new Pion("Blanc", true));
+        grilleJeu.CaseJeu[3][0].PoserPion(new Pion("Blanc", false));
+        grilleJeu.CaseJeu[4][0].PoserPion(new Pion("Blanc", false));
+        
+        grilleJeu.CaseJeu[0][4].PoserPion(new Pion("Noir", false));
+        grilleJeu.CaseJeu[1][4].PoserPion(new Pion("Noir", false));
+        grilleJeu.CaseJeu[2][4].PoserPion(new Pion("Noir", true));
+        grilleJeu.CaseJeu[3][4].PoserPion(new Pion("Noir", false));
+        grilleJeu.CaseJeu[4][4].PoserPion(new Pion("Noir", false));
+        
+        if (J1.couleur == "Blanc")
+            joueurCourant = J1;
+        else joueurCourant = J2;
+        
+        System.out.println(joueurCourant.nom);*/
+    }       
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
