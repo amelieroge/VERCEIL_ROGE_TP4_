@@ -67,6 +67,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_Partie.setBackground(new java.awt.Color(0, 0, 0));
         panneau_Partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btn_demarer.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btn_demarer.setText("Démarer Partie");
         btn_demarer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,8 +76,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         });
         panneau_Partie.add(btn_demarer, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
+        btn_reglesJeu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btn_reglesJeu.setText("Règles du jeu");
-        panneau_Partie.add(btn_reglesJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
+        panneau_Partie.add(btn_reglesJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, -1, -1));
 
         set_joueur1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         set_joueur1.setText("Entrer nom J1");
@@ -133,10 +135,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_set_joueur1ActionPerformed
 
     private void btn_demarerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_demarerActionPerformed
-        panneau_J1.setVisible(true);
-        panneau_J2.setVisible(true);
         initialiserPartie();
-        panneau_grille.repaint();
         btn_demarer.setEnabled(false);
     }//GEN-LAST:event_btn_demarerActionPerformed
 
