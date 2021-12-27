@@ -5,7 +5,6 @@
 package tp4_onitama;
 
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  *
