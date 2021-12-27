@@ -141,6 +141,7 @@ public class Partie {
                 cartesDisponibles[i] = listeCartes[w];
                 listeCartes[w] = null;
                 n = n-1;
+                i = i-1;
             }
         }
         
