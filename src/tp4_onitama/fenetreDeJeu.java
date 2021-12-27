@@ -50,12 +50,12 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         panneau_J1.setBackground(new java.awt.Color(255, 204, 0));
         panneau_J1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(panneau_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 300, 500));
+        getContentPane().add(panneau_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 300, 500));
 
         panneau_grille.setBackground(new java.awt.Color(0, 0, 0));
         panneau_grille.setToolTipText("");
         panneau_grille.setLayout(new java.awt.GridLayout(5, 5));
-        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 600, 600));
+        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 600, 600));
 
         panneau_CarteDisponible.setBackground(new java.awt.Color(0, 0, 0));
         panneau_CarteDisponible.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -74,22 +74,22 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabel1.setText("Joueur 1");
         panneau_CarteDisponible.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
-        getContentPane().add(panneau_CarteDisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 300, 290));
+        getContentPane().add(panneau_CarteDisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, 300, 290));
 
         panneau_partie.setBackground(new java.awt.Color(0, 0, 0));
         panneau_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(panneau_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 653, 300, 172));
+        getContentPane().add(panneau_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 630, 300, 172));
 
         panneau_J2.setBackground(new java.awt.Color(255, 204, 0));
         panneau_J2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(panneau_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 30, 300, 500));
+        getContentPane().add(panneau_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 10, 300, 500));
 
         jScrollPane1.setViewportView(jTextPane1);
         jTextPane1.getAccessibleContext().setAccessibleName("");
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 550, 300, 290));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 530, 300, 290));
 
-        setBounds(0, 0, 1316, 899);
+        setBounds(0, 0, 1316, 868);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
