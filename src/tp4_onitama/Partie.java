@@ -40,6 +40,13 @@ public class Partie {
     public ImageIcon img_rooster = new javax.swing.ImageIcon(getClass().getResource("/Images/rooster.jpg"));
     public ImageIcon img_tiger = new javax.swing.ImageIcon(getClass().getResource("/Images/tiger.jpg"));
     
+    public ImageIcon case_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/case_vide1.png"));
+    public ImageIcon pion_blanc = new javax.swing.ImageIcon(getClass().getResource("/Images/pion_blanc1.png"));
+    public ImageIcon pion_noir = new javax.swing.ImageIcon(getClass().getResource("/Images/pion_noir1.png"));
+    public ImageIcon roi_blanc = new javax.swing.ImageIcon(getClass().getResource("/Images/roi_blanc1.png"));
+    public ImageIcon roi_noir = new javax.swing.ImageIcon(getClass().getResource("/Images/roi_noir1.png"));
+    public ImageIcon trone_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/trone1.png"));
+    
     public Partie(){ 
         
           // On initialise toute les cartes 
