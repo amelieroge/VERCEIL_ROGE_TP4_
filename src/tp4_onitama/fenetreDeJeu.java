@@ -10,13 +10,20 @@ package tp4_onitama;
  */
 public class fenetreDeJeu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form fenetreDeJeu
-     */
+    Joueur ListeJoueur[] = new Joueur[2];
+    Joueur joueurCourant;
+    Grille grilleJeu = new Grille();
+    
     public fenetreDeJeu() {
         initComponents();
-    }
-
+        
+        for (int i = 4; i >= 0; i--) {
+            for (int j = 0; j < 4; j++) {
+                CaseGraphique caseGraph = new CaseGraphique();
+                panneau_grille.add(caseGraph);
+            }
+        }
+    }   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,7 +56,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         panneau_grille.setBackground(new java.awt.Color(0, 0, 0));
         panneau_grille.setToolTipText("");
-        panneau_grille.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panneau_grille.setLayout(new java.awt.GridLayout(5, 5));
         getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 600, 600));
 
         panneau_Partie.setBackground(new java.awt.Color(0, 0, 0));
