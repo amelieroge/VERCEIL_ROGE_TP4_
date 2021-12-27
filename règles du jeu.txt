@@ -1,0 +1,26 @@
+	
+			Bienvenue chers joueurs !
+
+	Voici les règles du jeu Onitama : 
+
+	Vous avez chacun 4 pions et 1 roi. La couleur que vous allez
+	jouer est décidée aléatoirement, et comme aux échecs c'est le 
+	joueur blanc qui commance.
+
+	Au début de la partie, vont vous être distribuées 2 cartes 
+	mouvemet chacun. Ce sont les mouvements qui vont pouvoir 
+	être exécutés par vos pions, et une carte supplémentaire va
+	être disposée à côté du plateau, face visible. Une fois que 
+	vous allez faire le déplacement désigné par une de vos cartes,
+	vous allez placer cette catre sur le côté du plateau et prendre
+	à la place la carte qui y était disposée. Ainsi, ce sont les 5 
+	mêmes cartes qui vont être utilisées tout au long de la partie. 
+
+	Pour gagner, vous avez deux possibilités : 
+		- manger le roi adverse ;
+		- poser un de vos pions sur le trône du roi adverse.
+
+	A vous d'user de ruse et de stratégie pour gagner avant que
+	votre adversaire ne fasse tomber votre roi. 
+
+	Bonne partie à vous.
