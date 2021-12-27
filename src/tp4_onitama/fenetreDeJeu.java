@@ -251,6 +251,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private void btn_demarerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_demarerActionPerformed
         initialiserPartie();
+        panneau_grille.repaint();
         btn_demarer.setEnabled(false);
     }//GEN-LAST:event_btn_demarerActionPerformed
 
@@ -296,6 +297,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         String nomJoueur2 = set_joueur2.getText();
         Joueur j2 = new Joueur(nomJoueur2);
         
+        j1.affecterCouleur("Blanc");
+        j2.affecterCouleur("Noir");
+        
         Random r = new Random();
         int R = r.nextInt(2);
         if (R == 0) {
@@ -305,9 +309,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             ListeJoueur[1] = j1;
             ListeJoueur[0] = j2;
         }
-        
-        ListeJoueur[0].affecterCouleur("Blanc");
-        ListeJoueur[1].affecterCouleur("Noir");
         
         lbl_j1_nom.setText(nomJoueur1);
         lbl_j1_couleur.setText(j1.couleur);
@@ -339,9 +340,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         grilleJeu.CaseJeu[3][4].PoserPion(new Pion("Noir", false));
         grilleJeu.CaseJeu[4][4].PoserPion(new Pion("Noir", false));
         
-        if (j1.couleur == "Blanc")
-            joueurCourant = j1;
-        else joueurCourant = j2;
+        if (ListeJoueur[0].couleur == "Blanc")
+            joueurCourant = ListeJoueur[0];
+        else joueurCourant = ListeJoueur[1];
         
         lbl_joueurCourant.setText(joueurCourant.nom);
        
