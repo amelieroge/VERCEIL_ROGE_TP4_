@@ -24,7 +24,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         
         for (int i = 4; i >= 0; i--) {
             for (int j = 0; j < 4; j++) {
-                CaseGraphique caseGraph = new CaseGraphique();
+                CaseGraphique caseGraph = new CaseGraphique(grilleJeu.CaseJeu[i][j]);
                 panneau_grille.add(caseGraph);
             }
         }

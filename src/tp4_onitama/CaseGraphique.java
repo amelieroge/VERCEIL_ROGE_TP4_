@@ -5,13 +5,56 @@
 package tp4_onitama;
 
 import javax.swing.JButton;
+import java.awt.Graphics;
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author thvel
  */
 public class CaseGraphique extends JButton {
-    Case caseAssocie;
+    Case CaseAssocie;
     
+    ImageIcon img_case_vide = new javax.swing.ImageIcon(getClass().getResource("/images/case_vide1.png"));
+    ImageIcon img_pion_blanc = new javax.swing.ImageIcon(getClass().getResource("/images/pion_blanc1.png"));
+    ImageIcon img_pion_noir = new javax.swing.ImageIcon(getClass().getResource("/images/pion_noir1.png"));
+    ImageIcon img_roi_blanc = new javax.swing.ImageIcon(getClass().getResource("/images/roi_blanc1.png"));
+    ImageIcon img_roi_noir = new javax.swing.ImageIcon(getClass().getResource("/images/roi_noir1.png"));
+    ImageIcon img_trone = new javax.swing.ImageIcon(getClass().getResource("/images/trone1.png"));
+
+    public CaseGraphique(Case uneCase) {
+        CaseAssocie = uneCase;
+    }
+
+    @Override
+    public void paintComponent(Graphics G) {
+        super.paintComponent(G);
+
+            
+        String couleur_pion = CaseAssocie.LirecouleurJetonCase();
+        switch (couleur_pion) {
+            case "none":
+                setIcon(img_case_vide);
+                break;
+            case "Noir":
+                if (CaseAssocie.pionCourant.EtreRoi){
+                    setIcon(img_roi_noir);
+                }
+                else {
+                  setIcon(img_pion_noir);  
+                }
+                break;
+            case "Blanc":
+                if (CaseAssocie.pionCourant.EtreRoi){
+                    setIcon(img_roi_blanc);
+                }
+                else {
+                  setIcon(img_pion_blanc);  
+                }
+                break;
+
+        }
+    }
+
     
 }
