@@ -46,8 +46,7 @@ public class Case {
     public String LirecouleurJetonCase () {
         
         if (pionCourant == null) {
-            System.out.println("On ne peut pas lire la couleur d'une case vide");
-            return null;
+            return "none";
         }
         
         return pionCourant.lireCouleur();
