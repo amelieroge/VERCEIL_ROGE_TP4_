@@ -39,4 +39,15 @@ public class Carte {
     System.out.println("Le deplacement ne correspond pas au pattern");
     return false;
     }
+    
+    public int[][] RotationPatternJGauche (){
+        
+        
+    }
+            
+    public int[][] RotationPatternJDroite (){
+        
+        
+    }
+    
 }
