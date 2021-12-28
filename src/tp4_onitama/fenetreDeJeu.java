@@ -67,7 +67,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         ZoneCarte t = new ZoneCarte(null);
         patternJoue.add(t);
 
-          // On initialise toute les cartes 
+          // On initialise toute les cartes dans le sens orizontale
         int [][] b = {{0,-1},{1,0},{0,1}};
         Carte cboar = new Carte("Boar", b, img_boar);
         listeCartes[0] = cboar;
@@ -525,8 +525,22 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         j2.tirerUneCarte(cartesDisponibles[4]);
       
         // on initialise les cartes sur leurs zones de départ
+        
+        
         ZoneCarte a = new ZoneCarte(j1.patterns[0]);
         patternJ1_0.add(a);
+        
+        if (j1.patterns[0] == null) {
+            System.out.println("Pas de carte");
+        }   
+        else if (j1.patterns[0].Image == null) {
+            System.out.println("Pas d'image"); 
+        }  
+        else {
+            System.out.println("Image et carte !!!!");
+            System.out.println(j1.patterns[0].Nom+"");
+        }
+        /*
         ZoneCarte z = new ZoneCarte(j1.patterns[1]);
         patternJ1_2.add(z);
         ZoneCarte e = new ZoneCarte(j2.patterns[0]);
@@ -535,6 +549,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         patternJ2_1.add(p);
         ZoneCarte t = new ZoneCarte(carteRestante);
         patternJoue.add(t);
+        */
 
         // on rafraichie l'affichage
         panneau_J1.repaint();
