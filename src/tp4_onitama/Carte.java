@@ -15,16 +15,25 @@ public class Carte {
     
     String Nom;
     int [][] Pattern;
-    ImageIcon Image;
+    ImageIcon [] Images;
+    ImageIcon image;
 
-    
-    
     // Methode Deplacementautorisé
 
-    public Carte (String unNom, int[][] unPattern, ImageIcon uneImage ) { 
+    // Premier constructeur qui permet de rassembler toutes les images composant une carte
+    public Carte (String unNom, int[][] unPattern, ImageIcon img , ImageIcon imgGauche , ImageIcon imgDroite ) { 
         Nom = unNom;   
         Pattern = unPattern;  
-        Image = uneImage;
+        Images[0] = img;
+        Images[1] = imgGauche;
+        Images[2] = imgDroite;
+    }
+    
+    // Deuxième constructeur qui permet d'appeler seulement l'image voulue en fonction de l'endroit où la carte est appelée
+    public Carte (String unNom, int[][] unPattern, ImageIcon uneImage) { 
+        Nom = unNom;   
+        Pattern = unPattern;  
+        image = uneImage;
     }
     
     // Test si le deplacement est possible par rapport au pattern de la carte
@@ -41,7 +50,7 @@ public class Carte {
     return false;
     }
     
-    // Méthode permettant d'ajuster les pattenrns celon l'orientation  de la carte
+    // Méthodes permettant d'ajuster les patterns selon l'orientation  de la carte
     public int [][] rotaJGauche (){
         for (int i = 0 ; i < Pattern.length ; i++){
             

@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package tp4_onitama;
 
@@ -8,12 +8,12 @@ package tp4_onitama;
  *
  * @author ASUS
  */
-public class ReglesJeu extends javax.swing.JPanel {
+public class RegleJeu extends javax.swing.JFrame {
 
     /**
-     * Creates new form ReglesJeu
+     * Creates new form RegleJeu
      */
-    public ReglesJeu() {
+    public RegleJeu() {
         initComponents();
     }
 
@@ -26,8 +26,7 @@ public class ReglesJeu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -48,87 +47,144 @@ public class ReglesJeu extends javax.swing.JPanel {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
 
-        jScrollPane1.setViewportView(jTextPane1);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic Light", 1, 14)); // NOI18N
         jLabel1.setText(" Bienvenue chers joueurs !");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel2.setText("Voici les règles du jeu Onitama :  ");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel3.setText("Vous avez chacun 4 pions et 1 roi. La couleur que vous allez");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel4.setText("jouer est décidée aléatoirement, et comme aux échecs c'est le ");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel5.setText("joueur blanc qui commance.");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel6.setText("Au début de la partie, vont vous être distribuées 2 cartes ");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel7.setText("mouvemet chacun. Ce sont les mouvements qui vont pouvoir ");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel8.setText("être exécutés par vos pions, et une carte supplémentaire va");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel9.setText("être disposée à côté du plateau, face visible. Une fois que ");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel10.setText("vous allez faire le déplacement désigné par une de vos cartes,");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel11.setText("vous allez placer cette catre sur le côté du plateau et prendre");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel12.setText("à la place la carte qui y était disposée. Ainsi, ce sont les 5 ");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel13.setText("mêmes cartes qui vont être utilisées tout au long de la partie. ");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel14.setText("Pour gagner, vous avez deux possibilités : ");
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel15.setText("- manger le roi adverse ;");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel16.setText("- poser un de vos pions sur le trône du roi adverse.");
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, -1, -1));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel17.setText("A vous d'user de ruse et de stratégie pour gagner avant que");
-        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, -1, -1));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel18.setText("votre adversaire ne fasse tomber votre roi. ");
-        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel19.setText("Bonne partie à vous");
-        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, -1));
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 414, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 550, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(RegleJeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(RegleJeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(RegleJeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(RegleJeu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new RegleJeu().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -150,7 +206,6 @@ public class ReglesJeu extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
