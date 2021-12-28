@@ -50,54 +50,54 @@ public class ZoneCarte extends JButton {
             setIcon(img_carte_vide);
         }
         else {
-            String img = CarteAssocie.Image.toString();
+            String img = CarteAssocie.Nom;
             switch (img) {
-                case "img_boar" :
+                case "boar" :
                     setIcon(img_boar);
                     break;
-                case "img_cobra" :
+                case "cobra" :
                     setIcon(img_cobra);
                     break;
-                case "img_crab" :
+                case "crab" :
                     setIcon(img_crab);
                     break;
-                case "img_crane" :
+                case "crane" :
                     setIcon(img_crane);
                     break;
-                case "img_dragon" :
+                case "dragon" :
                     setIcon(img_dragon);
                     break;
-                case "img_eel" :
+                case "eel" :
                     setIcon(img_eel);
                     break;
-                case "img_elephant" :
+                case "elephant" :
                     setIcon(img_elephant);
                     break;
-                case "img_frog" :
+                case "frog" :
                     setIcon(img_frog);
                     break;    
-                case "img_goose" :
+                case "goose" :
                     setIcon(img_goose);
                     break;    
-                case "img_horse" :
+                case "horse" :
                     setIcon(img_horse);
                     break;    
-                case "img_mantis" :
+                case "mantis" :
                     setIcon(img_mantis);
                     break;    
-                case "img_monkey" :
+                case "monkey" :
                     setIcon(img_monkey);
                     break;   
-                case "img_ox" :
+                case "ox" :
                     setIcon(img_ox);
                     break; 
-                case "img_rabbit" :
+                case "rabbit" :
                     setIcon(img_rabbit);
                     break;
-                case "img_rooster" :
+                case "rooster" :
                     setIcon(img_rooster);
                     break;
-                case "img_tiger" :
+                case "tiger" :
                     setIcon(img_tiger);
                     break;
             }
