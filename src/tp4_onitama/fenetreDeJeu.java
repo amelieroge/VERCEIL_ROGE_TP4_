@@ -23,7 +23,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     Carte carteRestante;
     Joueur j1;
     Joueur j2;
-    public ImageIcon img_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/image_vide.png"));
+
     
     public fenetreDeJeu() {
         initComponents();
@@ -36,18 +36,19 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             }
         }
         
+       
         int [][] v = {{0,0}};
-        Carte carte_vide = new Carte("vide", v, img_vide);
-        
-        ZoneCarte a = new ZoneCarte(carte_vide);
+        Carte carte_vide = new Carte("vide", v, null);
+                
+        ZoneCarte a = new ZoneCarte(null);
         patternJ1_0.add(a);
-        ZoneCarte z = new ZoneCarte(carte_vide);
+        ZoneCarte z = new ZoneCarte(null);
         patternJ1_2.add(z);
-        ZoneCarte e = new ZoneCarte(carte_vide);
+        ZoneCarte e = new ZoneCarte(null);
         patternJ2_0.add(e);
-        ZoneCarte r = new ZoneCarte(carte_vide);
+        ZoneCarte r = new ZoneCarte(null);
         patternJ2_1.add(r);
-        ZoneCarte t = new ZoneCarte(carte_vide);
+        ZoneCarte t = new ZoneCarte(null);
         patternJoue.add(t);
         
     }   
@@ -434,23 +435,26 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         joueurCourant = ListeJoueur[0];
         lbl_joueurCourant.setText(joueurCourant.nom);
        
-        // on rafraichie l'affichage
-        panneau_grille.repaint();
-        
-        ZoneCarte j1_1 = new ZoneCarte(j1.patterns[0]);
-        patternJ1_0.add(j1_1);
-        ZoneCarte j1_2 = new ZoneCarte(j1.patterns[1]);
-        patternJ1_2.add(j1_2);
-        ZoneCarte j2_1 = new ZoneCarte(j2.patterns[0]);
-        patternJ2_0.add(j2_1);
-        ZoneCarte j2_2 = new ZoneCarte(j2.patterns[1]);
-        patternJ2_1.add(j2_2);
-        ZoneCarte reste = new ZoneCarte(carteRestante);
-        patternJoue.add(reste);
+      
+        ZoneCarte a = new ZoneCarte(j1.patterns[0]);
+        patternJ1_0.add(a);
+        if (j1.patterns[0] == null) {
+            boolean test = true;
+        }
+        ZoneCarte z = new ZoneCarte(j1.patterns[1]);
+        patternJ1_2.add(z);
+        ZoneCarte e = new ZoneCarte(j2.patterns[0]);
+        patternJ2_0.add(e);
+        ZoneCarte p = new ZoneCarte(j2.patterns[1]);
+        patternJ2_1.add(p);
+        ZoneCarte t = new ZoneCarte(carteRestante);
+        patternJoue.add(t);
 
+         // on rafraichie l'affichage
         panneau_J1.repaint();
         panneau_J2.repaint();
         panneau_carteDisponible.repaint();
+        panneau_grille.repaint();
     }       
   
 
