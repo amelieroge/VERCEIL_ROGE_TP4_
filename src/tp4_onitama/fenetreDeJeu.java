@@ -54,18 +54,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 panneau_grille.add(caseGraph);
             }
         }
-      
-                
-        ZoneCarte a = new ZoneCarte(null);
-        patternJ1_0.add(a);
-        ZoneCarte z = new ZoneCarte(null);
-        patternJ1_1.add(z);
-        ZoneCarte e = new ZoneCarte(null);
-        patternJ2_0.add(e);
-        ZoneCarte r = new ZoneCarte(null);
-        patternJ2_1.add(r);
-        ZoneCarte t = new ZoneCarte(null);
-        patternJoue.add(t);
 
           // On initialise toute les cartes dans le sens orizontale
         int [][] b = {{0,-1},{1,0},{0,1}};
@@ -131,6 +119,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         int [][] tig = {{2,0},{-1,0}};
         Carte ctiger = new Carte("Tiger", tig, img_tiger);
         listeCartes[15] = ctiger;
+
     }   
     /**
      * This method is called from within the constructor to initialize the form.
@@ -389,7 +378,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private void btn_demarerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_demarerActionPerformed
         initialiserPartie();
         panneau_grille.repaint();
-        btn_demarer.setEnabled(false);
+        btn_demarer.setEnabled(true);
         patternJoue.setEnabled(false);
     }//GEN-LAST:event_btn_demarerActionPerformed
 
@@ -496,12 +485,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
        
         
         // on met ici 5 cartes à jouer aléatoires dans les cartes à disposition des joueurs
-        int n = 15;
+
         for (int i = 0 ; i < 5 ; i++){
-            double q = Math.random() * n;
+            double q = Math.random() * 15;
             int w = (int) q;
             if (listeCartes[w] == null){
-                n = n-1;
+                i--;
+                
             }
             else {
                 cartesDisponibles[i] = listeCartes[w];
@@ -520,6 +510,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         // on initialise les cartes sur leurs zones de départ
         ZoneCarte j1_0 = new ZoneCarte(j1.patterns[0]);
         patternJ1_0.add(j1_0);
+        
         ZoneCarte j1_1 = new ZoneCarte(j1.patterns[1]);
         patternJ1_1.add(j1_1);
         ZoneCarte j2_1 = new ZoneCarte(j2.patterns[0]);
@@ -529,6 +520,12 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         ZoneCarte restante = new ZoneCarte(carteRestante);
         patternJoue.add(restante);
 
+        System.out.println(j1.patterns[0].Nom);
+        System.out.println(j1.patterns[1].Nom);
+        System.out.println(j2.patterns[0].Nom);
+        System.out.println(j2.patterns[1].Nom);
+        System.out.println(carteRestante.Nom);
+        
         // on rafraichie l'affichage
         panneau_J1.repaint();
         panneau_J2.repaint();
