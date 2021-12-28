@@ -59,7 +59,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         ZoneCarte a = new ZoneCarte(null);
         patternJ1_0.add(a);
         ZoneCarte z = new ZoneCarte(null);
-        patternJ1_2.add(z);
+        patternJ1_1.add(z);
         ZoneCarte e = new ZoneCarte(null);
         patternJ2_0.add(e);
         ZoneCarte r = new ZoneCarte(null);
@@ -152,14 +152,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton9 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        patternJ1_1 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         lbl_j1_couleur = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         lbl_j2_couleur = new javax.swing.JLabel();
         panneau_J1 = new javax.swing.JPanel();
         patternJ1_0 = new javax.swing.JButton();
-        patternJ1_2 = new javax.swing.JButton();
+        patternJ1_1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -231,12 +230,12 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         });
         panneau_J1.add(patternJ1_0);
 
-        patternJ1_2.addActionListener(new java.awt.event.ActionListener() {
+        patternJ1_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 patternJ1_0ActionPerformed(evt);
             }
         });
-        panneau_J1.add(patternJ1_2);
+        panneau_J1.add(patternJ1_1);
 
         getContentPane().add(panneau_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 344, 300));
 
@@ -307,7 +306,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Nom");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
         lbl_j2_nom.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbl_j2_nom.setText("nomJ2");
@@ -325,7 +324,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 btn_demarerActionPerformed(evt);
             }
         });
-        panneau_partie.add(btn_demarer, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        panneau_partie.add(btn_demarer, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
         btn_reglesJeu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btn_reglesJeu.setText("Règles du jeu");
@@ -334,7 +333,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 btn_reglesJeuActionPerformed(evt);
             }
         });
-        panneau_partie.add(btn_reglesJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, -1, -1));
+        panneau_partie.add(btn_reglesJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
 
         set_joueur1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         set_joueur1.setText("Entrer nom J1");
@@ -519,16 +518,16 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         j2.tirerUneCarte(cartesDisponibles[4]);
       
         // on initialise les cartes sur leurs zones de départ
-        ZoneCarte a = new ZoneCarte(j1.patterns[0]);
-        patternJ1_0.add(a);
-        ZoneCarte z = new ZoneCarte(j1.patterns[1]);
-        patternJ1_2.add(z);
-        ZoneCarte e = new ZoneCarte(j2.patterns[0]);
-        patternJ2_0.add(e);
-        ZoneCarte p = new ZoneCarte(j2.patterns[1]);
-        patternJ2_1.add(p);
-        ZoneCarte t = new ZoneCarte(carteRestante);
-        patternJoue.add(t);
+        ZoneCarte j1_0 = new ZoneCarte(j1.patterns[0]);
+        patternJ1_0.add(j1_0);
+        ZoneCarte j1_1 = new ZoneCarte(j1.patterns[1]);
+        patternJ1_1.add(j1_1);
+        ZoneCarte j2_1 = new ZoneCarte(j2.patterns[0]);
+        patternJ2_0.add(j2_1);
+        ZoneCarte j2_2 = new ZoneCarte(j2.patterns[1]);
+        patternJ2_1.add(j2_2);
+        ZoneCarte restante = new ZoneCarte(carteRestante);
+        patternJoue.add(restante);
 
         // on rafraichie l'affichage
         panneau_J1.repaint();
@@ -577,7 +576,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JPanel panneau_partie;
     private javax.swing.JButton patternJ1_0;
     private javax.swing.JButton patternJ1_1;
-    private javax.swing.JButton patternJ1_2;
     private javax.swing.JButton patternJ2_0;
     private javax.swing.JButton patternJ2_1;
     private javax.swing.JButton patternJoue;
