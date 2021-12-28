@@ -29,15 +29,12 @@ public class Joueur {
     }
     
     public boolean tirerUneCarte(Carte carte){
-        if (patterns[0] != null && patterns[1] != null) {
-            System.out.println("Erreur, vous avez déjà 2 cartes");
-            return false;
-        }
+        
         if (patterns[0] == null){
             patterns [0] = carte;
             return true;
         }
-        if (patterns[1] == null){
+        else if (patterns[1] == null){
             patterns [1] = carte;
             return true;
         }
@@ -46,9 +43,7 @@ public class Joueur {
     
     // permet au joueur de jeter une carte
     public Carte jeterUneCarte(int carte){
-        if ((carte != 1)||(carte != 2)){
-            System.out.println("Erreur, choisis une carte valable");
-        }
+     
         Carte retour = patterns[carte];
         patterns[carte] = null;
         return retour;

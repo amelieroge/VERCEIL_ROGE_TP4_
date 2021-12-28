@@ -7,6 +7,7 @@ package tp4_onitama;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.util.Random;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -22,6 +23,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     Carte carteRestante;
     Joueur j1;
     Joueur j2;
+    public ImageIcon img_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/image_vide.png"));
     
     public fenetreDeJeu() {
         initComponents();
@@ -33,6 +35,20 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 panneau_grille.add(caseGraph);
             }
         }
+        
+        int [][] v = {{0,0}};
+        Carte carte_vide = new Carte("vide", v, img_vide);
+        
+        ZoneCarte a = new ZoneCarte(carte_vide);
+        patternJ1_0.add(a);
+        ZoneCarte z = new ZoneCarte(carte_vide);
+        patternJ1_2.add(z);
+        ZoneCarte e = new ZoneCarte(carte_vide);
+        patternJ2_0.add(e);
+        ZoneCarte r = new ZoneCarte(carte_vide);
+        patternJ2_1.add(r);
+        ZoneCarte t = new ZoneCarte(carte_vide);
+        patternJoue.add(t);
         
     }   
     /**
@@ -71,8 +87,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         message = new javax.swing.JTextPane();
         panneau_J2 = new javax.swing.JPanel();
-        pattern_J2_0 = new javax.swing.JButton();
-        patteren_J2_1 = new javax.swing.JButton();
+        patternJ2_0 = new javax.swing.JButton();
+        patternJ2_1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -135,7 +151,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel11.setText("Joueur 1");
+        jLabel11.setText("Joueur blanc");
         jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -181,13 +197,19 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_J2.setBackground(new java.awt.Color(255, 204, 0));
         panneau_J2.setLayout(new java.awt.GridLayout(1, 2));
 
-        pattern_J2_0.addActionListener(new java.awt.event.ActionListener() {
+        patternJ2_0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pattern_J2_0ActionPerformed(evt);
+                patternJ2_0ActionPerformed(evt);
             }
         });
-        panneau_J2.add(pattern_J2_0);
-        panneau_J2.add(patteren_J2_1);
+        panneau_J2.add(patternJ2_0);
+
+        patternJ2_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                patternJ2_1ActionPerformed(evt);
+            }
+        });
+        panneau_J2.add(patternJ2_1);
 
         getContentPane().add(panneau_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 190, 300, 344));
 
@@ -195,7 +217,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("Joueur 2");
+        jLabel7.setText("Joueur noir");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -303,9 +325,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         patternJoue.setEnabled(false);
     }//GEN-LAST:event_patternJoueActionPerformed
 
-    private void pattern_J2_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pattern_J2_0ActionPerformed
+    private void patternJ2_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ2_0ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pattern_J2_0ActionPerformed
+    }//GEN-LAST:event_patternJ2_0ActionPerformed
+
+    private void patternJ2_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ2_1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_patternJ2_1ActionPerformed
 
     private void btn_reglesJeuActionPerformed(java.awt.event.ActionEvent evt) {                                            
         
@@ -410,7 +436,21 @@ public class fenetreDeJeu extends javax.swing.JFrame {
        
         // on rafraichie l'affichage
         panneau_grille.repaint();
+        
+        ZoneCarte a = new ZoneCarte(j1.patterns[0]);
+        patternJ1_0.add(a);
+        ZoneCarte z = new ZoneCarte(j1.patterns[1]);
+        patternJ1_2.add(z);
+        ZoneCarte e = new ZoneCarte(j2.patterns[0]);
+        patternJ2_0.add(e);
+        ZoneCarte p = new ZoneCarte(j2.patterns[1]);
+        patternJ2_1.add(p);
+        ZoneCarte t = new ZoneCarte(carteRestante);
+        patternJoue.add(t);
 
+        panneau_J1.repaint();
+        panneau_J2.repaint();
+        panneau_carteDisponible.repaint();
     }       
   
 
@@ -451,12 +491,12 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JPanel panneau_carteDisponible;
     private javax.swing.JPanel panneau_grille;
     private javax.swing.JPanel panneau_partie;
-    private javax.swing.JButton patteren_J2_1;
     private javax.swing.JButton patternJ1_0;
     private javax.swing.JButton patternJ1_1;
     private javax.swing.JButton patternJ1_2;
+    private javax.swing.JButton patternJ2_0;
+    private javax.swing.JButton patternJ2_1;
     private javax.swing.JButton patternJoue;
-    private javax.swing.JButton pattern_J2_0;
     private javax.swing.JTextField set_joueur1;
     private javax.swing.JTextField set_joueur2;
     // End of variables declaration//GEN-END:variables

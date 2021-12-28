@@ -39,6 +39,7 @@ public class Partie {
     public ImageIcon img_rabbit = new javax.swing.ImageIcon(getClass().getResource("/Images/rabbit.jpg"));
     public ImageIcon img_rooster = new javax.swing.ImageIcon(getClass().getResource("/Images/rooster.jpg"));
     public ImageIcon img_tiger = new javax.swing.ImageIcon(getClass().getResource("/Images/tiger.jpg"));
+    public ImageIcon img_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/image_vide.png"));
     
     public ImageIcon case_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/case_vide1.png"));
     public ImageIcon pion_blanc = new javax.swing.ImageIcon(getClass().getResource("/Images/pion_blanc1.png"));
