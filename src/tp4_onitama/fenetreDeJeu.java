@@ -311,7 +311,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         lbl_j2_nom.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbl_j2_nom.setText("nomJ2");
-        jPanel3.add(lbl_j2_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
+        jPanel3.add(lbl_j2_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, -1, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 20, 344, 150));
 
