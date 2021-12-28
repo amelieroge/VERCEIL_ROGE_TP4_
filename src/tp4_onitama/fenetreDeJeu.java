@@ -4,6 +4,7 @@
  */
 package tp4_onitama;
 
+import java.awt.Graphics;
 import java.util.Random;
 
 /**
@@ -18,6 +19,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     Carte [] listeCartes = new Carte[16];
     Carte [] cartesDisponibles = new Carte[5];
     Carte carteRestante;
+    Joueur j1;
+    Joueur j2;
     
     public fenetreDeJeu() {
         initComponents();
@@ -132,6 +135,12 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jPanel2.add(lbl_j1_couleur, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, -1, -1));
 
         panneau_J1.add(jPanel2);
+
+        patternJ1_0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                patternJ1_0ActionPerformed(evt);
+            }
+        });
         panneau_J1.add(patternJ1_0);
         panneau_J1.add(patternJ1_1);
 
@@ -156,6 +165,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         btn_reglesJeu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btn_reglesJeu.setText("Règles du jeu");
+        btn_reglesJeu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_reglesJeuActionPerformed(evt);
+            }
+        });
         panneau_partie.add(btn_reglesJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, -1, -1));
 
         set_joueur1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -256,6 +270,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         btn_demarer.setEnabled(false);
     }//GEN-LAST:event_btn_demarerActionPerformed
 
+    private void patternJ1_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ1_0ActionPerformed
+        
+    }//GEN-LAST:event_patternJ1_0ActionPerformed
+
+    private void btn_reglesJeuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reglesJeuActionPerformed
+        new ReglesJeu().setVisible(true);
+    }//GEN-LAST:event_btn_reglesJeuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -294,9 +316,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     public void initialiserPartie(){
         
         String nomJoueur1 = set_joueur1.getText();
-        Joueur j1 = new Joueur(nomJoueur1);
+        j1 = new Joueur(nomJoueur1);
         String nomJoueur2 = set_joueur2.getText();
-        Joueur j2 = new Joueur(nomJoueur2);
+        j2 = new Joueur(nomJoueur2);
        
         Random r = new Random();
         int R = r.nextInt(2);
@@ -329,8 +351,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             }
         }
         
-        
-        //j1.tirerUneCarte(cartesDisponibles[1]);
+        carteRestante = cartesDisponibles[0];
+        j1.tirerUneCarte(cartesDisponibles[1]);
+        j1.tirerUneCarte(cartesDisponibles[2]);
+        j2.tirerUneCarte(cartesDisponibles[3]);
+        j2.tirerUneCarte(cartesDisponibles[4]);
         
         grilleJeu.CaseJeu[0][0].PoserPion(new Pion("Blanc", false));
         grilleJeu.CaseJeu[1][0].PoserPion(new Pion("Blanc", false));
@@ -347,7 +372,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         joueurCourant = ListeJoueur[0];
         lbl_joueurCourant.setText(joueurCourant.nom);
        
-    }       
+    } 
+
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
