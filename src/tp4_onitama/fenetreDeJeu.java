@@ -411,7 +411,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 btn_reglesJeuActionPerformed(evt);
             }
         });
-        panneau_partie.add(btn_reglesJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 223, -1, 30));
+        panneau_partie.add(btn_reglesJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
 
         getContentPane().add(panneau_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 510, 340, 300));
 
@@ -429,7 +429,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private void btn_demarerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_demarerActionPerformed
         initialiserPartie();
         panneau_grille.repaint();
-        btn_demarer.setEnabled(true);
+        btn_demarer.setEnabled(false);
         patternJoue.setEnabled(false);
     }//GEN-LAST:event_btn_demarerActionPerformed
 
