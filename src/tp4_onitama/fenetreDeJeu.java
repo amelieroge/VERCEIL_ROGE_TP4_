@@ -217,13 +217,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         lbl_j2_nom = new javax.swing.JLabel();
         panneau_partie = new javax.swing.JPanel();
         btn_demarer = new javax.swing.JButton();
-        btn_reglesJeu = new javax.swing.JButton();
         set_joueur1 = new javax.swing.JTextField();
         set_joueur2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         lbl_joueurCourant = new javax.swing.JLabel();
+        btn_reglesJeu = new javax.swing.JToggleButton();
 
         jLabel3.setText("jLabel3");
 
@@ -366,15 +366,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         });
         panneau_partie.add(btn_demarer, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
-        btn_reglesJeu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btn_reglesJeu.setText("Règles du jeu");
-        btn_reglesJeu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_reglesJeuActionPerformed(evt);
-            }
-        });
-        panneau_partie.add(btn_reglesJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
-
         set_joueur1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         set_joueur1.setText("Entrer nom J1");
         set_joueur1.addActionListener(new java.awt.event.ActionListener() {
@@ -413,6 +404,15 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         lbl_joueurCourant.setText("joueurCourant");
         panneau_partie.add(lbl_joueurCourant, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
 
+        btn_reglesJeu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btn_reglesJeu.setText("Règles du jeu");
+        btn_reglesJeu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_reglesJeuActionPerformed(evt);
+            }
+        });
+        panneau_partie.add(btn_reglesJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 223, -1, 30));
+
         getContentPane().add(panneau_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 510, 340, 300));
 
         setBounds(0, 0, 1380, 868);
@@ -449,12 +449,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_patternJ2_1ActionPerformed
 
-    private void btn_reglesJeuActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void btn_reglesJeuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reglesJeuActionPerformed
         RegleJeu a = new RegleJeu();
         a.setVisible(true);
-    }  
-
-    
+    }//GEN-LAST:event_btn_reglesJeuActionPerformed
+   
     
     /**
      * @param args the command line arguments
@@ -561,33 +560,27 @@ public class fenetreDeJeu extends javax.swing.JFrame {
       
          // on initialise les cartes sur leurs zones de départ
         int [][] a = j1.patterns[0].rotaJGauche();
-        Carte pattern0TourneJGauche = new Carte(j1.patterns[0].Nom, a, j1.patterns[0].Images[1]); 
-        ZoneCarte j1_0 = new ZoneCarte(pattern0TourneJGauche);
+        Carte pattern0TourneJGauche = new Carte(j1.patterns[0].Nom, a, j1.patterns[0].Images[0], j1.patterns[0].Images[1], j1.patterns[0].Images[2]); 
+        ZoneCarte j1_0 = new ZoneCarte(j1.patterns[0].Images[1]);
         patternJ1_0.add(j1_0);
         
         int [][] b = j1.patterns[1].rotaJGauche();
-        Carte pattern1TourneJGauche = new Carte(j1.patterns[1].Nom, b, j1.patterns[1].Images[1]);
-        ZoneCarte j1_1 = new ZoneCarte(pattern1TourneJGauche);
+        Carte pattern1TourneJGauche = new Carte(j1.patterns[1].Nom, b, j1.patterns[1].Images[0], j1.patterns[1].Images[1], j1.patterns[1].Images[2]);
+        ZoneCarte j1_1 = new ZoneCarte(j1.patterns[1].Images[1]);
         patternJ1_1.add(j1_1);
         
         int [][] c = j2.patterns[0].rotaJDroite();
-        Carte pattern0TourneJDroite = new Carte(j2.patterns[0].Nom, c, j2.patterns[0].Images[2]);
-        ZoneCarte j2_1 = new ZoneCarte(pattern0TourneJDroite);
+        Carte pattern0TourneJDroite = new Carte(j2.patterns[0].Nom, c, j2.patterns[0].Images[0], j2.patterns[0].Images[1], j2.patterns[0].Images[2]);
+        ZoneCarte j2_1 = new ZoneCarte(j2.patterns[0].Images[2]);
         patternJ2_0.add(j2_1);
         
         int [][] d = j2.patterns[1].rotaJDroite();
-        Carte pattern1TourneJDroite = new Carte(j2.patterns[1].Nom, d, j2.patterns[1].Images[2]);
-        ZoneCarte j2_2 = new ZoneCarte(pattern1TourneJDroite);
+        Carte pattern1TourneJDroite = new Carte(j2.patterns[1].Nom, d, j2.patterns[1].Images[0], j2.patterns[1].Images[1], j2.patterns[1].Images[2]);
+        ZoneCarte j2_2 = new ZoneCarte(j2.patterns[1].Images[2]);
         patternJ2_1.add(j2_2);
         
-        ZoneCarte restante = new ZoneCarte(carteRestante);
+        ZoneCarte restante = new ZoneCarte(carteRestante.Images[0]);
         patternJoue.add(restante);
-
-        System.out.println(j1.patterns[0].Nom);
-        System.out.println(j1.patterns[1].Nom);
-        System.out.println(j2.patterns[0].Nom);
-        System.out.println(j2.patterns[1].Nom);
-        System.out.println(carteRestante.Nom);
         
         // on rafraichie l'affichage
         panneau_J1.repaint();
@@ -600,7 +593,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_demarer;
-    private javax.swing.JButton btn_reglesJeu;
+    private javax.swing.JToggleButton btn_reglesJeu;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

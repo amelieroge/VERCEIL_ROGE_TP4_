@@ -22,23 +22,73 @@ public class Partie {
     Carte [] listeCartes = new Carte[16];
     Carte [] cartesDisponibles = new Carte[5];
     
-    // On donne des noms et des chemins aux cartes dans Images
+    // import des images
+    // on en importe 3 par carte, vu que l'on a 3 orientations différentes
+    // "gauche" signifie que c'est la carte qui sera disposée du côté gauche du plateau, idem pour "droite"
     public ImageIcon img_boar = new javax.swing.ImageIcon(getClass().getResource("/Images/boar.jpg"));
+    public ImageIcon img_boar_gauche = new javax.swing.ImageIcon(getClass().getResource("/Images/boarG.jpg"));
+    public ImageIcon img_boar_droite = new javax.swing.ImageIcon(getClass().getResource("/Images/boarD.jpg"));
+    
     public ImageIcon img_cobra = new javax.swing.ImageIcon(getClass().getResource("/Images/cobra.jpg"));
+    public ImageIcon img_cobra_gauche = new javax.swing.ImageIcon(getClass().getResource("/Images/cobraG.jpg"));
+    public ImageIcon img_cobra_droite = new javax.swing.ImageIcon(getClass().getResource("/Images/cobraD.jpg"));
+    
     public ImageIcon img_crab = new javax.swing.ImageIcon(getClass().getResource("/Images/crab.jpg"));
+    public ImageIcon img_crab_gauche = new javax.swing.ImageIcon(getClass().getResource("/Images/crabG.jpg"));
+    public ImageIcon img_crab_droite = new javax.swing.ImageIcon(getClass().getResource("/Images/crabD.jpg"));
+    
     public ImageIcon img_crane = new javax.swing.ImageIcon(getClass().getResource("/Images/crane.jpg"));
+    public ImageIcon img_crane_gauche = new javax.swing.ImageIcon(getClass().getResource("/Images/craneG.jpg"));
+    public ImageIcon img_crane_droite = new javax.swing.ImageIcon(getClass().getResource("/Images/craneD.jpg"));
+    
     public ImageIcon img_dragon = new javax.swing.ImageIcon(getClass().getResource("/Images/dragon.jpg"));
+    public ImageIcon img_dragon_gauche = new javax.swing.ImageIcon(getClass().getResource("/Images/dragonG.jpg"));
+    public ImageIcon img_dragon_droite = new javax.swing.ImageIcon(getClass().getResource("/Images/dragonD.jpg"));
+    
     public ImageIcon img_eel = new javax.swing.ImageIcon(getClass().getResource("/Images/eel.jpg"));
+    public ImageIcon img_eel_gauche = new javax.swing.ImageIcon(getClass().getResource("/Images/eelG.jpg"));
+    public ImageIcon img_eel_droite = new javax.swing.ImageIcon(getClass().getResource("/Images/eelD.jpg"));
+    
     public ImageIcon img_elephant = new javax.swing.ImageIcon(getClass().getResource("/Images/elephant.jpg"));
+    public ImageIcon img_elephant_gauche = new javax.swing.ImageIcon(getClass().getResource("/Images/elephantG.jpg"));
+    public ImageIcon img_elephant_droite = new javax.swing.ImageIcon(getClass().getResource("/Images/elephantD.jpg"));
+    
     public ImageIcon img_frog = new javax.swing.ImageIcon(getClass().getResource("/Images/frog.jpg"));
+    public ImageIcon img_frog_gauche = new javax.swing.ImageIcon(getClass().getResource("/Images/frogG.jpg"));
+    public ImageIcon img_frog_droite = new javax.swing.ImageIcon(getClass().getResource("/Images/frogD.jpg"));
+    
     public ImageIcon img_goose = new javax.swing.ImageIcon(getClass().getResource("/Images/goose.jpg"));
+    public ImageIcon img_goose_gauche = new javax.swing.ImageIcon(getClass().getResource("/Images/gooseG.jpg"));
+    public ImageIcon img_goose_droite = new javax.swing.ImageIcon(getClass().getResource("/Images/gooseD.jpg"));
+    
     public ImageIcon img_horse = new javax.swing.ImageIcon(getClass().getResource("/Images/horse.jpg"));
+    public ImageIcon img_horse_gauche = new javax.swing.ImageIcon(getClass().getResource("/Images/horseG.jpg"));
+    public ImageIcon img_horse_droite = new javax.swing.ImageIcon(getClass().getResource("/Images/horseD.jpg"));
+    
     public ImageIcon img_mantis = new javax.swing.ImageIcon(getClass().getResource("/Images/mantis.jpg"));
+    public ImageIcon img_mantis_gauche = new javax.swing.ImageIcon(getClass().getResource("/Images/mantisG.jpg"));
+    public ImageIcon img_mantis_droite = new javax.swing.ImageIcon(getClass().getResource("/Images/mantisD.jpg"));
+    
     public ImageIcon img_monkey = new javax.swing.ImageIcon(getClass().getResource("/Images/monkey.jpg"));
+    public ImageIcon img_monkey_gauche = new javax.swing.ImageIcon(getClass().getResource("/Images/monkeyG.jpg"));
+    public ImageIcon img_monkey_droite = new javax.swing.ImageIcon(getClass().getResource("/Images/monkeyD.jpg"));
+    
     public ImageIcon img_ox = new javax.swing.ImageIcon(getClass().getResource("/Images/ox.jpg"));
+    public ImageIcon img_ox_gauche = new javax.swing.ImageIcon(getClass().getResource("/Images/oxG.jpg"));
+    public ImageIcon img_ox_droite = new javax.swing.ImageIcon(getClass().getResource("/Images/oxD.jpg"));
+    
     public ImageIcon img_rabbit = new javax.swing.ImageIcon(getClass().getResource("/Images/rabbit.jpg"));
+    public ImageIcon img_rabbit_gauche = new javax.swing.ImageIcon(getClass().getResource("/Images/rabbitG.jpg"));
+    public ImageIcon img_rabbit_droite = new javax.swing.ImageIcon(getClass().getResource("/Images/rabbitD.jpg"));
+    
     public ImageIcon img_rooster = new javax.swing.ImageIcon(getClass().getResource("/Images/rooster.jpg"));
+    public ImageIcon img_rooster_gauche = new javax.swing.ImageIcon(getClass().getResource("/Images/roosterG.jpg"));
+    public ImageIcon img_rooster_droite = new javax.swing.ImageIcon(getClass().getResource("/Images/roosterD.jpg"));
+    
     public ImageIcon img_tiger = new javax.swing.ImageIcon(getClass().getResource("/Images/tiger.jpg"));
+    public ImageIcon img_tiger_gauche = new javax.swing.ImageIcon(getClass().getResource("/Images/tigerG.jpg"));
+    public ImageIcon img_tiger_droite = new javax.swing.ImageIcon(getClass().getResource("/Images/tigerD.jpg"));
+    
     public ImageIcon img_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/image_vide.png"));
     
     public ImageIcon case_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/case_vide1.png"));
@@ -51,68 +101,68 @@ public class Partie {
     public Partie(){ 
         
           // On initialise toute les cartes 
-        int [][] b = {{0,-1},{1,0},{0,1}};
-        Carte cboar = new Carte("Boar", b, img_boar);
+         int [][] b = {{0,-1},{1,0},{0,1}};
+        Carte cboar = new Carte("Boar", b, img_boar, img_boar_gauche, img_boar_droite);
         listeCartes[0] = cboar;
 
         int [][] co = {{0,-1},{1,1},{-1,1}};
-        Carte ccobra = new Carte("Cobra", co, img_cobra);
+        Carte ccobra = new Carte("Cobra", co, img_cobra, img_cobra_gauche, img_cobra_droite);
         listeCartes[1] = ccobra;
         
         int [][] crab = {{0,-2},{1,0},{0,2}};
-        Carte ccrab = new Carte("Crab", crab, img_crab);
+        Carte ccrab = new Carte("Crab", crab, img_crab, img_crab_gauche, img_crab_droite);
         listeCartes[2] = ccrab;
         
         int [][] cran = {{-1,-1},{1,0},{-1,1}};
-        Carte ccrane = new Carte("Boar", cran, img_crane);
+        Carte ccrane = new Carte("Boar", cran, img_crane, img_crane_gauche, img_crane_droite);
         listeCartes[3] = ccrane;
         
         int [][] d = {{-1,-1},{1,-2},{1,2},{-1,1}};
-        Carte cdragon = new Carte("Dragon", d, img_dragon);
+        Carte cdragon = new Carte("Dragon", d, img_dragon, img_dragon_gauche, img_dragon_droite);
         listeCartes[4] = cdragon;
         
         int [][] ee = {{1,-1},{-1,-1},{0,1}};
-        Carte ceel = new Carte("Eel", ee, img_eel);
+        Carte ceel = new Carte("Eel", ee, img_eel, img_eel_gauche, img_eel_droite);
         listeCartes[5] = ceel;
         
         int [][] el = {{0,-1},{1,-1},{0,1},{1,1}};
-        Carte celephant = new Carte("Elephant", el, img_elephant);
+        Carte celephant = new Carte("Elephant", el, img_elephant, img_elephant_gauche, img_elephant_droite);
         listeCartes[6] = celephant;
         
         int [][] f = {{0,-2},{-1,1},{-1,1}};
-        Carte cfrog = new Carte("Frog", f, img_frog);
+        Carte cfrog = new Carte("Frog", f, img_frog, img_frog_gauche, img_frog_droite);
         listeCartes[7] = cfrog;
         
         int [][] g = {{0,-1},{1,-1},{0,1},{-1,1}};
-        Carte cgoose = new Carte("Goose", g, img_goose);
+        Carte cgoose = new Carte("Goose", g, img_goose, img_goose_gauche, img_goose_droite);
         listeCartes[8] = cgoose;
         
         int [][] h = {{-1,0},{0,-1},{1,0}};
-        Carte chorse = new Carte("Horse", h, img_horse);
+        Carte chorse = new Carte("Horse", h, img_horse, img_horse_gauche, img_horse_droite);
         listeCartes[9] = chorse;
         
         int [][] ma = {{1,-1},{1,1},{-1,0}};
-        Carte cmantis = new Carte("Mantis", ma, img_mantis);
+        Carte cmantis = new Carte("Mantis", ma, img_mantis, img_mantis_gauche, img_mantis_droite);
         listeCartes[10] = cmantis;
 
         int [][] mo = {{-1,-1},{-1,1},{1,1},{1,-1}};
-        Carte cmonkey = new Carte("Monkey", mo, img_monkey);
+        Carte cmonkey = new Carte("Monkey", mo, img_monkey, img_monkey_gauche, img_monkey_droite);
         listeCartes[11] = cmonkey;
 
         int [][] o = {{1,0},{0,1},{0,1}};
-        Carte cox = new Carte("Ox", o, img_ox);
+        Carte cox = new Carte("Ox", o, img_ox, img_ox_gauche, img_ox_droite);
         listeCartes[12] = cox;
 
         int [][] ra = {{-1,-1},{1,1},{0,2}};
-        Carte crabbit = new Carte("Rabbit", ra, img_rabbit);
+        Carte crabbit = new Carte("Rabbit", ra, img_rabbit, img_rabbit_gauche, img_rabbit_droite);
         listeCartes[13] = crabbit;
 
         int [][] roo = {{-1,-1},{1,1},{0,-1},{0,1}};
-        Carte crooster = new Carte("Rooster", roo, img_rooster);
+        Carte crooster = new Carte("Rooster", roo, img_rooster, img_rooster_gauche, img_rooster_droite);
         listeCartes[14] = crooster;
         
         int [][] tig = {{2,0},{-1,0}};
-        Carte ctiger = new Carte("Tiger", tig, img_tiger);
+        Carte ctiger = new Carte("Tiger", tig, img_tiger, img_tiger_gauche, img_tiger_droite);
         listeCartes[15] = ctiger;
     }
      

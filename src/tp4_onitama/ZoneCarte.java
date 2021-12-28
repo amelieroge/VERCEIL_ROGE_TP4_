@@ -15,13 +15,13 @@ import javax.swing.ImageIcon;
 
 // Class des Zonne de carte dans lesquelles seront affiché la CarteAssocie
 public class ZoneCarte extends JButton {
-    Carte CarteAssocie;
+    ImageIcon CarteAssocie;
     
     ImageIcon img_carte_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/image_vide.png"));
 
     // Constructeur
-    public ZoneCarte(Carte uneCarte){
-        CarteAssocie = uneCarte;
+    public ZoneCarte(ImageIcon image){
+        CarteAssocie = image;
 
     }
     
@@ -33,7 +33,7 @@ public class ZoneCarte extends JButton {
             setIcon(img_carte_vide);
         }
         else {
-            setIcon(CarteAssocie.Images[0]);
+            setIcon(CarteAssocie);
         }
         
     }

@@ -15,7 +15,7 @@ public class Carte {
     
     String Nom;
     int [][] Pattern;
-    ImageIcon [] Images;
+    ImageIcon [] Images = new ImageIcon[3];
     ImageIcon image;
 
     // Methode Deplacementautorisé
@@ -30,11 +30,11 @@ public class Carte {
     }
     
     // Deuxième constructeur qui permet d'appeler seulement l'image voulue en fonction de l'endroit où la carte est appelée
-    public Carte (String unNom, int[][] unPattern, ImageIcon uneImage) { 
+    /*public Carte (String unNom, int[][] unPattern, ImageIcon uneImage) { 
         Nom = unNom;   
         Pattern = unPattern;  
         image = uneImage;
-    }
+    }*/
     
     // Test si le deplacement est possible par rapport au pattern de la carte
     public boolean DeplacementCarte (int liDepart, int coDepart, int liArrive, int coArrive ) {
