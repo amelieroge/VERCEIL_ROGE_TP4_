@@ -27,11 +27,6 @@ public class Carte {
         Image = uneImage;
     }
     
-    public Carte (String nom, int [][] pattern){
-        Nom = nom;
-        Pattern = pattern;
-    } 
-    
     // Test si le deplacement est possible par rapport au pattern de la carte
     public boolean DeplacementCarte (int liDepart, int coDepart, int liArrive, int coArrive ) {
         
@@ -46,29 +41,29 @@ public class Carte {
     return false;
     }
     
-    public boolean rotatDroite (){
+    // Méthode permettant d'ajuster les pattenrns celon l'orientation  de la carte
+    public int [][] rotatGauche (){
         for (int i = 0 ; i < Pattern.length ; i++){
-            for (int j = 0 ; j < Pattern.length ; j++){
-                Pattern[i][j] = Pattern[-j][i];
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    public int[][] rotatGauche (){
-        for (int i = 0 ; i <= Pattern.length-1 ; i++){
-            for (int j = 0 ; j < Pattern.length-1 ; j++){
-                Pattern[i][j] = Pattern[j][-i];
-            }
+            
+        int ligne = Pattern[i][0];
+        int colonne = Pattern[i][1];
+                
+        Pattern[i][1] = ligne;
+        Pattern[i][0] = colonne*-1;
         }
         return Pattern;
     }
-    
-    /*public boolean rotatDroite1 (){
-        AffineTransform transformer = new AffineTransform();
-        transformer.rotate(0.5, this.Image.getWidth() / 2, this.Image.getHeight() / 2);
-        return false;
-    }*/
+   
+    public int [][] rotatDroite (){
+        for (int i = 0 ; i < Pattern.length ; i++){
+            
+        int ligne = Pattern[i][0];
+        int colonne = Pattern[i][1];
+                
+        Pattern[i][1] = ligne*-1;
+        Pattern[i][0] = colonne;
+        }
+        return Pattern;
+    }
     
 }

@@ -22,10 +22,14 @@ public class TP4_Onitama {
         System.out.println("\n");*/
         
         int [][] b = {{0,-1},{1,0},{0,1}};
-        Carte cboar = new Carte("Boar", b);
+        //Carte cboar = new Carte("Boar", b);
+        
+        //cboar.rotatGauche();
+        
+      
         
         
-        System.out.println(cboar.rotatGauche().hashCode());
+        //System.out.println(cboar.rotatGauche().hashCode());
     }
 }
     
