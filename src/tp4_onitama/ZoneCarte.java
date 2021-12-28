@@ -17,9 +17,8 @@ import javax.swing.ImageIcon;
 public class ZoneCarte extends JButton {
     Carte CarteAssocie;
     
-    
+
     ImageIcon img_carte_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/image_vide.png"));
-    
     public ImageIcon img_boar = new javax.swing.ImageIcon(getClass().getResource("/Images/boar.jpg"));
     public ImageIcon img_cobra = new javax.swing.ImageIcon(getClass().getResource("/Images/cobra.jpg"));
     public ImageIcon img_crab = new javax.swing.ImageIcon(getClass().getResource("/Images/crab.jpg"));
@@ -37,7 +36,7 @@ public class ZoneCarte extends JButton {
     public ImageIcon img_rooster = new javax.swing.ImageIcon(getClass().getResource("/Images/rooster.jpg"));
     public ImageIcon img_tiger = new javax.swing.ImageIcon(getClass().getResource("/Images/tiger.jpg"));
     public ImageIcon img_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/image_vide.png"));
-    
+
     // Constructeur
     public ZoneCarte(Carte uneCarte){
         CarteAssocie = uneCarte;

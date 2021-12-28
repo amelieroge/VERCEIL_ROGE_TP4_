@@ -67,7 +67,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         ZoneCarte t = new ZoneCarte(null);
         patternJoue.add(t);
 
-          // On initialise toute les cartes 
+          // On initialise toute les cartes dans le sens orizontale
         int [][] b = {{0,-1},{1,0},{0,1}};
         Carte cboar = new Carte("Boar", b, img_boar);
         listeCartes[0] = cboar;
