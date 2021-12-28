@@ -22,12 +22,12 @@ public class Grille {
                    Case troneBlanc = new Case(true);
                    CaseJeu[i][j] = troneBlanc;
                }
-               if (i == 2 && j == 4){
+               else if (i == 2 && j == 4){
                    Case troneNoir = new Case(true);
                    CaseJeu[i][j] = troneNoir;
                }
                else {
-               CaseJeu[i][j] = new Case(false);
+                   CaseJeu[i][j] = new Case(false);
                }
            }
        }

@@ -50,30 +50,38 @@ public class CaseGraphique extends JButton {
                 break;
             case "Noir":
                 if (CaseAssocie.pionCourant.EtreRoi){
-                        if (trone)
+                        if (trone){
                             setIcon(img_trone_roi_noir);
-                        else 
-                            setIcon(img_roi_noir);
+                        }    
+                        else {
+                            setIcon(img_roi_noir);  
+                        }
                 }
                 else {
-                    if (trone)
+                    if (trone) {
                         setIcon(img_trone_pion_noir);
-                    else 
+                    }
+                    else {
                         setIcon(img_pion_noir);  
+                    }
                 }
                 break;
             case "Blanc":
                 if (CaseAssocie.pionCourant.EtreRoi){
-                    if (trone)
+                    if (trone) {
                         setIcon(img_trone_roi_blanc);
-                    else 
+                    }
+                    else {
                         setIcon(img_roi_blanc);
+                    }
                 }
                 else {
-                    if (trone)
+                    if (trone) {
                         setIcon(img_trone_pion_blanc);
-                    else 
+                    }
+                    else {
                         setIcon(img_pion_blanc);  
+                    }
                 }
                 break;
 
