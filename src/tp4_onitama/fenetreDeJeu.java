@@ -17,6 +17,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     Grille grilleJeu = new Grille();
     Carte [] listeCartes = new Carte[16];
     Carte [] cartesDisponibles = new Carte[5];
+    Carte carteRestante;
     
     public fenetreDeJeu() {
         initComponents();
@@ -295,10 +296,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Joueur j1 = new Joueur(nomJoueur1);
         String nomJoueur2 = set_joueur2.getText();
         Joueur j2 = new Joueur(nomJoueur2);
-        
-        j1.affecterCouleur("Blanc");
-        j2.affecterCouleur("Noir");
-        
+       
         Random r = new Random();
         int R = r.nextInt(2);
         if (R == 0) {
@@ -309,10 +307,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             ListeJoueur[0] = j2;
         }
         
-        lbl_j1_nom.setText(nomJoueur1);
-        lbl_j1_couleur.setText(j1.couleur);
-        lbl_j2_nom.setText(nomJoueur2);
-        lbl_j2_couleur.setText(j2.couleur);
+        ListeJoueur[0].affecterCouleur("Blanc");
+        ListeJoueur[1].affecterCouleur("Noir");
+        
+        lbl_j1_nom.setText(ListeJoueur[0].nom);
+        lbl_j1_couleur.setText(ListeJoueur[0].couleur);
+        lbl_j2_nom.setText(ListeJoueur[1].nom);
+        lbl_j2_couleur.setText(ListeJoueur[1].couleur);
        
         // on met ici 5 cartes à jouer aléatoires dans les cartes à disposition des joueurs
         int n = 15;
@@ -327,6 +328,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             }
         }
         
+        
+        //j1.tirerUneCarte(cartesDisponibles[1]);
+        
         grilleJeu.CaseJeu[0][0].PoserPion(new Pion("Blanc", false));
         grilleJeu.CaseJeu[1][0].PoserPion(new Pion("Blanc", false));
         grilleJeu.CaseJeu[2][0].PoserPion(new Pion("Blanc", true));
@@ -339,10 +343,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         grilleJeu.CaseJeu[3][4].PoserPion(new Pion("Noir", false));
         grilleJeu.CaseJeu[4][4].PoserPion(new Pion("Noir", false));
         
-        if (ListeJoueur[0].couleur == "Blanc")
-            joueurCourant = ListeJoueur[0];
-        else joueurCourant = ListeJoueur[1];
-        
+        joueurCourant = ListeJoueur[0];
         lbl_joueurCourant.setText(joueurCourant.nom);
        
     }       
