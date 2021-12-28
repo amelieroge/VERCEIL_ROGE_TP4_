@@ -42,7 +42,7 @@ public class Carte {
     }
     
     // Méthode permettant d'ajuster les pattenrns celon l'orientation  de la carte
-    public int [][] rotatGauche (){
+    public int [][] rotaJGauche (){
         for (int i = 0 ; i < Pattern.length ; i++){
             
         int ligne = Pattern[i][0];
@@ -54,7 +54,7 @@ public class Carte {
         return Pattern;
     }
    
-    public int [][] rotatDroite (){
+    public int [][] rotaJDroite (){
         for (int i = 0 ; i < Pattern.length ; i++){
             
         int ligne = Pattern[i][0];
