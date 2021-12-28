@@ -202,8 +202,8 @@ public class Partie {
             
             // test si la case est occupé
             if (grilleJeu.caseOccupee(liArrive,coArrive) == false) {
-                // test si la case du throne adverse est atteinte par le joueur courant
-                if (gagnantcase(liArrive,coArrive)){
+                // test si la case du throne adverse est atteinte par le roi du joueur courant
+                if (gagnantcase(liArrive,coArrive) && grilleJeu.typePionGrille(liDepart, coDepart) == "Roi" ){
                     return true;
                 }
                 else {
@@ -221,11 +221,11 @@ public class Partie {
                     return false;
                 }
                 else {
-                    // test si la case du throne adverse est atteinte par le joueur courant
-                    if (gagnantcase(liArrive,coArrive)){
+                    // test si la case du throne adverse est atteinte par le roi du joueur courant
+                    if (gagnantcase(liArrive,coArrive) && grilleJeu.typePionGrille(liDepart, coDepart) == "Roi" ){
                         return true;
                     }
-                    // test sile roi adverse est détruit
+                    // test si le roi adverse est détruit
                     else if (grilleJeu.typePionGrille(liArrive, coArrive) == "Roi") {
                         return true;
                     }
