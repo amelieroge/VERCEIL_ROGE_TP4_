@@ -20,13 +20,7 @@ public class TP4_Onitama {
         System.out.println(casetest.LirecouleurJetonCase());
         
         System.out.println("\n");
-        
-        
     }
-        
-        int [][] PatternDuDragon = {{1,-1}, { 0,1}};
-
-        //Carte Cartetest = new Carte("Carte du Dragon", PatternDuDragon, img_dragon);
 
     
         //if (Cartetest.DeplacementCarte(3,3,4,2)) {

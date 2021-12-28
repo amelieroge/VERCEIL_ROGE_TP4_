@@ -437,16 +437,16 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         // on rafraichie l'affichage
         panneau_grille.repaint();
         
-        ZoneCarte a = new ZoneCarte(j1.patterns[0]);
-        patternJ1_0.add(a);
-        ZoneCarte z = new ZoneCarte(j1.patterns[1]);
-        patternJ1_2.add(z);
-        ZoneCarte e = new ZoneCarte(j2.patterns[0]);
-        patternJ2_0.add(e);
-        ZoneCarte p = new ZoneCarte(j2.patterns[1]);
-        patternJ2_1.add(p);
-        ZoneCarte t = new ZoneCarte(carteRestante);
-        patternJoue.add(t);
+        ZoneCarte j1_1 = new ZoneCarte(j1.patterns[0]);
+        patternJ1_0.add(j1_1);
+        ZoneCarte j1_2 = new ZoneCarte(j1.patterns[1]);
+        patternJ1_2.add(j1_2);
+        ZoneCarte j2_1 = new ZoneCarte(j2.patterns[0]);
+        patternJ2_0.add(j2_1);
+        ZoneCarte j2_2 = new ZoneCarte(j2.patterns[1]);
+        patternJ2_1.add(j2_2);
+        ZoneCarte reste = new ZoneCarte(carteRestante);
+        patternJoue.add(reste);
 
         panneau_J1.repaint();
         panneau_J2.repaint();
