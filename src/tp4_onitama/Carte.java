@@ -4,6 +4,7 @@
  */
 package tp4_onitama;
 
+import java.awt.geom.AffineTransform;
 import javax.swing.ImageIcon;
 
 /**
@@ -26,6 +27,11 @@ public class Carte {
         Image = uneImage;
     }
     
+    public Carte (String nom, int [][] pattern){
+        Nom = nom;
+        Pattern = pattern;
+    } 
+    
     // Test si le deplacement est possible par rapport au pattern de la carte
     public boolean DeplacementCarte (int liDepart, int coDepart, int liArrive, int coArrive ) {
         
@@ -36,7 +42,33 @@ public class Carte {
                 return true;
             }
         }
-    System.out.println("Le deplacement ne correspond pas au pattern");
+    System.out.println("Le déplacement ne correspond pas au pattern");
     return false;
     }
+    
+    public boolean rotatDroite (){
+        for (int i = 0 ; i < Pattern.length ; i++){
+            for (int j = 0 ; j < Pattern.length ; j++){
+                Pattern[i][j] = Pattern[-j][i];
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public int[][] rotatGauche (){
+        for (int i = 0 ; i <= Pattern.length-1 ; i++){
+            for (int j = 0 ; j < Pattern.length-1 ; j++){
+                Pattern[i][j] = Pattern[j][-i];
+            }
+        }
+        return Pattern;
+    }
+    
+    /*public boolean rotatDroite1 (){
+        AffineTransform transformer = new AffineTransform();
+        transformer.rotate(0.5, this.Image.getWidth() / 2, this.Image.getHeight() / 2);
+        return false;
+    }*/
+    
 }
