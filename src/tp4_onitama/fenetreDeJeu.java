@@ -54,9 +54,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 panneau_grille.add(caseGraph);
             }
         }
-       
-        int [][] v = {{0,0}};
-        Carte carte_vide = new Carte("vide", v, null);
+      
                 
         ZoneCarte a = new ZoneCarte(null);
         patternJ1_0.add(a);
@@ -465,6 +463,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         String nomJoueur2 = set_joueur2.getText();
         j2 = new Joueur(nomJoueur2);
        
+        // on définie quel sera le premier joueur
         Random r = new Random();
         int R = r.nextInt(2);
         if (R == 0) {
@@ -475,14 +474,34 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             ListeJoueur[0] = j2;
         }
         
+        // on affecte la couleur correspondante
         ListeJoueur[0].affecterCouleur("Blanc");
         ListeJoueur[1].affecterCouleur("Noir");
         
+        // on met à jours l'affichage
         lbl_j1_nom.setText(ListeJoueur[0].nom);
         lbl_j1_couleur.setText(ListeJoueur[0].couleur);
         lbl_j2_nom.setText(ListeJoueur[1].nom);
         lbl_j2_couleur.setText(ListeJoueur[1].couleur);
        
+        // on initialises les 10 pions
+        grilleJeu.CaseJeu[0][0].PoserPion(new Pion("Blanc", false));
+        grilleJeu.CaseJeu[1][0].PoserPion(new Pion("Blanc", false));
+        grilleJeu.CaseJeu[2][0].PoserPion(new Pion("Blanc", true));
+        grilleJeu.CaseJeu[3][0].PoserPion(new Pion("Blanc", false));
+        grilleJeu.CaseJeu[4][0].PoserPion(new Pion("Blanc", false));
+        
+        grilleJeu.CaseJeu[0][4].PoserPion(new Pion("Noir", false));
+        grilleJeu.CaseJeu[1][4].PoserPion(new Pion("Noir", false));
+        grilleJeu.CaseJeu[2][4].PoserPion(new Pion("Noir", true));
+        grilleJeu.CaseJeu[3][4].PoserPion(new Pion("Noir", false));
+        grilleJeu.CaseJeu[4][4].PoserPion(new Pion("Noir", false));
+        
+        // on initialise le premier joueur
+        joueurCourant = ListeJoueur[0];
+        lbl_joueurCourant.setText(joueurCourant.nom);
+       
+        
         // on met ici 5 cartes à jouer aléatoires dans les cartes à disposition des joueurs
         int n = 15;
         for (int i = 0 ; i < 5 ; i++){
@@ -498,28 +517,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             }
         }
         
+        // on distribue les 5 cartes aux joueurs
         carteRestante = cartesDisponibles[0];
         j1.tirerUneCarte(cartesDisponibles[1]);
         j1.tirerUneCarte(cartesDisponibles[2]);
         j2.tirerUneCarte(cartesDisponibles[3]);
         j2.tirerUneCarte(cartesDisponibles[4]);
-        
-        grilleJeu.CaseJeu[0][0].PoserPion(new Pion("Blanc", false));
-        grilleJeu.CaseJeu[1][0].PoserPion(new Pion("Blanc", false));
-        grilleJeu.CaseJeu[2][0].PoserPion(new Pion("Blanc", true));
-        grilleJeu.CaseJeu[3][0].PoserPion(new Pion("Blanc", false));
-        grilleJeu.CaseJeu[4][0].PoserPion(new Pion("Blanc", false));
-        
-        grilleJeu.CaseJeu[0][4].PoserPion(new Pion("Noir", false));
-        grilleJeu.CaseJeu[1][4].PoserPion(new Pion("Noir", false));
-        grilleJeu.CaseJeu[2][4].PoserPion(new Pion("Noir", true));
-        grilleJeu.CaseJeu[3][4].PoserPion(new Pion("Noir", false));
-        grilleJeu.CaseJeu[4][4].PoserPion(new Pion("Noir", false));
-        
-        joueurCourant = ListeJoueur[0];
-        lbl_joueurCourant.setText(joueurCourant.nom);
-       
       
+        // on initialise les cartes sur leurs zones de départ
         ZoneCarte a = new ZoneCarte(j1.patterns[0]);
         patternJ1_0.add(a);
         ZoneCarte z = new ZoneCarte(j1.patterns[1]);
@@ -531,7 +536,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         ZoneCarte t = new ZoneCarte(carteRestante);
         patternJoue.add(t);
 
-         // on rafraichie l'affichage
+        // on rafraichie l'affichage
         panneau_J1.repaint();
         panneau_J2.repaint();
         panneau_carteDisponible.repaint();
