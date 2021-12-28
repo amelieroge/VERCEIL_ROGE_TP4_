@@ -18,7 +18,7 @@ public class ZoneCarte extends JButton {
     Carte CarteAssocie;
     
     
-    ImageIcon img_carte_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/XXXXXXXXXXXX.png"));
+    ImageIcon img_carte_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/image_vide.png"));
     
     // Constructeur
     public ZoneCarte(Carte uneCarte){
@@ -29,7 +29,7 @@ public class ZoneCarte extends JButton {
     @Override
     public void paintComponent(Graphics G) {
         super.paintComponent(G);
-        if (CarteAssocie.Image == null) {
+        if (CarteAssocie == null) {
             setIcon(img_carte_vide);
         }
         else {
