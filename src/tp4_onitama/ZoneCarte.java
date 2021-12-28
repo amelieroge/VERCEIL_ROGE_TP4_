@@ -6,6 +6,7 @@ package tp4_onitama;
 
 import javax.swing.JButton;
 import java.awt.Graphics;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,6 +17,9 @@ import java.awt.Graphics;
 public class ZoneCarte extends JButton {
     Carte CarteAssocie;
     
+    
+    ImageIcon img_carte_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/XXXXXXXXXXXX.png"));
+    
     // Constructeur
     public ZoneCarte(Carte uneCarte){
         CarteAssocie = uneCarte;
@@ -25,7 +29,13 @@ public class ZoneCarte extends JButton {
     @Override
     public void paintComponent(Graphics G) {
         super.paintComponent(G);
-        setIcon(CarteAssocie.Image);
+        if (CarteAssocie.Image == null) {
+            setIcon(img_carte_vide);
+        }
+        else {
+          setIcon(CarteAssocie.Image);  
+        }
+        
     }
     
 }
