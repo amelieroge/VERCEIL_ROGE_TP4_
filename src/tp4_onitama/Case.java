@@ -11,7 +11,11 @@ package tp4_onitama;
 public class Case {
     
     Pion pionCourant;
+    boolean Trone;
     
+    public Case(boolean trone){
+        Trone = trone;
+    }
     
     // Methodes
     

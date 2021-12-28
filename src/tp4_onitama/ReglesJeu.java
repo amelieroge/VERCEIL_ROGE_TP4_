@@ -52,79 +52,79 @@ public class ReglesJeu extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Yu Gothic Light", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Yu Gothic Light", 1, 14)); // NOI18N
         jLabel1.setText(" Bienvenue chers joueurs !");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel2.setText("Voici les règles du jeu Onitama :  ");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel3.setText("Vous avez chacun 4 pions et 1 roi. La couleur que vous allez");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel4.setText("jouer est décidée aléatoirement, et comme aux échecs c'est le ");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel5.setText("joueur blanc qui commance.");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel6.setText("Au début de la partie, vont vous être distribuées 2 cartes ");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel7.setText("mouvemet chacun. Ce sont les mouvements qui vont pouvoir ");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel8.setText("être exécutés par vos pions, et une carte supplémentaire va");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel9.setText("être disposée à côté du plateau, face visible. Une fois que ");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel10.setText("vous allez faire le déplacement désigné par une de vos cartes,");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel11.setText("vous allez placer cette catre sur le côté du plateau et prendre");
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
 
-        jLabel12.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel12.setText("à la place la carte qui y était disposée. Ainsi, ce sont les 5 ");
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
 
-        jLabel13.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel13.setText("mêmes cartes qui vont être utilisées tout au long de la partie. ");
         add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
 
-        jLabel14.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel14.setText("Pour gagner, vous avez deux possibilités : ");
         add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
 
-        jLabel15.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel15.setText("- manger le roi adverse ;");
         add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
 
-        jLabel16.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel16.setText("- poser un de vos pions sur le trône du roi adverse.");
         add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, -1, -1));
 
-        jLabel17.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel17.setText("A vous d'user de ruse et de stratégie pour gagner avant que");
         add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, -1, -1));
 
-        jLabel18.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel18.setText("votre adversaire ne fasse tomber votre roi. ");
         add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
 
-        jLabel19.setFont(new java.awt.Font("Yu Gothic Light", 0, 11)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
         jLabel19.setText("Bonne partie à vous");
         add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, -1));
     }// </editor-fold>//GEN-END:initComponents

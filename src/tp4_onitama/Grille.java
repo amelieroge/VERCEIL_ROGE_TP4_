@@ -19,15 +19,15 @@ public class Grille {
        for (int i = 0 ; i < 5 ; i++){
            for (int j = 0 ; j < 5 ; j++){
                if (i == 2 && j == 0){
-                   Case troneBlanc = new Case();
+                   Case troneBlanc = new Case(true);
                    CaseJeu[i][j] = troneBlanc;
                }
                if (i == 2 && j == 4){
-                   Case troneNoir = new Case();
+                   Case troneNoir = new Case(true);
                    CaseJeu[i][j] = troneNoir;
                }
                else {
-               CaseJeu[i][j] = new Case();
+               CaseJeu[i][j] = new Case(false);
                }
            }
        }
