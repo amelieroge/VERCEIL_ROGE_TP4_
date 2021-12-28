@@ -198,7 +198,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         lbl_j2_couleur.setText("couleurJ2");
         jPanel3.add(lbl_j2_couleur, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, -1, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 30, 300, 140));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 10, 300, 150));
 
         panneau_partie.setBackground(new java.awt.Color(0, 0, 0));
         panneau_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -254,7 +254,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         lbl_joueurCourant.setText("joueurCourant");
         panneau_partie.add(lbl_joueurCourant, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
 
-        getContentPane().add(panneau_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 540, 300, 270));
+        getContentPane().add(panneau_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 560, 290, 270));
 
         setBounds(0, 0, 1316, 868);
     }// </editor-fold>//GEN-END:initComponents
