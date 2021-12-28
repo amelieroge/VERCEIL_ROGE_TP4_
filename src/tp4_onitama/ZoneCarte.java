@@ -40,6 +40,54 @@ public class ZoneCarte extends JButton {
     // Constructeur
     public ZoneCarte(Carte uneCarte){
         CarteAssocie = uneCarte;
+        
+        int [][] b = {{0,-1},{1,0},{0,1}};
+        Carte cboar = new Carte("Boar", b, img_boar);
+
+        int [][] co = {{0,-1},{1,1},{-1,1}};
+        Carte ccobra = new Carte("Cobra", co, img_cobra);
+        
+        int [][] crab = {{0,-2},{1,0},{0,2}};
+        Carte ccrab = new Carte("Crab", crab, img_crab);
+        
+        int [][] cran = {{-1,-1},{1,0},{-1,1}};
+        Carte ccrane = new Carte("Boar", cran, img_crane);
+        
+        int [][] d = {{-1,-1},{1,-2},{1,2},{-1,1}};
+        Carte cdragon = new Carte("Dragon", d, img_dragon);
+        
+        int [][] ee = {{1,-1},{-1,-1},{0,1}};
+        Carte ceel = new Carte("Eel", ee, img_eel);
+        
+        int [][] el = {{0,-1},{1,-1},{0,1},{1,1}};
+        Carte celephant = new Carte("Elephant", el, img_elephant);
+        
+        int [][] f = {{0,-2},{-1,1},{-1,1}};
+        Carte cfrog = new Carte("Frog", f, img_frog);
+        
+        int [][] g = {{0,-1},{1,-1},{0,1},{-1,1}};
+        Carte cgoose = new Carte("Goose", g, img_goose);
+        
+        int [][] h = {{-1,0},{0,-1},{1,0}};
+        Carte chorse = new Carte("Horse", h, img_horse);
+        
+        int [][] ma = {{1,-1},{1,1},{-1,0}};
+        Carte cmantis = new Carte("Mantis", ma, img_mantis);
+
+        int [][] mo = {{-1,-1},{-1,1},{1,1},{1,-1}};
+        Carte cmonkey = new Carte("Monkey", mo, img_monkey);
+
+        int [][] o = {{1,0},{0,1},{0,1}};
+        Carte cox = new Carte("Ox", o, img_ox);
+
+        int [][] ra = {{-1,-1},{1,1},{0,2}};
+        Carte crabbit = new Carte("Rabbit", ra, img_rabbit);
+
+        int [][] roo = {{-1,-1},{1,1},{0,-1},{0,1}};
+        Carte crooster = new Carte("Rooster", roo, img_rooster);
+        
+        int [][] tig = {{2,0},{-1,0}};
+        Carte ctiger = new Carte("Tiger", tig, img_tiger);
     }
     
     // affichage de la carteAssocie

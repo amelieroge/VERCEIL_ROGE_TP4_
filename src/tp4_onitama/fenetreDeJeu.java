@@ -54,7 +54,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 panneau_grille.add(caseGraph);
             }
         }
-      
                 
         ZoneCarte a = new ZoneCarte(null);
         patternJ1_0.add(a);
@@ -518,13 +517,21 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         j2.tirerUneCarte(cartesDisponibles[4]);
       
         // on initialise les cartes sur leurs zones de départ
-        ZoneCarte j1_0 = new ZoneCarte(j1.patterns[0]);
+        int [][] a = j1.patterns[0].rotaJGauche();
+        Carte pattern0TourneJGauche = new Carte(j1.patterns[0].Nom, a, j1.patterns[0].Image); // on tourne la première carte pour qu'elle soit dans le sens du joueur de gauche
+        ZoneCarte j1_0 = new ZoneCarte(pattern0TourneJGauche);
         patternJ1_0.add(j1_0);
-        ZoneCarte j1_1 = new ZoneCarte(j1.patterns[1]);
+        int [][] b = j1.patterns[1].rotaJGauche();
+        Carte pattern1TourneJGauche = new Carte(j1.patterns[1].Nom, b, j1.patterns[1].Image);
+        ZoneCarte j1_1 = new ZoneCarte(pattern1TourneJGauche);
         patternJ1_1.add(j1_1);
-        ZoneCarte j2_1 = new ZoneCarte(j2.patterns[0]);
+        int [][] c = j2.patterns[0].rotaJDroite();
+        Carte pattern0TourneJDroite = new Carte(j2.patterns[0].Nom, c, j2.patterns[0].Image);
+        ZoneCarte j2_1 = new ZoneCarte(pattern0TourneJDroite);
         patternJ2_0.add(j2_1);
-        ZoneCarte j2_2 = new ZoneCarte(j2.patterns[1]);
+        int [][] d = j2.patterns[1].rotaJDroite();
+        Carte pattern1TourneJDroite = new Carte(j2.patterns[1].Nom, d, j2.patterns[1].Image);
+        ZoneCarte j2_2 = new ZoneCarte(pattern1TourneJDroite);
         patternJ2_1.add(j2_2);
         ZoneCarte restante = new ZoneCarte(carteRestante);
         patternJoue.add(restante);
