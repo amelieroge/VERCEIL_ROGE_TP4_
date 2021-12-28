@@ -4,8 +4,9 @@
  */
 package tp4_onitama;
 
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  *
@@ -18,6 +19,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     Grille grilleJeu = new Grille();
     Carte [] listeCartes = new Carte[16];
     Carte [] cartesDisponibles = new Carte[5];
+    Carte carteRestante;
+    Joueur j1;
+    Joueur j2;
     
     public fenetreDeJeu() {
         initComponents();
@@ -143,6 +147,17 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         lbl_j1_couleur.setText("couleurJ1");
         jPanel2.add(lbl_j1_couleur, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
+        panneau_J1.add(jPanel2);
+
+        patternJ1_0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                patternJ1_0ActionPerformed(evt);
+            }
+        });
+        panneau_J1.add(patternJ1_0);
+        panneau_J1.add(patternJ1_1);
+
+        getContentPane().add(panneau_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 300, 500));
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 500));
 
         panneau_grille.setBackground(new java.awt.Color(0, 0, 0));
@@ -214,6 +229,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         btn_reglesJeu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btn_reglesJeu.setText("Règles du jeu");
+        btn_reglesJeu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_reglesJeuActionPerformed(evt);
+            }
+        });
         panneau_partie.add(btn_reglesJeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, -1, -1));
 
         set_joueur1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -269,6 +289,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     private void btn_demarerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_demarerActionPerformed
         initialiserPartie();
+        panneau_grille.repaint();
         btn_demarer.setEnabled(false);
         patternJoue.setEnabled(false);
     }//GEN-LAST:event_btn_demarerActionPerformed
@@ -281,6 +302,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         patternJoue.setEnabled(false);
     }//GEN-LAST:event_patternJoueActionPerformed
 
+    private void btn_reglesJeuActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        
+    }    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -320,11 +346,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         
         // Scan des noms entrés dans les champs du panel partie
         String nomJoueur1 = set_joueur1.getText();
-        Joueur j1 = new Joueur(nomJoueur1);
+        j1 = new Joueur(nomJoueur1);
         String nomJoueur2 = set_joueur2.getText();
-        Joueur j2 = new Joueur(nomJoueur2);
-        
-        // Determination aléatoire du premier Joueur et donc de la Couleur des Joueurs
+        j2 = new Joueur(nomJoueur2);
+       
         Random r = new Random();
         int R = r.nextInt(2);
         if (R == 0) {
@@ -338,11 +363,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         ListeJoueur[0].affecterCouleur("Blanc");
         ListeJoueur[1].affecterCouleur("Noir");
         
-        // initialisation des zones de texte en fonction des noms des joueurs 
-        lbl_j1_nom.setText(nomJoueur1);
-        lbl_j1_couleur.setText(j1.couleur);
-        lbl_j2_nom.setText(nomJoueur2);
-        lbl_j2_couleur.setText(j2.couleur);
+        lbl_j1_nom.setText(ListeJoueur[0].nom);
+        lbl_j1_couleur.setText(ListeJoueur[0].couleur);
+        lbl_j2_nom.setText(ListeJoueur[1].nom);
+        lbl_j2_couleur.setText(ListeJoueur[1].couleur);
        
         // on met ici 5 cartes à jouer aléatoires dans les cartes à disposition des joueurs
         int n = 15;
@@ -357,11 +381,12 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             }
         }
         
-        // On distribue 2 carte à chaque joueur et la restante au centre
+        carteRestante = cartesDisponibles[0];
+        j1.tirerUneCarte(cartesDisponibles[1]);
+        j1.tirerUneCarte(cartesDisponibles[2]);
+        j2.tirerUneCarte(cartesDisponibles[3]);
+        j2.tirerUneCarte(cartesDisponibles[4]);
         
-        
-        
-        // positionnement de toutes les pièces sur la grille
         grilleJeu.CaseJeu[0][0].PoserPion(new Pion("Blanc", false));
         grilleJeu.CaseJeu[1][0].PoserPion(new Pion("Blanc", false));
         grilleJeu.CaseJeu[2][0].PoserPion(new Pion("Blanc", true));
@@ -374,11 +399,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         grilleJeu.CaseJeu[3][4].PoserPion(new Pion("Noir", false));
         grilleJeu.CaseJeu[4][4].PoserPion(new Pion("Noir", false));
         
-        // on initialise le premier joueur en joueur courant pour le premier tour
-        if (j1.couleur == "Blanc")
-            joueurCourant = j1;
-        else joueurCourant = j2;
-        
+        joueurCourant = ListeJoueur[0];
         lbl_joueurCourant.setText(joueurCourant.nom);
        
         // on rafraichie l'affichage
