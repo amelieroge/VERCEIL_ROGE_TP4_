@@ -106,40 +106,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     
     public fenetreDeJeu() {
         initComponents();
-        
-        
-                   
-        // On initialise les boutons des cases de la grille de jeu 
-        for (int i = 4; i >= 0; i--) {
-            for (int j = 0; j < 5; j++) {
-                CaseGraphique caseGraph = new CaseGraphique(grilleJeu.CaseJeu[i][j]);
-                //panneau_grille.add(caseGraph);
-                caseGraph.addActionListener(new java.awt.event.ActionListener() {
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        Case ca = caseGraph.CaseAssocie;
-                        if (ca.PresencePion() != false && ca.LirecouleurJetonCase() == joueurCourant.couleur){
-                            grilleJeu.cliqueSurCase(ca.coordone);
-                        }
-                        else if (grilleJeu.CoordCaseClique[0] != 5){
-                            if (BougerPion(carteSelectionne, grilleJeu.CoordCaseClique[0], grilleJeu.CoordCaseClique[1], ca.coordone[0], ca.coordone[1])){
-                                // C'EST GAGNEEE
-                                for (int i = 4; i >= 0; i--) {
-                                    for (int j = 0; j < 5; j++) {
-                                        caseGraph.setEnabled(false);
-                                    }   
-                                }
-                            
-                            }
-                            
-                        }
-                        
-                        
-                    }
-                });
-                        
-            }
-        }
-        
+    
         // On bloque les boutons sauf celui des règles de jeux et celui de débuter partie
         
         patternMilieu.setEnabled(false);
@@ -213,6 +180,40 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Carte ctiger = new Carte("Tiger", tig, img_tiger, img_tiger_gauche, img_tiger_droite);
         listeCartes[15] = ctiger;
 
+        carteSelectionne = cboar;
+        // On initialise les boutons des cases de la grille de jeu 
+        for (int i = 4; i >= 0; i--) {
+            for (int j = 0; j < 5; j++) {
+                CaseGraphique caseGraph = new CaseGraphique(grilleJeu.CaseJeu[i][j]);
+                //panneau_grille.add(caseGraph);
+                caseGraph.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        Case ca = caseGraph.CaseAssocie;
+                        if (ca.PresencePion() != false && ca.LirecouleurJetonCase() == joueurCourant.couleur){
+                            grilleJeu.cliqueSurCase(ca.coordone);
+                        }
+                        else if (grilleJeu.CoordCaseClique[0] != 5){
+                            if (BougerPion(carteSelectionne, grilleJeu.CoordCaseClique[0], grilleJeu.CoordCaseClique[1], ca.coordone[0], ca.coordone[1])){
+                                // WIIINNN
+                                for (int i = 4; i >= 0; i--) {
+                                    for (int j = 0; j < 5; j++) {
+                                        caseGraph.setEnabled(false);
+                                    }   
+                                }
+                            
+                            }
+                            // on change de joueur et on réinitialise
+                            joueurSuivant();
+                            grilleJeu.CoordCaseClique[0] = 5;
+                            grilleJeu.CoordCaseClique[1] = 5;
+                        }
+                        panneau_grille.repaint();    
+                    }
+                });
+                panneau_grille.add(caseGraph);
+                
+            }
+        }
     }   
     /**
      * This method is called from within the constructor to initialize the form.
@@ -532,6 +533,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         });
     }
 
+    public void joueurSuivant(){
+        if (joueurCourant == j1){
+            joueurCourant = j2;
+        }
+        else {
+           joueurCourant = j1;
+        }
+    }
     
     // cette fonction permet d'échanger 2 carte en adaptant leurs affichages, et leurs patterns
     public void echangerCarte (Joueur unjoueur, Carte carteJoueur, int numéroCarte) {
