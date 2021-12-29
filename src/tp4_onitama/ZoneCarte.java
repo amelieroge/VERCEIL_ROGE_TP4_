@@ -13,27 +13,27 @@ import javax.swing.ImageIcon;
  * @author thvel
  */
 
-// Class des Zonne de carte dans lesquelles seront affiché la CarteAssocie
+// Class des Zonne de carte dans lesquelles seront affiché la ImageAssocie
 public class ZoneCarte extends JButton {
-    ImageIcon CarteAssocie;
+    ImageIcon ImageAssocie;
     
     ImageIcon img_carte_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/image_vide.png"));
 
     // Constructeur
     public ZoneCarte(ImageIcon image){
-        CarteAssocie = image;
+        ImageAssocie = image;
 
     }
     
-    // affichage de la carteAssocie
+    // affichage de la ImageAssocie
     @Override
     public void paintComponent(Graphics G) {
         super.paintComponent(G);
-        if (CarteAssocie == null) {
+        if (ImageAssocie == null) {
             setIcon(img_carte_vide);
         }
         else {
-            setIcon(CarteAssocie);
+            setIcon(ImageAssocie);
         }
         
     }
