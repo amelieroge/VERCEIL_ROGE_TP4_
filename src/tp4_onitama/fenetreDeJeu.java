@@ -24,7 +24,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     Carte carteRestante;
     Joueur j1;
     Joueur j2;
-
+    
+    
+    // TEESSSTTT
     // import des images
     // on en importe 3 par carte, vu que l'on a 3 orientations différentes
     // "gauche" signifie que c'est la carte qui sera disposée du côté gauche du plateau, idem pour "droite"
