@@ -22,6 +22,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     Carte [] listeCartes = new Carte[16];
     Carte [] cartesDisponibles = new Carte[5];
     Carte carteRestante;
+    Carte carteSelectionne;
     Joueur j1;
     Joueur j2;
 
@@ -106,6 +107,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     public fenetreDeJeu() {
         initComponents();
         
+        
                    
         // On initialise les boutons des cases de la grille de jeu 
         for (int i = 4; i >= 0; i--) {
@@ -118,7 +120,18 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                         if (ca.PresencePion() != false && ca.LirecouleurJetonCase() == joueurCourant.couleur){
                             grilleJeu.cliqueSurCase(ca.coordone);
                         }
-                        
+                        else if (grilleJeu.CoordCaseClique[0] != 5){
+                            if (BougerPion(carteSelectionne, grilleJeu.CoordCaseClique[0], grilleJeu.CoordCaseClique[1], ca.coordone[0], ca.coordone[1])){
+                                // C'EST GAGNEEE
+                                for (int i = 4; i >= 0; i--) {
+                                    for (int j = 0; j < 5; j++) {
+                                        caseGraph.setEnabled(false);
+                                    }   
+                                }
+                            
+                            }
+                            
+                        }
                         
                         
                     }
@@ -698,7 +711,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }
 
     // Renvoie true si la partie est gagné par le joueur courant
-    public boolean BougerPion(Pion unPion, Carte uneCarte, int liDepart, int coDepart, int liArrive, int coArrive ) {
+    public boolean BougerPion(Carte uneCarte, int liDepart, int coDepart, int liArrive, int coArrive ) {
         
         //test si le déplacement est autorisé
         if (DeplacementAutorise(uneCarte,liDepart,coDepart,liArrive,coArrive)) {
