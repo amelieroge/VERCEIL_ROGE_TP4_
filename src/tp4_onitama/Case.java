@@ -12,9 +12,12 @@ public class Case {
     
     Pion pionCourant;
     boolean Trone;
+    int [] coordone  = new int[2];
     
-    public Case(boolean trone){
-        Trone = trone;
+    public Case(boolean trone, int ligne, int colonne){
+        Trone = trone;        
+        coordone[0] = ligne;
+        coordone[1] = colonne;
     }
     
     // Methodes

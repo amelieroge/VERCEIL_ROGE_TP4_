@@ -13,24 +13,27 @@ fait            enleverPion (Pion, int int)
 
 public class Grille {
    Case [][] CaseJeu;
+   int [] CoordCaseClique = new int[2];
    
    public Grille(){
        CaseJeu = new Case[5][5];
        for (int i = 0 ; i < 5 ; i++){
            for (int j = 0 ; j < 5 ; j++){
                if (i == 2 && j == 0){
-                   Case troneBlanc = new Case(true);
+                   Case troneBlanc = new Case(true,i,j);
                    CaseJeu[i][j] = troneBlanc;
                }
                else if (i == 2 && j == 4){
-                   Case troneNoir = new Case(true);
+                   Case troneNoir = new Case(true,i,j);
                    CaseJeu[i][j] = troneNoir;
                }
                else {
-                   CaseJeu[i][j] = new Case(false);
+                   CaseJeu[i][j] = new Case(false,i,j);
                }
            }
        }
+       CoordCaseClique[0] = 5;
+       CoordCaseClique[1] = 5;
    }
    
    public boolean caseOccupee(int ligne, int colonne){
@@ -70,6 +73,10 @@ public class Grille {
         return CaseJeu[ligne][colonne].typePionCase();
     }
    
+   public void cliqueSurCase (int [] coord){
+       CoordCaseClique[0] = coord[0];
+       CoordCaseClique[1] = coord[1];
+   }
    
    
 }
