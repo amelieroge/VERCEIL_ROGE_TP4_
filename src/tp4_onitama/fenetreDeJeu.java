@@ -106,11 +106,24 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     public fenetreDeJeu() {
         initComponents();
         
+                   
         // On initialise les boutons des cases de la grille de jeu 
         for (int i = 4; i >= 0; i--) {
             for (int j = 0; j < 5; j++) {
                 CaseGraphique caseGraph = new CaseGraphique(grilleJeu.CaseJeu[i][j]);
-                panneau_grille.add(caseGraph);
+                //panneau_grille.add(caseGraph);
+                caseGraph.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        Case ca = caseGraph.CaseAssocie;
+                        if (ca.PresencePion() != false && ca.LirecouleurJetonCase() == joueurCourant.couleur){
+                            grilleJeu.cliqueSurCase(ca.coordone);
+                        }
+                        
+                        
+                        
+                    }
+                });
+                        
             }
         }
         
