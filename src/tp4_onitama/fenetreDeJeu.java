@@ -246,8 +246,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         lbl_j2_couleur = new javax.swing.JLabel();
         panneau_J1 = new javax.swing.JPanel();
-        patternJ1_0 = new javax.swing.JButton();
-        patternJ1_1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -311,21 +309,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         panneau_J1.setBackground(new java.awt.Color(255, 204, 0));
         panneau_J1.setLayout(new java.awt.GridLayout(1, 2));
-
-        patternJ1_0.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patternJ1_0ActionPerformed(evt);
-            }
-        });
-        panneau_J1.add(patternJ1_0);
-
-        patternJ1_1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patternJ1_0ActionPerformed(evt);
-            }
-        });
-        panneau_J1.add(patternJ1_1);
-
         getContentPane().add(panneau_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 344, 300));
 
         jPanel4.setBackground(new java.awt.Color(180, 180, 200));
@@ -482,20 +465,16 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         patternMilieu.setEnabled(true);
     }//GEN-LAST:event_btn_demarerActionPerformed
 
-    private void patternJ1_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ1_0ActionPerformed
-        
-    }//GEN-LAST:event_patternJ1_0ActionPerformed
-
     private void patternMilieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternMilieuActionPerformed
         echangerCarte (j1, j1.patterns[0], 0);
     }//GEN-LAST:event_patternMilieuActionPerformed
 
     private void patternJ2_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ2_0ActionPerformed
-        // TODO add your handling code here:
+        griserSaufPionJcourant();
     }//GEN-LAST:event_patternJ2_0ActionPerformed
 
     private void patternJ2_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ2_1ActionPerformed
-        // TODO add your handling code here:
+        griserSaufPionJcourant();
     }//GEN-LAST:event_patternJ2_1ActionPerformed
 
     private void btn_reglesJeuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reglesJeuActionPerformed
@@ -548,7 +527,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         }
     }
     
-    public void griserCase(int ligne, int colonne, Carte uneCarte){
+    public void griserSaufPionJcourant(){
         for (int i = 4; i >= 0; i--) {
             for (int j = 0; j < 5; j++) {
                 if (grilleJeu.caseOccupee(i,j) && grilleJeu.lireCouleurPion(i, j) == joueurCourant.couleur){
@@ -559,6 +538,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 }
             }   
         }
+    }
+    
+    public void griserCase(int ligne, int colonne, Carte uneCarte){
+        griserSaufPionJcourant();
         int [][] lePattern = uneCarte.Pattern;
         for (int i = 0; i < lePattern.length; i++) {
             int liDispo = ligne + lePattern[i][0];
@@ -837,8 +820,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JPanel panneau_carteDisponible;
     private javax.swing.JPanel panneau_grille;
     private javax.swing.JPanel panneau_partie;
-    private javax.swing.JButton patternJ1_0;
-    private javax.swing.JButton patternJ1_1;
     private javax.swing.JButton patternJ2_0;
     private javax.swing.JButton patternJ2_1;
     private javax.swing.JButton patternMilieu;
