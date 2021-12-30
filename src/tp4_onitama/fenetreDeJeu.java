@@ -28,6 +28,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     Joueur j2;
     CaseGraphique [][] GrilleBouton = new CaseGraphique[5][5];
     int numeroCarteSelectionne;
+    boolean Victoire;
 
     // import des images
     // on en importe 3 par carte, vu que l'on a 3 orientations différentes
@@ -205,12 +206,19 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                             griserCase(ca.coordone[0], ca.coordone[1], carteSelectionne);
                         }
                         else if (grilleJeu.CoordCaseClique[0] != 5){
-                            if (BougerPion(grilleJeu.CoordCaseClique[0], grilleJeu.CoordCaseClique[1], ca.coordone[0], ca.coordone[1])){
-                                // WIIINNN
+                            BougerPion(grilleJeu.CoordCaseClique[0], grilleJeu.CoordCaseClique[1], ca.coordone[0], ca.coordone[1]);
+                            message.setText("C'est à " + joueurCourant.nom + " de jouer.");
+                            if (Victoire == true){
+                                // victoire du joueur courant
+                                message.setText("Victoire de " + joueurCourant.nom);
+                                patternJNoir_0.setEnabled(false);
+                                patternJNoir_1.setEnabled(false);
+                                patternJBlanc_1.setEnabled(false);
+                                patternJBlanc_0.setEnabled(false);
                                 for (int i = 4; i >= 0; i--) {
                                     for (int j = 0; j < 5; j++) {
-                                        caseGraph.setEnabled(false);
-                                    }   
+                                        GrilleBouton[i][j].setEnabled(false);
+                                    }  
                                 }
                             }
                             // on change de joueur et on réinitialise
@@ -219,7 +227,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                             grilleJeu.CoordCaseClique[0] = 5;
                             grilleJeu.CoordCaseClique[1] = 5;    
                             lbl_joueurCourant.setText(joueurCourant.nom);
-                            message.setText("C'est au joueur " + joueurCourant.nom + " de jouer.");
                         }
                         panneau_grille.repaint();
                     }
@@ -229,6 +236,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             }
         }
     }   
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -568,20 +576,21 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }
 
     public void joueurSuivant(){
-        if (joueurCourant == ListeJoueur[0]){
+        if (joueurCourant == ListeJoueur[0] && Victoire == false){
             patternJBlanc_0.setEnabled(false);
             patternJBlanc_1.setEnabled(false);
             patternJNoir_0.setEnabled(true);
             patternJNoir_1.setEnabled(true);
             joueurCourant = ListeJoueur[1];
         }
-        else {
+        else if (joueurCourant == ListeJoueur[1] && Victoire == false){
             patternJNoir_0.setEnabled(false);
             patternJNoir_1.setEnabled(false);
             patternJBlanc_0.setEnabled(true);
             patternJBlanc_1.setEnabled(true);
            joueurCourant = ListeJoueur[0];
         }
+        else message.setText("Victoire pour le joueur " + joueurCourant.nom);
     }
     
     // cette fonction permet d'échanger 2 carte en adaptant leurs affichages, et leurs patterns
@@ -761,7 +770,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }
 
     // Renvoie true si la partie est gagné par le joueur courant
-    public boolean BougerPion(int liDepart, int coDepart, int liArrive, int coArrive ) {
+    public void BougerPion(int liDepart, int coDepart, int liArrive, int coArrive ) {
         
         //test si le déplacement est autorisé
         if (DeplacementAutorise(liDepart,coDepart,liArrive,coArrive)) {
@@ -770,12 +779,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             if (grilleJeu.caseOccupee(liArrive,coArrive) == false) {
                 // test si la case du throne adverse est atteinte par le roi du joueur courant
                 if (gagnantcase(liArrive,coArrive) && grilleJeu.typePionGrille(liDepart, coDepart) == "Roi" ){
-                    return true;
+                    Pion Pionrecupere = grilleJeu.enleverPion(liDepart, coDepart);
+                    grilleJeu.placerPion(Pionrecupere, liArrive, coArrive);
+                    Victoire = true;
                 }
                 else {
                 Pion Pionrecupere = grilleJeu.enleverPion(liDepart, coDepart);
                 grilleJeu.placerPion(Pionrecupere, liArrive, coArrive);
-                return false;
+                Victoire = false;
                 }
                 
             }
@@ -784,29 +795,35 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 // test de la couleur du jeton
                 if (grilleJeu.lireCouleurPion(liArrive,coArrive) == joueurCourant.couleur) {
                     System.out.println("Il y a déja un pion de votre couleur sur cette case");
-                    return false;
+                    Victoire = false;
                 }
                 else {
                     // test si la case du throne adverse est atteinte par le roi du joueur courant
                     if (gagnantcase(liArrive,coArrive) && grilleJeu.typePionGrille(liDepart, coDepart) == "Roi" ){
-                        return true;
+                        grilleJeu.enleverPion(liArrive, coArrive);
+                        Pion Pionrecupere = grilleJeu.enleverPion(liDepart, coDepart);
+                        grilleJeu.placerPion(Pionrecupere, liArrive, coArrive);
+                        Victoire = true;
                     }
                     // test si le roi adverse est détruit
                     else if (grilleJeu.typePionGrille(liArrive, coArrive) == "Roi") {
-                        return true;
+                        grilleJeu.enleverPion(liArrive, coArrive);
+                        Pion Pionrecupere = grilleJeu.enleverPion(liDepart, coDepart);
+                        grilleJeu.placerPion(Pionrecupere, liArrive, coArrive);
+                        Victoire = true;
                     }
                     else {
                         grilleJeu.enleverPion(liArrive, coArrive);
                         Pion Pionrecupere = grilleJeu.enleverPion(liDepart, coDepart);
                         grilleJeu.placerPion(Pionrecupere, liArrive, coArrive);
-                        return false;
+                        Victoire = false;
                     }
                 }
             }
         }
         
         else {  
-            return false;
+            Victoire = false;
         }
     
     }
