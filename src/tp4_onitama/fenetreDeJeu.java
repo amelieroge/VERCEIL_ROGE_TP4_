@@ -25,6 +25,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     Carte carteSelectionne;
     Joueur j1;
     Joueur j2;
+    CaseGraphique [][] GrilleBouton = new CaseGraphique[5][5];
 
     // import des images
     // on en importe 3 par carte, vu que l'on a 3 orientations différentes
@@ -180,24 +181,29 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Carte ctiger = new Carte("Tiger", tig, img_tiger, img_tiger_gauche, img_tiger_droite);
         listeCartes[15] = ctiger;
 
+        
+        
         carteSelectionne = cboar;
         // On initialise les boutons des cases de la grille de jeu 
         for (int i = 4; i >= 0; i--) {
             for (int j = 0; j < 5; j++) {
                 CaseGraphique caseGraph = new CaseGraphique(grilleJeu.CaseJeu[i][j]);
-                //panneau_grille.add(caseGraph);
+                GrilleBouton[i][j] = caseGraph;
                 caseGraph.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         Case ca = caseGraph.CaseAssocie;
+                        
                         if (ca.PresencePion() != false && ca.LirecouleurJetonCase() == joueurCourant.couleur){
                             grilleJeu.cliqueSurCase(ca.coordone);
+                            griserCase(ca.coordone[0],ca.coordone[1], carteSelectionne);
                         }
                         else if (grilleJeu.CoordCaseClique[0] != 5){
                             if (BougerPion(carteSelectionne, grilleJeu.CoordCaseClique[0], grilleJeu.CoordCaseClique[1], ca.coordone[0], ca.coordone[1])){
                                 // WIIINNN
                                 for (int i = 4; i >= 0; i--) {
                                     for (int j = 0; j < 5; j++) {
-                                        caseGraph.setEnabled(false);
+                                        GrilleBouton[i][j].setEnabled(false);
+                                        GrilleBouton[4][1].setEnabled(true);
                                     }   
                                 }
                             
@@ -539,6 +545,29 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         }
         else {
            joueurCourant = j1;
+        }
+    }
+    
+    public void griserCase(int ligne, int colonne, Carte uneCarte){
+        for (int i = 4; i >= 0; i--) {
+            for (int j = 0; j < 5; j++) {
+                if (grilleJeu.caseOccupee(i,j) && grilleJeu.lireCouleurPion(i, j) == joueurCourant.couleur){
+                    GrilleBouton[i][j].setEnabled(true);
+                }
+                else {
+                    GrilleBouton[i][j].setEnabled(false);
+                }
+            }   
+        }
+        int [][] lePattern = uneCarte.Pattern;
+        for (int i = 0; i < lePattern.length; i++) {
+            int liDispo = ligne + lePattern[i][0];
+            int coDispo = colonne + lePattern[i][1]; 
+            if (liDispo >= 0 && liDispo <5 && coDispo >= 0 && coDispo < 5 ){
+                if ((grilleJeu.caseOccupee(liDispo, coDispo) && grilleJeu.lireCouleurPion(liDispo, coDispo) != joueurCourant.couleur) || (grilleJeu.caseOccupee(liDispo, coDispo) == false)){
+                    GrilleBouton[liDispo][coDispo].setEnabled(true);
+                }
+            }
         }
     }
     
