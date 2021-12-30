@@ -25,6 +25,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     Carte carteSelectionne;
     Joueur j1;
     Joueur j2;
+    CaseGraphique [][] GrilleBouton = new CaseGraphique[5][5];
 
     // import des images
     // on en importe 3 par carte, vu que l'on a 3 orientations différentes
@@ -192,6 +193,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         for (int i = 4; i >= 0; i--) {
             for (int j = 0; j < 5; j++) {
                 CaseGraphique caseGraph = new CaseGraphique(grilleJeu.CaseJeu[i][j]);
+                GrilleBouton[i][j] = caseGraph;
                 //panneau_grille.add(caseGraph);
                 caseGraph.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -803,6 +805,32 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     
     }
     
+    public void griserSaufPionJcourant(){
+        for (int i = 4; i >= 0; i--) {
+            for (int j = 0; j < 5; j++) {
+                if (grilleJeu.caseOccupee(i,j) && grilleJeu.lireCouleurPion(i, j) == joueurCourant.couleur){
+                    GrilleBouton[i][j].setEnabled(true);
+                }
+                else {
+                    GrilleBouton[i][j].setEnabled(false);
+                }
+            }   
+        }
+    }
+    
+    public void griserCase(int ligne, int colonne, Carte uneCarte){
+        griserSaufPionJcourant();
+        int [][] lePattern = uneCarte.Pattern;
+        for (int i = 0; i < lePattern.length; i++) {
+            int liDispo = ligne + lePattern[i][0];
+            int coDispo = colonne + lePattern[i][1]; 
+            if (liDispo >= 0 && liDispo <5 && coDispo >= 0 && coDispo < 5 ){
+                if ((grilleJeu.caseOccupee(liDispo, coDispo) && grilleJeu.lireCouleurPion(liDispo, coDispo) != joueurCourant.couleur) || (grilleJeu.caseOccupee(liDispo, coDispo) == false)){
+                    GrilleBouton[liDispo][coDispo].setEnabled(true);
+                }
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_demarer;
