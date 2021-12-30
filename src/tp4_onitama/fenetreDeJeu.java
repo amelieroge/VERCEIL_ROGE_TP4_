@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.geom.AffineTransform;
 import java.util.Random;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
         
 /**
  *
@@ -26,6 +27,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     Joueur j1;
     Joueur j2;
     CaseGraphique [][] GrilleBouton = new CaseGraphique[5][5];
+    int numeroCarteSelectionne;
 
     // import des images
     // on en importe 3 par carte, vu que l'on a 3 orientations différentes
@@ -110,11 +112,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     
         // On bloque les boutons sauf celui des règles de jeux et celui de débuter partie
         
-        patternMilieu.setEnabled(true);
-        patternJ1_0.setEnabled(true);
-        patternJ1_1.setEnabled(true);
-        patternJ2_0.setEnabled(true);
-        patternJ2_1.setEnabled(true);
+        patternMilieu.setEnabled(false);
+        patternJBlanc_0.setEnabled(false);
+        patternJBlanc_1.setEnabled(false);
+        patternJNoir_0.setEnabled(false);
+        patternJNoir_1.setEnabled(false);
         
           // On initialise toute les cartes dans le sens orizontale
         int [][] b = {{0,-1},{1,0},{0,1}};
@@ -145,7 +147,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Carte celephant = new Carte("Elephant", el, img_elephant, img_elephant_gauche, img_elephant_droite);
         listeCartes[6] = celephant;
         
-        int [][] f = {{0,-2},{-1,1},{-1,1}};
+        int [][] f = {{0,-2},{-1,1},{1,-1}};
         Carte cfrog = new Carte("Frog", f, img_frog, img_frog_gauche, img_frog_droite);
         listeCartes[7] = cfrog;
         
@@ -200,6 +202,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                         Case ca = caseGraph.CaseAssocie;
                         if (ca.PresencePion() != false && ca.LirecouleurJetonCase() == joueurCourant.couleur){
                             grilleJeu.cliqueSurCase(ca.coordone);
+                            griserCase(ca.coordone[0], ca.coordone[1], carteSelectionne);
                         }
                         else if (grilleJeu.CoordCaseClique[0] != 5){
                             if (BougerPion(grilleJeu.CoordCaseClique[0], grilleJeu.CoordCaseClique[1], ca.coordone[0], ca.coordone[1])){
@@ -211,18 +214,12 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                 }
                             }
                             // on change de joueur et on réinitialise
+                            echangerCarte(joueurCourant, carteSelectionne, numeroCarteSelectionne);
                             joueurSuivant();
                             grilleJeu.CoordCaseClique[0] = 5;
                             grilleJeu.CoordCaseClique[1] = 5;    
                             lbl_joueurCourant.setText(joueurCourant.nom);
-                            
-                            int n;
-                            if (joueurCourant == ListeJoueur[0]){
-                                n = 0;
-                            }
-                            else n = 1;
-                            
-                            echangerCarte(joueurCourant, carteSelectionne, n);
+                            message.setText("C'est au joueur " + joueurCourant.nom + " de jouer.");
                         }
                         panneau_grille.repaint();
                     }
@@ -258,8 +255,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         lbl_j2_couleur = new javax.swing.JLabel();
         button1 = new java.awt.Button();
         panneau_J1 = new javax.swing.JPanel();
-        patternJ1_0 = new javax.swing.JButton();
-        patternJ1_1 = new javax.swing.JButton();
+        patternJBlanc_0 = new javax.swing.JButton();
+        patternJBlanc_1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -270,8 +267,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         message = new javax.swing.JTextPane();
         panneau_J2 = new javax.swing.JPanel();
-        patternJ2_0 = new javax.swing.JButton();
-        patternJ2_1 = new javax.swing.JButton();
+        patternJNoir_0 = new javax.swing.JButton();
+        patternJNoir_1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -326,19 +323,19 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_J1.setBackground(new java.awt.Color(255, 204, 0));
         panneau_J1.setLayout(new java.awt.GridLayout(1, 2));
 
-        patternJ1_0.addActionListener(new java.awt.event.ActionListener() {
+        patternJBlanc_0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patternJ1_0ActionPerformed(evt);
+                patternJBlanc_0ActionPerformed(evt);
             }
         });
-        panneau_J1.add(patternJ1_0);
+        panneau_J1.add(patternJBlanc_0);
 
-        patternJ1_1.addActionListener(new java.awt.event.ActionListener() {
+        patternJBlanc_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patternJ1_1ActionPerformed(evt);
+                patternJBlanc_1ActionPerformed(evt);
             }
         });
-        panneau_J1.add(patternJ1_1);
+        panneau_J1.add(patternJBlanc_1);
 
         getContentPane().add(panneau_J1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 344, 300));
 
@@ -384,19 +381,19 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_J2.setBackground(new java.awt.Color(255, 204, 0));
         panneau_J2.setLayout(new java.awt.GridLayout(1, 2));
 
-        patternJ2_0.addActionListener(new java.awt.event.ActionListener() {
+        patternJNoir_0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patternJ2_0ActionPerformed(evt);
+                patternJNoir_0ActionPerformed(evt);
             }
         });
-        panneau_J2.add(patternJ2_0);
+        panneau_J2.add(patternJNoir_0);
 
-        patternJ2_1.addActionListener(new java.awt.event.ActionListener() {
+        patternJNoir_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patternJ2_1ActionPerformed(evt);
+                patternJNoir_1ActionPerformed(evt);
             }
         });
-        panneau_J2.add(patternJ2_1);
+        panneau_J2.add(patternJNoir_1);
 
         getContentPane().add(panneau_J2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 190, 344, 300));
 
@@ -493,45 +490,46 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         initialiserPartie();
         panneau_grille.repaint();
         btn_demarer.setEnabled(false);
-        patternMilieu.setEnabled(false);
+        patternJBlanc_0.setEnabled(true);
+        patternJBlanc_1.setEnabled(true);
     }//GEN-LAST:event_btn_demarerActionPerformed
 
     private void patternMilieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternMilieuActionPerformed
-        echangerCarte (j1, j1.patterns[0], 0);
+
     }//GEN-LAST:event_patternMilieuActionPerformed
 
-    private void patternJ2_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ2_0ActionPerformed
-        if (joueurCourant == ListeJoueur[1]){
-            carteSelectionne = ListeJoueur[1].patterns[0];
-            message.setText("Le pattern choisi est " + carteSelectionne.Nom);}
-        else message.setText("Ce n'est pas à toi de jouer");
-    }//GEN-LAST:event_patternJ2_0ActionPerformed
+    private void patternJNoir_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJNoir_0ActionPerformed
+        carteSelectionne = ListeJoueur[1].patterns[0];
+        message.setText("Le pattern choisi est " + carteSelectionne.Nom);
+        numeroCarteSelectionne = 0;
+        griserSaufPionJcourant();
+    }//GEN-LAST:event_patternJNoir_0ActionPerformed
 
-    private void patternJ2_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ2_1ActionPerformed
-        if (joueurCourant == ListeJoueur[1]){
-            carteSelectionne = ListeJoueur[1].patterns[1];
-            message.setText("Le pattern choisi est " + carteSelectionne.Nom);}
-        else message.setText("Ce n'est pas à toi de jouer");
-    }//GEN-LAST:event_patternJ2_1ActionPerformed
+    private void patternJNoir_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJNoir_1ActionPerformed
+        carteSelectionne = ListeJoueur[1].patterns[1];
+        message.setText("Le pattern choisi est " + carteSelectionne.Nom);
+        numeroCarteSelectionne = 1;
+        griserSaufPionJcourant();
+    }//GEN-LAST:event_patternJNoir_1ActionPerformed
 
     private void btn_reglesJeuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reglesJeuActionPerformed
         RegleJeu a = new RegleJeu();
         a.setVisible(true);
     }//GEN-LAST:event_btn_reglesJeuActionPerformed
 
-    private void patternJ1_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ1_0ActionPerformed
-        if (joueurCourant == ListeJoueur[0]){
-            carteSelectionne = ListeJoueur[0].patterns[0];
-            message.setText("Le pattern choisi est " + carteSelectionne.Nom);}
-        else message.setText("Ce n'est pas à toi de jouer");
-    }//GEN-LAST:event_patternJ1_0ActionPerformed
+    private void patternJBlanc_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJBlanc_0ActionPerformed
+        carteSelectionne = ListeJoueur[0].patterns[0];
+        message.setText("Le pattern choisi est " + carteSelectionne.Nom);
+        numeroCarteSelectionne = 0;
+        griserSaufPionJcourant();
+    }//GEN-LAST:event_patternJBlanc_0ActionPerformed
 
-    private void patternJ1_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ1_1ActionPerformed
-        if (joueurCourant == j1){
-            carteSelectionne = j1.patterns[1];
-            message.setText("Le pattern choisi est " + carteSelectionne.Nom);}
-        else message.setText("Ce n'est pas à toi de jouer");
-    }//GEN-LAST:event_patternJ1_1ActionPerformed
+    private void patternJBlanc_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJBlanc_1ActionPerformed
+        carteSelectionne = ListeJoueur[0].patterns[1];
+        message.setText("Le pattern choisi est " + carteSelectionne.Nom);
+        numeroCarteSelectionne = 1;
+        griserSaufPionJcourant();
+    }//GEN-LAST:event_patternJBlanc_1ActionPerformed
  
     
    /**
@@ -570,23 +568,31 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }
 
     public void joueurSuivant(){
-        if (joueurCourant == j1){
-            joueurCourant = j2;
+        if (joueurCourant == ListeJoueur[0]){
+            patternJBlanc_0.setEnabled(false);
+            patternJBlanc_1.setEnabled(false);
+            patternJNoir_0.setEnabled(true);
+            patternJNoir_1.setEnabled(true);
+            joueurCourant = ListeJoueur[1];
         }
         else {
-           joueurCourant = j1;
+            patternJNoir_0.setEnabled(false);
+            patternJNoir_1.setEnabled(false);
+            patternJBlanc_0.setEnabled(true);
+            patternJBlanc_1.setEnabled(true);
+           joueurCourant = ListeJoueur[0];
         }
     }
     
     // cette fonction permet d'échanger 2 carte en adaptant leurs affichages, et leurs patterns
     public void echangerCarte (Joueur unjoueur, Carte carteJoueur, int numéroCarte) {
-        if (unjoueur == j1) {
+        if (unjoueur == ListeJoueur[0]) {
             Carte newCarteJoueur = carteRestante;
             Carte newCarteMilieu = carteJoueur;
             
             // on adapte les pattern
-            newCarteJoueur.Pattern = carteJoueur.rotaJGauche();
-            newCarteMilieu.Pattern = carteRestante.rotaJDroite();
+            newCarteJoueur.Pattern = carteRestante.rotaJGauche();
+            newCarteMilieu.Pattern = carteJoueur.rotaJDroite();
             
             // on échange
             unjoueur.patterns[numéroCarte] = newCarteJoueur;
@@ -595,33 +601,33 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             // on adapte les affichages
             if (numéroCarte == 0) {
                 Zonej1_0.ImageAssocie = newCarteJoueur.Images[1];
-                patternJ1_0.add(Zonej1_0);
+                patternJBlanc_0.add(Zonej1_0);
             }
             if (numéroCarte == 1) {
                 Zonej1_1.ImageAssocie = newCarteJoueur.Images[1];
-                patternJ1_1.add(Zonej1_1);
+                patternJBlanc_1.add(Zonej1_1);
             }
             ZoneMilieu.ImageAssocie = newCarteMilieu.Images[0];
             patternMilieu.add(ZoneMilieu);    
         }
         
-        if (unjoueur == j2) {
+        if (unjoueur == ListeJoueur[1]) {
             Carte newCarteJoueur = carteRestante;
             Carte newCarteMilieu = carteJoueur;
             
-            newCarteJoueur.Pattern = carteJoueur.rotaJDroite();
-            newCarteMilieu.Pattern = carteRestante.rotaJGauche();
+            newCarteJoueur.Pattern = carteRestante.rotaJDroite();
+            newCarteMilieu.Pattern = carteJoueur.rotaJGauche();
             
             unjoueur.patterns[numéroCarte] = newCarteJoueur;
             carteRestante = newCarteMilieu;
             
             if (numéroCarte == 0) {
                 Zonej2_0.ImageAssocie = newCarteJoueur.Images[2];
-                patternJ2_0.add(Zonej2_0);
+                patternJNoir_0.add(Zonej2_0);
             }
             if (numéroCarte == 1) {
                 Zonej2_1.ImageAssocie = newCarteJoueur.Images[2];
-                patternJ2_1.add(Zonej2_1);
+                patternJNoir_1.add(Zonej2_1);
             }
             ZoneMilieu.ImageAssocie = newCarteMilieu.Images[0];
             patternMilieu.add(ZoneMilieu);
@@ -701,25 +707,25 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         j2.tirerUneCarte(cartesDisponibles[4]);
       
          // on initialise les cartes sur leurs zones de départ
-        int [][] a = j1.patterns[0].rotaJGauche();
-        Carte pattern0TourneJGauche = new Carte(j1.patterns[0].Nom, a, j1.patterns[0].Images[0], j1.patterns[0].Images[1], j1.patterns[0].Images[2]); 
-        Zonej1_0.ImageAssocie = j1.patterns[0].Images[1];
-        patternJ1_0.add(Zonej1_0);
+        int [][] a = ListeJoueur[0].patterns[0].rotaJGauche();
+        Carte pattern0TourneJGauche = new Carte(ListeJoueur[0].patterns[0].Nom, a, ListeJoueur[0].patterns[0].Images[0], ListeJoueur[0].patterns[0].Images[1], ListeJoueur[0].patterns[0].Images[2]); 
+        Zonej1_0.ImageAssocie = ListeJoueur[0].patterns[0].Images[1];
+        patternJBlanc_0.add(Zonej1_0);
         
-        int [][] b = j1.patterns[1].rotaJGauche();
-        Carte pattern1TourneJGauche = new Carte(j1.patterns[1].Nom, b, j1.patterns[1].Images[0], j1.patterns[1].Images[1], j1.patterns[1].Images[2]);
-        Zonej1_1.ImageAssocie = j1.patterns[1].Images[1];
-        patternJ1_1.add(Zonej1_1);
+        int [][] b = ListeJoueur[0].patterns[1].rotaJGauche();
+        Carte pattern1TourneJGauche = new Carte(ListeJoueur[0].patterns[1].Nom, b, ListeJoueur[0].patterns[1].Images[0], ListeJoueur[0].patterns[1].Images[1], ListeJoueur[0].patterns[1].Images[2]);
+        Zonej1_1.ImageAssocie = ListeJoueur[0].patterns[1].Images[1];
+        patternJBlanc_1.add(Zonej1_1);
         
-        int [][] c = j2.patterns[0].rotaJDroite();
-        Carte pattern0TourneJDroite = new Carte(j2.patterns[0].Nom, c, j2.patterns[0].Images[0], j2.patterns[0].Images[1], j2.patterns[0].Images[2]);
-        Zonej2_0.ImageAssocie = j2.patterns[0].Images[2];
-        patternJ2_0.add(Zonej2_0);
+        int [][] c = ListeJoueur[1].patterns[0].rotaJDroite();
+        Carte pattern0TourneJDroite = new Carte(ListeJoueur[1].patterns[0].Nom, c, ListeJoueur[1].patterns[0].Images[0], ListeJoueur[1].patterns[0].Images[1], ListeJoueur[1].patterns[0].Images[2]);
+        Zonej2_0.ImageAssocie = ListeJoueur[1].patterns[0].Images[2];
+        patternJNoir_0.add(Zonej2_0);
         
-        int [][] d = j2.patterns[1].rotaJDroite();
-        Carte pattern1TourneJDroite = new Carte(j2.patterns[1].Nom, d, j2.patterns[1].Images[0], j2.patterns[1].Images[1], j2.patterns[1].Images[2]);
-        Zonej2_1.ImageAssocie = j2.patterns[1].Images[2];
-        patternJ2_1.add(Zonej2_1);
+        int [][] d = ListeJoueur[1].patterns[1].rotaJDroite();
+        Carte pattern1TourneJDroite = new Carte(ListeJoueur[1].patterns[1].Nom, d, ListeJoueur[1].patterns[1].Images[0], ListeJoueur[1].patterns[1].Images[1], ListeJoueur[1].patterns[1].Images[2]);
+        Zonej2_1.ImageAssocie = ListeJoueur[1].patterns[1].Images[2];
+        patternJNoir_1.add(Zonej2_1);
         
         ZoneMilieu.ImageAssocie = carteRestante.Images[0];
         patternMilieu.add(ZoneMilieu);
@@ -870,10 +876,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JPanel panneau_carteDisponible;
     private javax.swing.JPanel panneau_grille;
     private javax.swing.JPanel panneau_partie;
-    private javax.swing.JButton patternJ1_0;
-    private javax.swing.JButton patternJ1_1;
-    private javax.swing.JButton patternJ2_0;
-    private javax.swing.JButton patternJ2_1;
+    private javax.swing.JButton patternJBlanc_0;
+    private javax.swing.JButton patternJBlanc_1;
+    private javax.swing.JButton patternJNoir_0;
+    private javax.swing.JButton patternJNoir_1;
     private javax.swing.JButton patternMilieu;
     private javax.swing.JTextField set_joueur1;
     private javax.swing.JTextField set_joueur2;

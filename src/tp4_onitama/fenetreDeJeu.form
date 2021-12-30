@@ -138,14 +138,14 @@
         <Property name="rows" type="int" value="1"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="patternJ1_0">
+        <Component class="javax.swing.JButton" name="patternJBlanc_0">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="patternJ1_0ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="patternJBlanc_0ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="patternJ1_1">
+        <Component class="javax.swing.JButton" name="patternJBlanc_1">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="patternJ1_1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="patternJBlanc_1ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -289,14 +289,14 @@
         <Property name="rows" type="int" value="1"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="patternJ2_0">
+        <Component class="javax.swing.JButton" name="patternJNoir_0">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="patternJ2_0ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="patternJNoir_0ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="patternJ2_1">
+        <Component class="javax.swing.JButton" name="patternJNoir_1">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="patternJ2_1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="patternJNoir_1ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
