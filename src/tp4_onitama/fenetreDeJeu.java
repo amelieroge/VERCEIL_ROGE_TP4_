@@ -109,11 +109,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     
         // On bloque les boutons sauf celui des règles de jeux et celui de débuter partie
         
-        patternMilieu.setEnabled(false);
-        patternJ1_0.setEnabled(false);
-        patternJ1_1.setEnabled(false);
-        patternJ2_0.setEnabled(false);
-        patternJ2_1.setEnabled(false);
+        patternMilieu.setEnabled(true);
+        patternJ1_0.setEnabled(true);
+        patternJ1_1.setEnabled(true);
+        patternJ2_0.setEnabled(true);
+        patternJ2_1.setEnabled(true);
         
           // On initialise toute les cartes dans le sens orizontale
         int [][] b = {{0,-1},{1,0},{0,1}};
@@ -180,7 +180,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Carte ctiger = new Carte("Tiger", tig, img_tiger, img_tiger_gauche, img_tiger_droite);
         listeCartes[15] = ctiger;
 
-        carteSelectionne = cboar;
+        /*Le joueur choisit sa carte
+        Le joueur choisit son mouvement
+        le pion bouge
+        la carte choisit est échangé avec la carte du milieu (pattern joue)
+        le joueur récupère la carte du milieu avec adaptation des coordonnées*/
+
+        
+  
         // On initialise les boutons des cases de la grille de jeu 
         for (int i = 4; i >= 0; i--) {
             for (int j = 0; j < 5; j++) {
@@ -193,14 +200,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                             grilleJeu.cliqueSurCase(ca.coordone);
                         }
                         else if (grilleJeu.CoordCaseClique[0] != 5){
-                            if (BougerPion(carteSelectionne, grilleJeu.CoordCaseClique[0], grilleJeu.CoordCaseClique[1], ca.coordone[0], ca.coordone[1])){
+                            if (BougerPion(grilleJeu.CoordCaseClique[0], grilleJeu.CoordCaseClique[1], ca.coordone[0], ca.coordone[1])){
                                 // WIIINNN
                                 for (int i = 4; i >= 0; i--) {
                                     for (int j = 0; j < 5; j++) {
                                         caseGraph.setEnabled(false);
                                     }   
                                 }
-                            
                             }
                             // on change de joueur et on réinitialise
                             joueurSuivant();
@@ -239,6 +245,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         lbl_j1_couleur = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         lbl_j2_couleur = new javax.swing.JLabel();
+        button1 = new java.awt.Button();
         panneau_J1 = new javax.swing.JPanel();
         patternJ1_0 = new javax.swing.JButton();
         patternJ1_1 = new javax.swing.JButton();
@@ -300,6 +307,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         lbl_j2_couleur.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbl_j2_couleur.setText("couleurJ2");
 
+        button1.setLabel("button1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -315,7 +324,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         patternJ1_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patternJ1_0ActionPerformed(evt);
+                patternJ1_1ActionPerformed(evt);
             }
         });
         panneau_J1.add(patternJ1_1);
@@ -472,31 +481,39 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private void btn_demarerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_demarerActionPerformed
         initialiserPartie();
         panneau_grille.repaint();
-        btn_demarer.setEnabled(true);
-        patternMilieu.setEnabled(true);
+        btn_demarer.setEnabled(false);
+        patternMilieu.setEnabled(false);
     }//GEN-LAST:event_btn_demarerActionPerformed
-
-    private void patternJ1_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ1_0ActionPerformed
-        
-    }//GEN-LAST:event_patternJ1_0ActionPerformed
 
     private void patternMilieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternMilieuActionPerformed
         echangerCarte (j1, j1.patterns[0], 0);
     }//GEN-LAST:event_patternMilieuActionPerformed
 
     private void patternJ2_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ2_0ActionPerformed
-        // TODO add your handling code here:
+        carteSelectionne = j2.patterns[0];
+        message.setText("Le pattern choisi est " + carteSelectionne.Nom);
     }//GEN-LAST:event_patternJ2_0ActionPerformed
 
     private void patternJ2_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ2_1ActionPerformed
-        // TODO add your handling code here:
+        carteSelectionne = j2.patterns[0];
+        message.setText("Le pattern choisi est " + carteSelectionne.Nom);
     }//GEN-LAST:event_patternJ2_1ActionPerformed
 
     private void btn_reglesJeuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reglesJeuActionPerformed
         RegleJeu a = new RegleJeu();
         a.setVisible(true);
     }//GEN-LAST:event_btn_reglesJeuActionPerformed
-   
+
+    private void patternJ1_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ1_0ActionPerformed
+        carteSelectionne = j1.patterns[0];
+        message.setText("Le pattern choisi est " + carteSelectionne.Nom);
+    }//GEN-LAST:event_patternJ1_0ActionPerformed
+
+    private void patternJ1_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ1_1ActionPerformed
+        carteSelectionne = j1.patterns[1];
+        message.setText("Le pattern choisi est " + carteSelectionne.Nom);
+    }//GEN-LAST:event_patternJ1_1ActionPerformed
+ 
     
    /**
      * @param args the command line arguments
@@ -687,18 +704,17 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         
         ZoneMilieu.ImageAssocie = carteRestante.Images[0];
         patternMilieu.add(ZoneMilieu);
-        
+                                        
         // on rafraichie l'affichage
         panneau_J1.repaint();
         panneau_J2.repaint();
         panneau_carteDisponible.repaint();
         panneau_grille.repaint();
     }   
-     
   
- public boolean DeplacementAutorise(Carte uneCarte, int liDepart, int coDepart, int liArrive, int coArrive ) {
+    public boolean DeplacementAutorise(int liDepart, int coDepart, int liArrive, int coArrive ) {
 
-        if (uneCarte.DeplacementCarte(liDepart,coDepart,liArrive,coArrive)) {
+        if (carteSelectionne.DeplacementCarte(liDepart,coDepart,liArrive,coArrive)) {
             return true;
         }        
         else {
@@ -720,10 +736,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }
 
     // Renvoie true si la partie est gagné par le joueur courant
-    public boolean BougerPion(Carte uneCarte, int liDepart, int coDepart, int liArrive, int coArrive ) {
+    public boolean BougerPion(int liDepart, int coDepart, int liArrive, int coArrive ) {
         
         //test si le déplacement est autorisé
-        if (DeplacementAutorise(uneCarte,liDepart,coDepart,liArrive,coArrive)) {
+        if (DeplacementAutorise(liDepart,coDepart,liArrive,coArrive)) {
             
             // test si la case est occupé
             if (grilleJeu.caseOccupee(liArrive,coArrive) == false) {
@@ -769,11 +785,12 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         }
     
     }
-  
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_demarer;
     private javax.swing.JToggleButton btn_reglesJeu;
+    private java.awt.Button button1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

@@ -88,6 +88,11 @@
         <Property name="text" type="java.lang.String" value="couleurJ2"/>
       </Properties>
     </Component>
+    <Component class="java.awt.Button" name="button1">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="button1"/>
+      </Properties>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -140,7 +145,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="patternJ1_1">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="patternJ1_0ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="patternJ1_1ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
