@@ -211,9 +211,18 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                             // on change de joueur et on réinitialise
                             joueurSuivant();
                             grilleJeu.CoordCaseClique[0] = 5;
-                            grilleJeu.CoordCaseClique[1] = 5;
+                            grilleJeu.CoordCaseClique[1] = 5;    
+                            lbl_joueurCourant.setText(joueurCourant.nom);
+                            
+                            int n;
+                            if (joueurCourant == ListeJoueur[0]){
+                                n = 0;
+                            }
+                            else n = 1;
+                            
+                            echangerCarte(joueurCourant, carteSelectionne, n);
                         }
-                        panneau_grille.repaint();    
+                        panneau_grille.repaint();
                     }
                 });
                 panneau_grille.add(caseGraph);
@@ -490,13 +499,17 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_patternMilieuActionPerformed
 
     private void patternJ2_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ2_0ActionPerformed
-        carteSelectionne = j2.patterns[0];
-        message.setText("Le pattern choisi est " + carteSelectionne.Nom);
+        if (joueurCourant == ListeJoueur[1]){
+            carteSelectionne = ListeJoueur[1].patterns[0];
+            message.setText("Le pattern choisi est " + carteSelectionne.Nom);}
+        else message.setText("Ce n'est pas à toi de jouer");
     }//GEN-LAST:event_patternJ2_0ActionPerformed
 
     private void patternJ2_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ2_1ActionPerformed
-        carteSelectionne = j2.patterns[0];
-        message.setText("Le pattern choisi est " + carteSelectionne.Nom);
+        if (joueurCourant == ListeJoueur[1]){
+            carteSelectionne = ListeJoueur[1].patterns[1];
+            message.setText("Le pattern choisi est " + carteSelectionne.Nom);}
+        else message.setText("Ce n'est pas à toi de jouer");
     }//GEN-LAST:event_patternJ2_1ActionPerformed
 
     private void btn_reglesJeuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reglesJeuActionPerformed
@@ -505,13 +518,17 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_reglesJeuActionPerformed
 
     private void patternJ1_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ1_0ActionPerformed
-        carteSelectionne = j1.patterns[0];
-        message.setText("Le pattern choisi est " + carteSelectionne.Nom);
+        if (joueurCourant == ListeJoueur[0]){
+            carteSelectionne = ListeJoueur[0].patterns[0];
+            message.setText("Le pattern choisi est " + carteSelectionne.Nom);}
+        else message.setText("Ce n'est pas à toi de jouer");
     }//GEN-LAST:event_patternJ1_0ActionPerformed
 
     private void patternJ1_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJ1_1ActionPerformed
-        carteSelectionne = j1.patterns[1];
-        message.setText("Le pattern choisi est " + carteSelectionne.Nom);
+        if (joueurCourant == j1){
+            carteSelectionne = j1.patterns[1];
+            message.setText("Le pattern choisi est " + carteSelectionne.Nom);}
+        else message.setText("Ce n'est pas à toi de jouer");
     }//GEN-LAST:event_patternJ1_1ActionPerformed
  
     
