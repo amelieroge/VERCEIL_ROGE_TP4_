@@ -11,9 +11,8 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
         
-/**
- *
- * @author thvel
+/*
+    version finale du jeu : branche "master"
  */
 public class fenetreDeJeu extends javax.swing.JFrame {
 
