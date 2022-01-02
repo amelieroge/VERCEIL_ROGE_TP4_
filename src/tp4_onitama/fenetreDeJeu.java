@@ -106,7 +106,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     ZoneCarte Zonej2_1 = new ZoneCarte (img_vide);
     ZoneCarte ZoneMilieu = new ZoneCarte (img_vide);
     
-    //
+    // définit tous les boutons disponibles dans la fenêtre de jeu, ainsi que le déroulement d'un tour de jeu jusqu'à ce qu'un joueur soit désigné gagnant.
     public fenetreDeJeu() {
         initComponents();
     
@@ -117,7 +117,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         patternJNoir_0.setEnabled(false);
         patternJNoir_1.setEnabled(false);
         
-        // On initialise toute les cartes dans le sens orizontale
+        // On initialise toutes les cartes dans le sens horizontal
         int [][] b = {{0,-1},{1,0},{0,1}};
         Carte cboar = new Carte("Boar", b, img_boar, img_boar_gauche, img_boar_droite);
         listeCartes[0] = cboar;
@@ -184,23 +184,26 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         // On initialise les boutons des cases de la grille de jeu 
         for (int i = 4; i >= 0; i--) {
-            for (int j = 0; j < 5; j++) {
-                CaseGraphique caseGraph = new CaseGraphique(grilleJeu.CaseJeu[i][j]);
+            for (int j = 0; j < 5; j++) { 
+                CaseGraphique caseGraph = new CaseGraphique(grilleJeu.CaseJeu[i][j]); // enregistrement des cooordonnées de chaque case
                 GrilleBouton[i][j] = caseGraph;
-                //panneau_grille.add(caseGraph);
+                // création des ActionListener
                 caseGraph.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         Case ca = caseGraph.CaseAssocie;
+                        // on enregistre les coordonnées du pion que le joueur courant sélectionne
                         if (ca.PresencePion() != false && ca.LirecouleurJetonCase() == joueurCourant.couleur){
                             grilleJeu.cliqueSurCase(ca.coordone);
                             griserCase(ca.coordone[0], ca.coordone[1], carteSelectionne);
                         }
+                        // on effectue le déplacement du pion sélectionné préalablement et on vérifie les conditions de victoire
                         else if (grilleJeu.CoordCaseClique[0] != 5){
                             BougerPion(grilleJeu.CoordCaseClique[0], grilleJeu.CoordCaseClique[1], ca.coordone[0], ca.coordone[1]);
                             message.setText("C'est à " + joueurCourant.nom + " de jouer.");
                             if (Victoire == true){
                                 // victoire du joueur courant
                                 message.setText("Victoire de " + joueurCourant.nom);
+                                // on désactive tous les boutons de la fenêtre de jeu
                                 patternJNoir_0.setEnabled(false);
                                 patternJNoir_1.setEnabled(false);
                                 patternJBlanc_1.setEnabled(false);
@@ -484,6 +487,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
        
     }//GEN-LAST:event_set_joueur1ActionPerformed
 
+    // bouton permettant de démarer la partie 
     private void btn_demarerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_demarerActionPerformed
         initialiserPartie();
         panneau_grille.repaint();
@@ -496,6 +500,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_patternMilieuActionPerformed
 
+    // bouton de la carte 0 du joueur noir
     private void patternJNoir_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJNoir_0ActionPerformed
         carteSelectionne = ListeJoueur[1].patterns[0];
         message.setText("Le pattern choisi est " + carteSelectionne.Nom);
@@ -503,6 +508,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         griserSaufPionJcourant();
     }//GEN-LAST:event_patternJNoir_0ActionPerformed
 
+    // bouton de la carte 1 du joueur noir
     private void patternJNoir_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJNoir_1ActionPerformed
         carteSelectionne = ListeJoueur[1].patterns[1];
         message.setText("Le pattern choisi est " + carteSelectionne.Nom);
@@ -510,11 +516,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         griserSaufPionJcourant();
     }//GEN-LAST:event_patternJNoir_1ActionPerformed
 
+    // bouton permettant d'afficher la fenêtre avec les règles du jeu
     private void btn_reglesJeuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reglesJeuActionPerformed
         RegleJeu a = new RegleJeu();
         a.setVisible(true);
     }//GEN-LAST:event_btn_reglesJeuActionPerformed
 
+    // bouton de la carte 0 du joueur blanc
     private void patternJBlanc_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJBlanc_0ActionPerformed
         carteSelectionne = ListeJoueur[0].patterns[0];
         message.setText("Le pattern choisi est " + carteSelectionne.Nom);
@@ -522,6 +530,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         griserSaufPionJcourant();
     }//GEN-LAST:event_patternJBlanc_0ActionPerformed
 
+    // bouton de la carte 1 du joueur blanc
     private void patternJBlanc_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patternJBlanc_1ActionPerformed
         carteSelectionne = ListeJoueur[0].patterns[1];
         message.setText("Le pattern choisi est " + carteSelectionne.Nom);
@@ -565,6 +574,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         });
     }
 
+    // permet de changer de joueur courant et de définir les boutons accessibles à ce nouveau joueur
     public void joueurSuivant(){
         if (joueurCourant == ListeJoueur[0] && Victoire == false){
             patternJBlanc_0.setEnabled(false);
@@ -583,13 +593,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         else message.setText("Victoire pour le joueur " + joueurCourant.nom);
     }
     
-    // cette fonction permet d'échanger 2 carte en adaptant leurs affichages, et leurs patterns
+    // permet d'échanger deux cartes en adaptant leurs affichages et leurs patterns
     public void echangerCarte (Joueur unjoueur, Carte carteJoueur, int numéroCarte) {
         if (unjoueur == ListeJoueur[0]) {
             Carte newCarteJoueur = carteRestante;
             Carte newCarteMilieu = carteJoueur;
             
-            // on adapte les pattern
+            // on adapte les patterns
             newCarteJoueur.Pattern = carteRestante.rotaJGauche();
             newCarteMilieu.Pattern = carteJoueur.rotaJDroite();
             
@@ -631,12 +641,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             ZoneMilieu.ImageAssocie = newCarteMilieu.Images[0];
             patternMilieu.add(ZoneMilieu);
         }
-        // on rafraichie
+        // on rafraichie l'affichage
         panneau_J1.repaint();
         panneau_J2.repaint();
         panneau_carteDisponible.repaint();   
     }
     
+    // dans cette méthode, on créé les joueurs, on leur assigne une couleur, on leur donne des cartes, on pose les pions en position initiale 
+    // sur le plateau et on impose que le joueur blanc (choisi aléatoirement entre les deux joueurs) commence
     public void initialiserPartie(){
         
         // Scan des noms entrés dans les champs du panel partie
@@ -736,6 +748,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_grille.repaint();
     }   
   
+    // renvoie true si la carte prise en argument permet de déplacer le pion - qui est sur la case de départ - vers la case d'arrivée, false sinon
     public boolean DeplacementAutorise(int liDepart, int coDepart, int liArrive, int coArrive ) {
 
         if (carteSelectionne.DeplacementCarte(liDepart,coDepart,liArrive,coArrive)) {
@@ -759,7 +772,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         }    
     }
 
-    // Renvoie true si la partie est gagné par le joueur courant
+    // permet de déplacer un pion en respectant les règles du jeu - enregistre si la partie est gagnée par le joueur courant
     public void BougerPion(int liDepart, int coDepart, int liArrive, int coArrive ) {
         
         //test si le déplacement est autorisé
@@ -788,14 +801,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                     Victoire = false;
                 }
                 else {
-                    // test si la case du throne adverse est atteinte par le roi du joueur courant
+                    // teste si la case du trone adverse est atteinte par le roi du joueur courant
                     if (gagnantcase(liArrive,coArrive) && grilleJeu.typePionGrille(liDepart, coDepart) == "Roi" ){
                         grilleJeu.enleverPion(liArrive, coArrive);
                         Pion Pionrecupere = grilleJeu.enleverPion(liDepart, coDepart);
                         grilleJeu.placerPion(Pionrecupere, liArrive, coArrive);
                         Victoire = true;
                     }
-                    // test si le roi adverse est détruit
+                    // teste si le roi adverse est détruit
                     else if (grilleJeu.typePionGrille(liArrive, coArrive) == "Roi") {
                         grilleJeu.enleverPion(liArrive, coArrive);
                         Pion Pionrecupere = grilleJeu.enleverPion(liDepart, coDepart);
@@ -818,6 +831,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     
     }
     
+    // grise toutes les cases sauf les cases sur lesquelles sont les pions du joueur courant
     public void griserSaufPionJcourant(){
         for (int i = 4; i >= 0; i--) {
             for (int j = 0; j < 5; j++) {
@@ -830,6 +844,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             }   
         }
     }
+    
+    // rise toutes les cases sauf les cases sur lesquelles sont les pions du joueur courant et rend accessible les cases correspondantes à la carte
+    // de déplacement choisi, en fonction d'une case
     
     public void griserCase(int ligne, int colonne, Carte uneCarte){
         griserSaufPionJcourant();
