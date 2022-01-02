@@ -106,7 +106,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     ZoneCarte Zonej2_1 = new ZoneCarte (img_vide);
     ZoneCarte ZoneMilieu = new ZoneCarte (img_vide);
     
-    
+    //
     public fenetreDeJeu() {
         initComponents();
     

@@ -82,23 +82,23 @@ public class RegleJeu extends javax.swing.JFrame {
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
-        jLabel9.setText("être disposée à côté du plateau, face visible. Une fois que ");
+        jLabel9.setText("être disposée à côté du plateau, face visible. Une fois le ");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
-        jLabel10.setText("vous allez faire le déplacement désigné par une de vos cartes,");
+        jLabel10.setText("déplacement lié à votre carte effectué, vous placerez cette carte");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
-        jLabel11.setText("vous allez placer cette catre sur le côté du plateau et prendre");
+        jLabel11.setText("sur le côté du plateau et vous prendrez la carte qui y était");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
-        jLabel12.setText("à la place la carte qui y était disposée. Ainsi, ce sont les 5 ");
+        jLabel12.setText("disposée. Ainsi, ce sont les 5 mêmes cartes qui vont être ");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
-        jLabel13.setText("mêmes cartes qui vont être utilisées tout au long de la partie. ");
+        jLabel13.setText("utilisées tout au long de la partie. ");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
@@ -114,15 +114,15 @@ public class RegleJeu extends javax.swing.JFrame {
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
-        jLabel17.setText("A vous d'user de ruse et de stratégie pour gagner avant que");
+        jLabel17.setText("A vous d'user de ruse et de stratégie afin de prendre l'avantage");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
-        jLabel18.setText("votre adversaire ne fasse tomber votre roi. ");
+        jLabel18.setText("sur votre adversaire.");
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Yu Gothic Light", 0, 12)); // NOI18N
-        jLabel19.setText("Bonne partie à vous");
+        jLabel19.setText("Bonne partie à vous.");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -165,7 +165,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic Light" size="12" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#xea;tre dispos&#xe9;e &#xe0; c&#xf4;t&#xe9; du plateau, face visible. Une fois que "/>
+            <Property name="text" type="java.lang.String" value="&#xea;tre dispos&#xe9;e &#xe0; c&#xf4;t&#xe9; du plateau, face visible. Une fois le "/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -178,7 +178,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic Light" size="12" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="vous allez faire le d&#xe9;placement d&#xe9;sign&#xe9; par une de vos cartes,"/>
+            <Property name="text" type="java.lang.String" value="d&#xe9;placement li&#xe9; &#xe0; votre carte effectu&#xe9;, vous placerez cette carte"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -191,7 +191,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic Light" size="12" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="vous allez placer cette catre sur le c&#xf4;t&#xe9; du plateau et prendre"/>
+            <Property name="text" type="java.lang.String" value="sur le c&#xf4;t&#xe9; du plateau et vous prendrez la carte qui y &#xe9;tait"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -204,7 +204,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic Light" size="12" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&#xe0; la place la carte qui y &#xe9;tait dispos&#xe9;e. Ainsi, ce sont les 5 "/>
+            <Property name="text" type="java.lang.String" value="dispos&#xe9;e. Ainsi, ce sont les 5 m&#xea;mes cartes qui vont &#xea;tre "/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -217,7 +217,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic Light" size="12" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="m&#xea;mes cartes qui vont &#xea;tre utilis&#xe9;es tout au long de la partie. "/>
+            <Property name="text" type="java.lang.String" value="utilis&#xe9;es tout au long de la partie. "/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -269,7 +269,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic Light" size="12" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="A vous d&apos;user de ruse et de strat&#xe9;gie pour gagner avant que"/>
+            <Property name="text" type="java.lang.String" value="A vous d&apos;user de ruse et de strat&#xe9;gie afin de prendre l&apos;avantage"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -282,7 +282,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic Light" size="12" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="votre adversaire ne fasse tomber votre roi. "/>
+            <Property name="text" type="java.lang.String" value="sur votre adversaire."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -295,7 +295,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic Light" size="12" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Bonne partie &#xe0; vous"/>
+            <Property name="text" type="java.lang.String" value="Bonne partie &#xe0; vous."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
