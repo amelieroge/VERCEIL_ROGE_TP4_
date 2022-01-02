@@ -4,17 +4,8 @@ import java.util.Random;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
 
-/*
-Joueur [2] listeJoueurs 
-Joueur joueurCourant
-Grille GrilleJeu
-Carte prochainDeplacement
-boolean deplacementAutorise(Carte)
-boolean etreGagnantPourJoueur(Joueur)
-void initialiserPartie()
-void attribuerCouleursAuxJoueurs()
-*/
 
+// classe prototype permettant la création de la classe fenetreDeJeu
 public class Partie {
     Joueur [] listeJoueurs = new Joueur[2];
     Joueur joueurCourant;
@@ -22,9 +13,10 @@ public class Partie {
     Carte [] listeCartes = new Carte[16];
     Carte [] cartesDisponibles = new Carte[5];
     
-    // import des images
+    // définition des références des images pour les cartes de pattern
     // on en importe 3 par carte, vu que l'on a 3 orientations différentes
     // "gauche" signifie que c'est la carte qui sera disposée du côté gauche du plateau, idem pour "droite"
+    
     public ImageIcon img_boar = new javax.swing.ImageIcon(getClass().getResource("/Images/boar.jpg"));
     public ImageIcon img_boar_gauche = new javax.swing.ImageIcon(getClass().getResource("/Images/boarG.jpg"));
     public ImageIcon img_boar_droite = new javax.swing.ImageIcon(getClass().getResource("/Images/boarD.jpg"));
@@ -98,9 +90,9 @@ public class Partie {
     public ImageIcon roi_noir = new javax.swing.ImageIcon(getClass().getResource("/Images/roi_noir1.png"));
     public ImageIcon trone_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/trone1.png"));
     
+    // constructeur qui initialise les cartes de patterns
     public Partie(){ 
         
-          // On initialise toute les cartes 
          int [][] b = {{0,-1},{1,0},{0,1}};
         Carte cboar = new Carte("Boar", b, img_boar, img_boar_gauche, img_boar_droite);
         listeCartes[0] = cboar;
@@ -166,8 +158,11 @@ public class Partie {
         listeCartes[15] = ctiger;
     }
      
+    // dans cette méthode, on créé les joueurs, on leur assigne une couleur, on leur donne des cartes, on pose les pions en position initiale 
+    // sur le plateau et on impose que le joueur blanc (choisi aléatoirement entre les deux joueurs) commence
     public void initialiserPartie(){
         
+        // on prend les noms des joueurs pour les créer
         Scanner sc = new Scanner (System.in);
         System.out.println("Joueur 1 :");
         String j1 = sc.next();
@@ -187,6 +182,7 @@ public class Partie {
             listeJoueurs[0] = J2; // on affecte les joueurs à des places aléatoires dans la liste
         }
         
+        // on leur affecte leurs couleurs, l'aléatoire entrant dans l'ordre dans lequel les joueurs seront dans la liste
         listeJoueurs[0].affecterCouleur("Blanc");
         listeJoueurs[1].affecterCouleur("Noir");
         
@@ -203,6 +199,7 @@ public class Partie {
             }
         }
         
+        // on place les pions sur le plateau
         grilleJeu.CaseJeu[0][0].PoserPion(new Pion("Blanc", false));
         grilleJeu.CaseJeu[1][0].PoserPion(new Pion("Blanc", false));
         grilleJeu.CaseJeu[2][0].PoserPion(new Pion("Blanc", true));
@@ -215,13 +212,14 @@ public class Partie {
         grilleJeu.CaseJeu[3][4].PoserPion(new Pion("Noir", false));
         grilleJeu.CaseJeu[4][4].PoserPion(new Pion("Noir", false));
         
+        // on dit au joueur blanc de commencer
         if (J1.couleur == "Blanc")
             joueurCourant = J1;
         else joueurCourant = J2;
         
-        System.out.println(joueurCourant.nom);
     }       
-            
+      
+    // renvoie true si la carte prise en argument permet de déplacer le pion - qui est sur la case de départ - vers la case d'arrivée, false sinon
     public boolean DeplacementAutorise(Carte uneCarte, int liDepart, int coDepart, int liArrive, int coArrive ) {
 
         if (uneCarte.DeplacementCarte(liDepart,coDepart,liArrive,coArrive)) {
@@ -232,7 +230,7 @@ public class Partie {
         }
     }
     
-    // renvoie true si le joueur à atteint la case du trone adverse 
+    // renvoie true si le joueur a atteint la case du trone adverse 
     public boolean gagnantcase(int ligne, int colonne){
         if (joueurCourant == listeJoueurs[0] && ligne == 2 && colonne == 4) {
             return true;
@@ -245,15 +243,15 @@ public class Partie {
         }    
     }
 
-    // Renvoie true si la partie est gagné par le joueur courant
+    // permet de déplacer un pion en respectant les règles du jeu - renvoie true si la partie est gagnée par le joueur courant
     public boolean BougerPion(Pion unPion, Carte uneCarte, int liDepart, int coDepart, int liArrive, int coArrive ) {
         
-        //test si le déplacement est autorisé
+        //teste si le déplacement est autorisé
         if (DeplacementAutorise(uneCarte,liDepart,coDepart,liArrive,coArrive)) {
             
-            // test si la case est occupé
+            // teste si la case est occupé
             if (grilleJeu.caseOccupee(liArrive,coArrive) == false) {
-                // test si la case du throne adverse est atteinte par le roi du joueur courant
+                // teste si la case du throne adverse est atteinte par le roi du joueur courant
                 if (gagnantcase(liArrive,coArrive) && grilleJeu.typePionGrille(liDepart, coDepart) == "Roi" ){
                     return true;
                 }
@@ -272,11 +270,11 @@ public class Partie {
                     return false;
                 }
                 else {
-                    // test si la case du throne adverse est atteinte par le roi du joueur courant
+                    // teste si la case du throne adverse est atteinte par le roi du joueur courant
                     if (gagnantcase(liArrive,coArrive) && grilleJeu.typePionGrille(liDepart, coDepart) == "Roi" ){
                         return true;
                     }
-                    // test si le roi adverse est détruit
+                    // teste si le roi adverse est détruit
                     else if (grilleJeu.typePionGrille(liArrive, coArrive) == "Roi") {
                         return true;
                     }

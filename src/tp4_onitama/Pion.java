@@ -20,12 +20,12 @@ public class Pion {
     
     // Méthodes 
     
-    
+    // renvoie la couleur du pion
     public String lireCouleur() {
         return(couleur);
     }
     
-    // permet de determiner de quel Type est le pion
+    // permet de déterminer de quel type est le pion ("Roi" ou "Pion")
     public String typePion() {
         if (EtreRoi == true) {
             return "Roi";
@@ -35,5 +35,6 @@ public class Pion {
             
         }
     }
+    
 }
 

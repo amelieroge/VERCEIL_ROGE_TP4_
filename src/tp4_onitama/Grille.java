@@ -4,17 +4,11 @@
  */
 package tp4_onitama;
 
-/* fait         Case [5][5] CaseJeu 
-fait            boolean CaseOccupee(int,int)
-fait            String lireCouleurDuPion
-fait            placerPion(Pion, int, int)
-fait            enleverPion (Pion, int int)
-*/
-
 public class Grille {
    Case [][] CaseJeu;
    int [] CoordCaseClique = new int[2];
    
+// construit une case de 5x5 cases en définissant un trone noir et un trone blanc
    public Grille(){
        CaseJeu = new Case[5][5];
        for (int i = 0 ; i < 5 ; i++){
@@ -32,10 +26,11 @@ public class Grille {
                }
            }
        }
-       CoordCaseClique[0] = 5;
+       CoordCaseClique[0] = 5; // initialise les CoordClique à 5 pour effectuer les boucles de jeu
        CoordCaseClique[1] = 5;
    }
    
+   // renvoie true si la case étudiée est occupée
    public boolean caseOccupee(int ligne, int colonne){
        if (CaseJeu[ligne][colonne].PresencePion()){
            return true;
@@ -43,10 +38,12 @@ public class Grille {
        return false;
    }
    
+   // renvoie la couleur du pion qui est sur la case étudiée
    public String lireCouleurPion(int ligne, int colonne){
        return CaseJeu[ligne][colonne].LirecouleurJetonCase();
    }
    
+   // place un pion p sur une case inoccupée
    public boolean placerPion(Pion p, int ligne, int colonne){
        if (!caseOccupee(ligne, colonne)){
            CaseJeu[ligne][colonne].PoserPion(p);
@@ -58,6 +55,7 @@ public class Grille {
        }
    }
    
+   // retire et renvoie un pion d'une case
    public Pion enleverPion(int ligne, int colonne){
        if (caseOccupee(ligne, colonne)){
            Pion Pionrecup = CaseJeu[ligne][colonne].pionCourant;
@@ -69,14 +67,15 @@ public class Grille {
        }
    }
    
+   // renvoie le type de pion qui est sur la case étudiée ("Roi" ou "Pion")
    public String typePionGrille(int ligne, int colonne) {
         return CaseJeu[ligne][colonne].typePionCase();
     }
    
+   // renvoie les coordonnées de la case selctionnée
    public void cliqueSurCase (int [] coord){
        CoordCaseClique[0] = coord[0];
        CoordCaseClique[1] = coord[1];
    }
-   
    
 }

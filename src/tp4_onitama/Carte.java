@@ -4,7 +4,6 @@
  */
 package tp4_onitama;
 
-import java.awt.geom.AffineTransform;
 import javax.swing.ImageIcon;
 
 /**
@@ -18,9 +17,8 @@ public class Carte {
     ImageIcon [] Images = new ImageIcon[3];
     ImageIcon image;
 
-    // Methode Deplacementautorisé
 
-    // Premier constructeur qui permet de rassembler toutes les images composant une carte
+    // Constructeur qui permet de rassembler toutes les images composant une carte
     public Carte (String unNom, int[][] unPattern, ImageIcon img , ImageIcon imgGauche , ImageIcon imgDroite ) { 
         Nom = unNom;   
         Pattern = unPattern;  
@@ -29,14 +27,7 @@ public class Carte {
         Images[2] = imgDroite;
     }
     
-    // Deuxième constructeur qui permet d'appeler seulement l'image voulue en fonction de l'endroit où la carte est appelée
-    /*public Carte (String unNom, int[][] unPattern, ImageIcon uneImage) { 
-        Nom = unNom;   
-        Pattern = unPattern;  
-        image = uneImage;
-    }*/
-    
-    // Test si le deplacement est possible par rapport au pattern de la carte
+    // Teste si le déplacement est possible par rapport au pattern de la carte
     public boolean DeplacementCarte (int liDepart, int coDepart, int liArrive, int coArrive ) {
         
         for (int i = 0; i < Pattern.length; i++) {
@@ -51,7 +42,7 @@ public class Carte {
     }
     
     // Méthodes permettant d'ajuster les patterns selon l'orientation  de la carte
-    public int [][] rotaJGauche (){
+    public int [][] rotaJGauche (){ // -> correspond au joueur blanc (le joueur de gauche)
         for (int i = 0 ; i < Pattern.length ; i++){
             
         int ligne = Pattern[i][0];
@@ -63,7 +54,7 @@ public class Carte {
         return Pattern;
     }
    
-    public int [][] rotaJDroite (){
+    public int [][] rotaJDroite (){ // -> correspond au joueur noir (le joueur de droite)
         for (int i = 0 ; i < Pattern.length ; i++){
             
         int ligne = Pattern[i][0];

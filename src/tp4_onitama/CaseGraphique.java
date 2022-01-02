@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 public class CaseGraphique extends JButton {
     Case CaseAssocie;
     
+    // on définit des liens pour aller chercher les images qui constituent le plateau de jeu
     ImageIcon img_case_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/case_vide1.png"));
     ImageIcon img_pion_blanc = new javax.swing.ImageIcon(getClass().getResource("/Images/pion_blanc1.png"));
     ImageIcon img_pion_noir = new javax.swing.ImageIcon(getClass().getResource("/Images/pion_noir1.png"));
@@ -31,7 +32,7 @@ public class CaseGraphique extends JButton {
         CaseAssocie = uneCase;
     }
     
-    // affichage l'image de la CaseAssocie en fonction de ce qu'il y a sur la case (case vide, couleur et type de pion)
+    // affiche l'image de la CaseAssocie en fonction de ce qu'il y a sur la case (case vide, trone ou case simple, couleur et type de pion)
     @Override
     public void paintComponent(Graphics G) {
         super.paintComponent(G);
@@ -87,6 +88,5 @@ public class CaseGraphique extends JButton {
 
         }
     }
-
     
 }

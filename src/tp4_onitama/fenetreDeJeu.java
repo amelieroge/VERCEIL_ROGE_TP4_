@@ -30,7 +30,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     int numeroCarteSelectionne;
     boolean Victoire;
 
-    // import des images
+    // définition des liens des images pour les cartes de pattern
     // on en importe 3 par carte, vu que l'on a 3 orientations différentes
     // "gauche" signifie que c'est la carte qui sera disposée du côté gauche du plateau, idem pour "droite"
     public ImageIcon img_boar = new javax.swing.ImageIcon(getClass().getResource("/Images/boar.jpg"));
@@ -100,7 +100,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     public ImageIcon img_vide = new javax.swing.ImageIcon(getClass().getResource("/Images/image_vide.png"));
     
     // initialisation des zones de cartes
-    
     ZoneCarte Zonej1_0 = new ZoneCarte (img_vide);
     ZoneCarte Zonej1_1 = new ZoneCarte (img_vide);
     ZoneCarte Zonej2_0 = new ZoneCarte (img_vide);
@@ -112,14 +111,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         initComponents();
     
         // On bloque les boutons sauf celui des règles de jeux et celui de débuter partie
-        
         patternMilieu.setEnabled(false);
         patternJBlanc_0.setEnabled(false);
         patternJBlanc_1.setEnabled(false);
         patternJNoir_0.setEnabled(false);
         patternJNoir_1.setEnabled(false);
         
-          // On initialise toute les cartes dans le sens orizontale
+        // On initialise toute les cartes dans le sens orizontale
         int [][] b = {{0,-1},{1,0},{0,1}};
         Carte cboar = new Carte("Boar", b, img_boar, img_boar_gauche, img_boar_droite);
         listeCartes[0] = cboar;
@@ -184,14 +182,6 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         Carte ctiger = new Carte("Tiger", tig, img_tiger, img_tiger_gauche, img_tiger_droite);
         listeCartes[15] = ctiger;
 
-        /*Le joueur choisit sa carte
-        Le joueur choisit son mouvement
-        le pion bouge
-        la carte choisit est échangé avec la carte du milieu (pattern joue)
-        le joueur récupère la carte du milieu avec adaptation des coordonnées*/
-
-        
-  
         // On initialise les boutons des cases de la grille de jeu 
         for (int i = 4; i >= 0; i--) {
             for (int j = 0; j < 5; j++) {

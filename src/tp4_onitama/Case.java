@@ -30,6 +30,7 @@ public class Case {
         return true;
     }
     
+    // renvoie true si le déplacement s'est bien fait, un message d'erreur sinon
     public boolean PoserPion(Pion unPion) {
         if (pionCourant == null) {
             pionCourant = unPion;
@@ -40,6 +41,7 @@ public class Case {
         return false;
     }
     
+    // renvoie true si le pion est bien retité, un message d'erreur sinon
     public boolean EnleverPion(Pion unPion) {
         if (pionCourant != null) {
             pionCourant = null;
@@ -49,7 +51,7 @@ public class Case {
         return false;
     } 
      
-     
+    // renvoie la couleur du jeton courant
     public String LirecouleurJetonCase () {
         
         if (pionCourant == null) {
@@ -60,6 +62,7 @@ public class Case {
         
     }
     
+    // renvoie "Roi" si le pion étudié est un roi, "Pion" sinon
     public String typePionCase() {
         return pionCourant.typePion();
     }

@@ -4,10 +4,8 @@
  */
 package tp4_onitama;
 
-/**
- *
- * @author ASUS
- */
+// on créé ici une fenêtre qui s'active quand on appuie sur le bouton "Règles du jeu" dans la fenêtre principale, résumé des règles
+
 public class RegleJeu extends javax.swing.JFrame {
 
     /**
